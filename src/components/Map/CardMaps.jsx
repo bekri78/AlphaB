@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker/Marker.tsx';
+import CardMaterialUi from '../Card/Card';
 import './CardMaps.css';
+import { Container, Row } from 'react-bootstrap';
 const key = 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24'; // clef google map api
 
 function CardMaps() {
@@ -57,7 +59,7 @@ function CardMaps() {
   };
   console.log(dataPlace);
   return (
-    <div>
+    <Container>
       <h1>Map</h1>
       <div id="map">
         <GoogleMapReact
@@ -72,7 +74,19 @@ function CardMaps() {
         </GoogleMapReact>
         {error && <h1>{error}</h1>}
       </div>
-    </div>
+      <Row>
+        {dataPlace &&
+          dataPlace.map((data) => (
+            <CardMaterialUi
+              key={data.place_id}
+              name={data.name}
+              adress={data.formatted_address}
+              initiale={data.name.charAt(0)}
+              starsRating={data.rating}
+            />
+          ))}
+      </Row>
+    </Container>
   );
 }
 export default CardMaps;
