@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import GoogleMapReact from 'google-map-react';
-import InpuPredictionsOnInputChangetSearch from '../AutoComplete/InputSearch';
 import Marker from './Marker/Marker.tsx';
 import CardMaterialUi from '../Card/Card';
+import InpuPredictionsOnInputChangetSearch from '../AutoComplete/InputSearch';
+import CustomizedDialogs from '../Modal/Modal';
+import GoogleMapReact from 'google-map-react';
 import './CardMaps.css';
 import { Container, Row } from 'react-bootstrap';
 const key = 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24'; // clef google map api
@@ -12,18 +13,23 @@ function CardMaps() {
   const [lng, setLng] = useState(null);
   const [error, setError] = useState('');
   const [dataPlace, setDataPlace] = useState([]);
+  const [open, setOpen] = useState(false);
   const center = { lat: lat, lng: lng };
 
   useEffect(() => {
-    const presentLocation = lat !== null && lng !== null;
-
+    // a ne faire qu'une seule fois si localisation est presente
     if (navigator.geolocation && lat === null && lng === null) {
       navigator.geolocation.getCurrentPosition(location, errorLocation);
     }
+  }, []);
+
+  useEffect(() => {
+    const presentLocation = lat !== null && lng !== null;
+    // si mes state lat et lng sont different de nul appel ma function resquestApi
     if (presentLocation) {
       resquestApi();
     }
-  }, [lat, lng]);
+  }, [lat, lng]); // si lat et lng on une nouvelle attribution de valeurs relance le useEffect
 
   const location = (position) => {
     setLat(position.coords.latitude);
@@ -31,6 +37,7 @@ function CardMaps() {
   };
 
   const errorLocation = (error) => {
+    setOpen(!open);
     switch (error.code) {
       case error.PERMISSION_DENIED:
         return setError('Géolocalisation refusée');
@@ -65,7 +72,6 @@ function CardMaps() {
       {/* appel du props et attribution des nouvelle lat et lnt setLat et setLng */}
 
       <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
-
       <div id="map">
         <GoogleMapReact
           bootstrapURLKeys={{
@@ -77,7 +83,7 @@ function CardMaps() {
           {dataPlace &&
             dataPlace.map((data) => <Marker key={data.place_id} lat={data.geometry.location.lat} lng={data.geometry.location.lng} color="blue" />)}
         </GoogleMapReact>
-        {error && <h1>{error}</h1>}
+        {error && <CustomizedDialogs error={error} open={open} />}
       </div>
       <Row>
         {dataPlace &&

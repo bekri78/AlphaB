@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import usePlacesAutocomplete from '@atomap/use-places-autocomplete';
+import './InputSearch.css';
 const key = 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24'; // clef google map api
 export default function PredictionsOnInputChange(props) {
   const [selectedPrediction, setSelectedPrediction] = useState(null); // etape1 format adresse : etape 2 conversion en lat  lng
@@ -13,7 +14,6 @@ export default function PredictionsOnInputChange(props) {
     const presentLocation = selectedPrediction !== null;
 
     if (presentLocation) {
-      console.log('je suis dans le if de presentation');
       resquestApi();
     }
   }, [selectedPrediction]);
@@ -48,7 +48,6 @@ export default function PredictionsOnInputChange(props) {
       console.log(results);
       setCoordonateLat(results[0].geometry.location.lat);
       setCoordonateLng(results[0].geometry.location.lng);
-      console.log(coordonnateLat, coordonnateLat);
     } catch (e) {
       console.log(`Error : ${e}.`);
     }
@@ -57,7 +56,7 @@ export default function PredictionsOnInputChange(props) {
   return (
     <>
       <form>
-        <input name="predictionSearch" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+        <input id="inputAsress" name="predictionSearch" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
         <ul>
           {predictions?.map((prediction) => (
             <li key={prediction?.place_id}>
@@ -66,9 +65,8 @@ export default function PredictionsOnInputChange(props) {
           ))}
         </ul>
 
-        <h3>You selected: {selectedPrediction ? selectedPrediction : 'None'}</h3>
+        <p className="adresse">Votre Selection: {selectedPrediction || 'Aucune'}</p>
       </form>
-      {/* <button onClick={(() => props.newLat(coordonnateLat), props.newLng(coordonnateLng))} /> */}
     </>
   );
 }
