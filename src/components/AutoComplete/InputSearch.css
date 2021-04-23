@@ -1,0 +1,15 @@
+.adresse {
+  margin: 10px;
+}
+#inputAsress {
+  width: 50%;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+}
+button {
+  background-color: red;
+}
