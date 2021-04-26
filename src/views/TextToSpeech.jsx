@@ -10,7 +10,7 @@ import Police from '../components/Police';
 import { useSpeechSynthesis } from 'react-speech-kit';
 import { makeStyles } from '@material-ui/core/styles';
 import { RecordVoiceOver } from '@material-ui/icons';
-//import PDF from '../components/Pdf/pdf';
+
 import { Box, TextField, Typography, CardContent, Card } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -139,7 +139,7 @@ function TextToSpeech() {
                   }}
                   variant="h5"
                   component="h2">
-                  {/* parcpour mon tableau et affiche les lettres avec les span colorier */}
+                  {/* parcours mon tableau et affiche les lettres avec les span colorier */}
                   {/*fragment = <> utilisé pour englober letter et mettre une key  */}
                   {modifiedValue.map((letter, index) => (
                     <Fragment key={index}>{letter}</Fragment>
@@ -147,13 +147,8 @@ function TextToSpeech() {
                 </Typography>
               </CardContent>
             </Card>
-            {/* <div className={classes.botom}>
-             <PDF content={value} /> 
-              <GetApp />
-            </div> */}
           </div>
         </Box>
-        {/* librairie text to speach */}
       </div>
     </>
   );
