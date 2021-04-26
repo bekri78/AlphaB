@@ -4,9 +4,11 @@ import CardMaterialUi from '../Card/Card';
 import FilterKm from './FilterKm';
 import InpuPredictionsOnInputChangetSearch from '../AutoComplete/InputSearch';
 import CustomizedDialogs from '../Modal/Modal';
+
 import GoogleMapReact from 'google-map-react';
 import './CardMaps.css';
 import { Container, Row } from 'react-bootstrap';
+
 const key = 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24'; // clef google map api
 
 function CardMaps() {
@@ -15,7 +17,7 @@ function CardMaps() {
   const [error, setError] = useState('');
   const [dataPlace, setDataPlace] = useState([]);
   const [open, setOpen] = useState(false);
-  const [radius, setRadius] = useState(null);
+  const [radius, setRadius] = useState(10);
   const center = { lat: lat, lng: lng };
   const resultRadius = radius * 1000;
 

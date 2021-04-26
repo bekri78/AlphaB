@@ -22,10 +22,6 @@ const marks = [
     value: 10,
     label: '10',
   },
-  {
-    value: 15,
-    label: '15',
-  },
 ];
 
 function valuetext(value) {
@@ -54,8 +50,8 @@ function FilterKm(props) {
         valueLabelDisplay="auto"
         step={1}
         marks={marks}
-        min={0}
-        max={15}
+        min={1}
+        max={10}
         value={value}
         onChange={handleChangeValue}
       />
