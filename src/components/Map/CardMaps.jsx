@@ -86,11 +86,10 @@ function CardMaps() {
   const filterMarker = (id) => {
     {
       dataPlace
-        .filter((el) => el.place_id.includes(id))
+        .filter((el) => el.place_id.includes(id)) //filtre dataPlace au niveau de place_id qui contient (id)
         .map((filterName) => {
-          setDataCard([filterName]);
-          setIdDetail(filterName.place_id);
-          console.log(filterName.place_id);
+          setDataCard([filterName]); // assignation du nouveau tableau filtré a dataCard
+          setIdDetail(filterName.place_id); // assignation de l'id de l'object filtré a idDetail
         });
     }
   };
@@ -122,7 +121,7 @@ function CardMaps() {
                 lng={data.geometry.location.lng}
                 idSpecifique={idDetail}
                 id={data.place_id}
-                idRecup={(id) => filterMarker(id)}
+                idRecup={(id) => filterMarker(id)} /* recuperation de l'id du markers pour filtre */
               />
             ))}
         </GoogleMapReact>
