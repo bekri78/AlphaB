@@ -1,11 +1,6 @@
 import React from 'react';
-import Home from '../Home/Home';
-import TextToSpeech from '../../views/TextToSpeech';
-import SimpleAccordion from '../Questions/questions';
-import CardMaps from '../Map/CardMaps';
-import Contact from '../Contact/Contact';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -13,11 +8,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import { makeStyles } from '@material-ui/core/styles';
-
+import './Navbar.css';
+import AlphaB from './img/logo.png';
 const useStyles = makeStyles(() => ({
   title: {
     flexGrow: 1,
-    color: 'white',
+    color: 'yellow',
   },
   titleName: {
     color: 'white',
@@ -29,7 +25,10 @@ const useStyles = makeStyles(() => ({
     margin: 'auto',
   },
   active: {
-    color: 'black',
+    color: 'white!important',
+  },
+  navigation: {
+    color: 'yellow',
   },
 }));
 function HideOnScroll(props) {
@@ -55,46 +54,38 @@ HideOnScroll.propTypes = {
 export default function HideAppBar(props) {
   const classes = useStyles();
   return (
-    <Router>
-      <React.Fragment>
-        <CssBaseline />
-        <HideOnScroll {...props}>
-          <AppBar>
-            <Toolbar>
-              <Typography variant="h6" className={classes.title}>
-                AlphaB
-              </Typography>
-              <Typography variant="h6" className={classes.title}>
-                <NavLink exact to="/" activeClassName={classes.active}>
-                  Accueil
-                </NavLink>
-              </Typography>
-              <Typography variant="h6" className={classes.title}>
-                <NavLink to="/texte" activeClassName={classes.active}>
-                  Texte
-                </NavLink>
-              </Typography>
-              <Typography variant="h6" className={classes.title}>
-                <NavLink to="/map" activeClassName={classes.active}>
-                  Map
-                </NavLink>
-              </Typography>
-              <Typography variant="h6" className={classes.title}>
-                <NavLink to="/contact" activeClassName={classes.active}>
-                  Contact
-                </NavLink>
-              </Typography>
-            </Toolbar>
-          </AppBar>
-        </HideOnScroll>
-        <Toolbar />
-      </React.Fragment>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/texte" component={(SimpleAccordion, TextToSpeech)} />
-        <Route path="/map" component={CardMaps} />
-        <Route path="/contact" component={Contact} />
-      </Switch>
-    </Router>
+    <React.Fragment>
+      <CssBaseline />
+      <HideOnScroll {...props}>
+        <AppBar>
+          <Toolbar>
+            <Typography variant="h6" className={classes.title}>
+              <img id="logo" src={AlphaB} alt="AlphaB" />
+            </Typography>
+            <Typography variant="h6" className={classes.title}>
+              <NavLink exact to="/" activeClassName={classes.active}>
+                Accueil
+              </NavLink>
+            </Typography>
+            <Typography variant="h6" className={classes.title}>
+              <NavLink to="/texte" activeClassName={classes.active}>
+                Texte
+              </NavLink>
+            </Typography>
+            <Typography variant="h6" className={classes.title}>
+              <NavLink to="/map" activeClassName={classes.active}>
+                Map
+              </NavLink>
+            </Typography>
+            <Typography variant="h6" className={classes.title}>
+              <NavLink to="/contact" color="primary" activeClassName={classes.active}>
+                Contact
+              </NavLink>
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+      <Toolbar />
+    </React.Fragment>
   );
 }

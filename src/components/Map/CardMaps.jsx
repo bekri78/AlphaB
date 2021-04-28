@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Marker from './Marker/Marker.tsx';
 import CardMaterialUi from '../Card/Card';
+import FilterKm from './FilterKm';
 import InpuPredictionsOnInputChangetSearch from '../AutoComplete/InputSearch';
 import CustomizedDialogs from '../Modal/Modal';
+
 import GoogleMapReact from 'google-map-react';
 import './CardMaps.css';
 import { Container, Row } from 'react-bootstrap';
+
 const key = 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24'; // clef google map api
 
 function CardMaps() {
@@ -16,7 +19,11 @@ function CardMaps() {
   const [dataCard, setDataCard] = useState([]);
   const [idDetail, setIdDetail] = useState('');
   const [open, setOpen] = useState(false);
+  const [radius, setRadius] = useState(10);
   const center = { lat: lat, lng: lng };
+  const resultRadius = radius * 1000;
+
+  console.log(`I am radius : ${radius}`);
 
   useEffect(() => {
     // a ne faire qu'une seule fois si localisation est presente
@@ -32,6 +39,13 @@ function CardMaps() {
       resquestApi();
     }
   }, [lat, lng]); // si lat et lng on une nouvelle attribution de valeurs relance le useEffect
+
+  useEffect(() => {
+    const presentRadius = radius !== null;
+    if (presentRadius) {
+      resquestApi();
+    }
+  }, [radius]);
 
   const location = (position) => {
     setLat(position.coords.latitude);
@@ -56,7 +70,7 @@ function CardMaps() {
 
   const resquestApi = async () => {
     const cors = 'https://api.allorigins.win/get?url=';
-    const endpoint = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=orthophoniste&location=${lat},${lng}&radius=5000&keyword=cruise&key=${key}`;
+    const endpoint = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=orthophoniste&location=${lat},${lng}&radius=${resultRadius}&keyword=cruise&key=${key}`;
     const encodedEndpoint = encodeURIComponent(endpoint);
     try {
       const resquest = await fetch(`${cors}${encodedEndpoint}`);
@@ -79,6 +93,11 @@ function CardMaps() {
           console.log(filterName.place_id);
         });
     }
+  };
+
+  const ResetCardAndColor = () => {
+    setIdDetail('');
+    setDataCard(dataPlace);
   };
 
   return (
@@ -109,6 +128,16 @@ function CardMaps() {
         </GoogleMapReact>
         {error && <CustomizedDialogs error={error} open={open} />}
       </div>
+      <div className="container-filter">
+        <FilterKm changeRadius={(radius) => setRadius(radius)} />
+      </div>
+      {idDetail && (
+        <div className="btn-holder">
+          <button className="btn btn-1 hover-filled-slide-left" onClick={ResetCardAndColor}>
+            <span>Retour</span>
+          </button>
+        </div>
+      )}
       <Row>
         {dataCard &&
           dataCard.map((data) => (
