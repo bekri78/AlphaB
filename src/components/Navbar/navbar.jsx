@@ -8,6 +8,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import { makeStyles } from '@material-ui/core/styles';
+import './Navbar.css';
+import AlphaB from './img/logo.png';
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -56,7 +58,7 @@ export default function HideAppBar(props) {
         <AppBar>
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
-              AlphaB
+              <img id="logo" src={AlphaB} alt="AlphaB" />
             </Typography>
             <Typography variant="h6" className={classes.title}>
               <NavLink exact to="/" activeClassName={classes.active}>

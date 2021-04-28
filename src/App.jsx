@@ -1,6 +1,6 @@
 import React from 'react';
-import HideAppBar from './components/Navbar/navbar';
 import { Route, Switch } from 'react-router-dom';
+import HideAppBar from './components/Navbar/navbar';
 import Home from './components/Home/Home';
 import SimpleAccordion from './components/Questions/questions';
 import TextToSpeech from './views/TextToSpeech';
