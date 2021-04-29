@@ -4,6 +4,7 @@ import CardMaterialUi from '../Card/Card';
 import FilterKm from './FilterKm';
 import InpuPredictionsOnInputChangetSearch from '../AutoComplete/InputSearch';
 import CustomizedDialogs from '../Modal/Modal';
+import FilterNote from '../FilterNote/FilterNote';
 
 import GoogleMapReact from 'google-map-react';
 import './CardMaps.css';
@@ -99,6 +100,17 @@ function CardMaps() {
     setDataCard(dataPlace);
   };
 
+ 
+  const rating = (newRating) => {
+    {
+      dataPlace
+        .filter((el) => el.rating === newRating)
+        .map((filterRating) => {
+          setDataPlace([filterRating]);
+        });
+    }
+  };
+ 
   return (
     <Container>
       <h1>Map</h1>
@@ -129,7 +141,8 @@ function CardMaps() {
       </div>
       <div className="container-filter">
         <FilterKm changeRadius={(radius) => setRadius(radius)} />
-      </div>
+        <FilterNote changeRating={(newValue) => rating(newValue)} />
+      </div> 
       {idDetail && (
         <div className="btn-holder">
           <button className="btn btn-1 hover-filled-slide-left" onClick={ResetCardAndColor}>
@@ -137,6 +150,9 @@ function CardMaps() {
           </button>
         </div>
       )}
+=======
+
+ 
       <Row>
         {dataCard &&
           dataCard.map((data) => (
