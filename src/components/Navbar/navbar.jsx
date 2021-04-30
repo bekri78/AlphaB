@@ -10,11 +10,10 @@ import Slide from '@material-ui/core/Slide';
 import { makeStyles } from '@material-ui/core/styles';
 import './Navbar.css';
 import AlphaB from './img/logo.png';
-
 const useStyles = makeStyles(() => ({
   title: {
     flexGrow: 1,
-    color: 'white',
+    color: 'yellow',
   },
   titleName: {
     color: 'white',
@@ -26,7 +25,10 @@ const useStyles = makeStyles(() => ({
     margin: 'auto',
   },
   active: {
-    color: 'black',
+    color: 'white!important',
+  },
+  navigation: {
+    color: 'yellow',
   },
 }));
 function HideOnScroll(props) {
@@ -76,7 +78,7 @@ export default function HideAppBar(props) {
               </NavLink>
             </Typography>
             <Typography variant="h6" className={classes.title}>
-              <NavLink to="/contact" activeClassName={classes.active}>
+              <NavLink to="/contact" color="primary" activeClassName={classes.active}>
                 Contact
               </NavLink>
             </Typography>

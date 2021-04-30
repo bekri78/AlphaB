@@ -17,6 +17,8 @@ function CardMaps() {
   const [lng, setLng] = useState(null);
   const [error, setError] = useState('');
   const [dataPlace, setDataPlace] = useState([]);
+  const [dataCard, setDataCard] = useState([]);
+  const [idDetail, setIdDetail] = useState('');
   const [open, setOpen] = useState(false);
   const [radius, setRadius] = useState(10);
   const center = { lat: lat, lng: lng };
@@ -76,10 +78,29 @@ function CardMaps() {
       const json = await resquest.json();
       const { results } = JSON.parse(json.contents);
       setDataPlace(results);
+      setDataCard(results);
     } catch (e) {
       console.log(`Error : ${e}.`);
     }
   };
+
+  const filterMarker = (id) => {
+    {
+      dataPlace
+        .filter((el) => el.place_id.includes(id)) //filtre dataPlace au niveau de place_id qui contient (id)
+        .map((filterName) => {
+          setDataCard([filterName]); // assignation du nouveau tableau filtré a dataCard
+          setIdDetail(filterName.place_id); // assignation de l'id de l'object filtré a idDetail
+        });
+    }
+  };
+
+  const ResetCardAndColor = () => {
+    setIdDetail('');
+    setDataCard(dataPlace);
+  };
+
+ 
   const rating = (newRating) => {
     {
       dataPlace
@@ -89,6 +110,7 @@ function CardMaps() {
         });
     }
   };
+ 
   return (
     <Container>
       <h1>Map</h1>
@@ -104,24 +126,44 @@ function CardMaps() {
           zoom={12}>
           <Marker lat={lat} lng={lng} color="red" text="my-marker" />
           {dataPlace &&
-            dataPlace.map((data) => <Marker key={data.place_id} lat={data.geometry.location.lat} lng={data.geometry.location.lng} color="blue" />)}
+            dataPlace.map((data) => (
+              <Marker
+                key={data.place_id}
+                lat={data.geometry.location.lat}
+                lng={data.geometry.location.lng}
+                idSpecifique={idDetail}
+                id={data.place_id}
+                idRecup={(id) => filterMarker(id)} /* recuperation de l'id du markers pour filtre */
+              />
+            ))}
         </GoogleMapReact>
         {error && <CustomizedDialogs error={error} open={open} />}
       </div>
       <div className="container-filter">
         <FilterKm changeRadius={(radius) => setRadius(radius)} />
         <FilterNote changeRating={(newValue) => rating(newValue)} />
-      </div>
+      </div> 
+      {idDetail && (
+        <div className="btn-holder">
+          <button className="btn btn-1 hover-filled-slide-left" onClick={ResetCardAndColor}>
+            <span>Retour</span>
+          </button>
+        </div>
+      )}
+=======
 
+ 
       <Row>
-        {dataPlace &&
-          dataPlace.map((data) => (
+        {dataCard &&
+          dataCard.map((data) => (
             <CardMaterialUi
               key={data.place_id}
               name={data.name}
               adress={data.formatted_address}
               initiale={data.name.charAt(0)}
               starsRating={data.rating}
+              cardLat={data.geometry.location.lat}
+              cardLng={data.geometry.location.lng}
             />
           ))}
       </Row>

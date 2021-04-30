@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import { Card, CardHeader, CardMedia, CardContent, CardActions, Collapse, Avatar, IconButton, Typography } from '@material-ui/core';
 import { red } from '@material-ui/core/colors';
-import img from './Img/paella.jpg';
 import { Favorite, Share, ExpandMore, MoreVert } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CardMaterialUi(props) {
+  const googleStreetView = `https://maps.googleapis.com/maps/api/streetview?size=600x600&location=${props.cardLat},${props.cardLng}&heading=360&pitch=-0.76&key=AIzaSyATaVEl_K2D9IcWPICwcog27_C1TsOQGr0`;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -59,7 +59,7 @@ export default function CardMaterialUi(props) {
           title={props.name}
           subheader={props.adress}
         />
-        <CardMedia className={classes.media} image={img} title="Paella dish" />
+        <CardMedia className={classes.media} image={googleStreetView} title="Paella dish" />
         <CardContent>
           <SimpleRating stars={props.starsRating} />
           <Typography variant="body2" color="textSecondary" component="p">
