@@ -1,5 +1,7 @@
 import React, { useState, useCallback, Fragment } from 'react';
 import SimpleAccordion from '../components/Questions/questions';
+import SpeechSynthesisExample from '../components/Speech/useSpeechSynthesis';
+import SpeechRecognitionExample from '../components/Speech/useSpeechRecognition';
 import Interlignage from '../components/Interlignage';
 import Intermot from '../components/Intermot';
 import Espace from '../components/Espace';
@@ -7,9 +9,7 @@ import Couleur from '../components/Couleur';
 import Voyelles from '../components/Voyelles';
 import Police from '../components/Police';
 
-import { useSpeechSynthesis } from 'react-speech-kit';
 import { makeStyles } from '@material-ui/core/styles';
-import { RecordVoiceOver } from '@material-ui/icons';
 
 import { Box, TextField, Typography, CardContent, Card } from '@material-ui/core';
 
@@ -51,6 +51,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
   },
+  cardAudio: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: '40px',
+  },
 }));
 
 function TextToSpeech() {
@@ -62,7 +67,6 @@ function TextToSpeech() {
   const [currentWordSpace, setCurrentWordSpace] = useState(''); //useState pour modifier inter-mot
   const [letterSpacing, setLetterSpacing] = useState('');
   const [colorText, setColorText] = useState('');
-  const { speak } = useSpeechSynthesis();
 
   // Callback avec array vide permet de ne pas re rendre la déclaration d'une function
   const handleValueChange = useCallback((event) => {
@@ -88,10 +92,11 @@ function TextToSpeech() {
         <Police onChangePolice={(newPolice) => setCurrentPolice(newPolice)} />
         <Couleur colorModifier={handleColorModifier} />
         <Voyelles textModifier={handleTextModifier} value={value} />
-
-        <RecordVoiceOver onClick={() => speak({ text: value })} />
       </div>
-
+      <div className={classes.cardAudio}>
+        <SpeechSynthesisExample text={value} />
+        <SpeechRecognitionExample vocaleTexte={(mots) => setValue(mots)} />
+      </div>
       <div className={classes.root}>
         <Box className={classes.containerWrapper}>
           <TextField
