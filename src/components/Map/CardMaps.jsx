@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Marker from './Marker/Marker.tsx';
+import Marker2 from './Marker/Marker2.tsx';
 import CardMaterialUi from '../Card/Card';
 import FilterKm from './FilterKm';
 import InpuPredictionsOnInputChangetSearch from '../AutoComplete/InputSearch';
@@ -19,8 +20,10 @@ function CardMaps() {
   const [dataPlace, setDataPlace] = useState([]);
   const [dataCard, setDataCard] = useState([]);
   const [idDetail, setIdDetail] = useState('');
+  const [resetBtn, setResetBtn] = useState(false);
   const [open, setOpen] = useState(false);
   const [radius, setRadius] = useState(10);
+
   const center = { lat: lat, lng: lng };
   const resultRadius = radius * 1000;
 
@@ -91,6 +94,7 @@ function CardMaps() {
         .map((filterName) => {
           setDataCard([filterName]); // assignation du nouveau tableau filtré a dataCard
           setIdDetail(filterName.place_id); // assignation de l'id de l'object filtré a idDetail
+          setResetBtn(true); // assignation de l'id de l'object filtré a idDetail
         });
     }
   };
@@ -98,24 +102,27 @@ function CardMaps() {
   const ResetCardAndColor = () => {
     setIdDetail('');
     setDataCard(dataPlace);
+    setResetBtn(false);
   };
 
- 
-  const rating = (newRating) => {
+  const rating = (newValue) => {
+    console.log('rating', newValue);
+    let arrayRating = [];
     {
       dataPlace
-        .filter((el) => el.rating === newRating)
+        .filter((el) => el.rating === newValue)
         .map((filterRating) => {
-          setDataPlace([filterRating]);
+          arrayRating.push(filterRating);
+          setDataCard(arrayRating);
+          setResetBtn(true);
         });
     }
   };
- 
+
   return (
     <Container>
       <h1>Map</h1>
       {/* appel du props et attribution des nouvelle lat et lnt setLat et setLng */}
-
       <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
       <div id="map">
         <GoogleMapReact
@@ -124,7 +131,7 @@ function CardMaps() {
           }}
           center={center}
           zoom={12}>
-          <Marker lat={lat} lng={lng} color="red" text="my-marker" />
+          <Marker2 lat={lat} lng={lng} color="red" text="my-marker" />
           {dataPlace &&
             dataPlace.map((data) => (
               <Marker
@@ -141,18 +148,20 @@ function CardMaps() {
       </div>
       <div className="container-filter">
         <FilterKm changeRadius={(radius) => setRadius(radius)} />
-        <FilterNote changeRating={(newValue) => rating(newValue)} />
-      </div> 
-      {idDetail && (
+        <FilterNote
+          changeRating={(newValue) => {
+            rating(newValue);
+          }}
+        />
+      </div>
+      {resetBtn && (
         <div className="btn-holder">
           <button className="btn btn-1 hover-filled-slide-left" onClick={ResetCardAndColor}>
             <span>Retour</span>
           </button>
         </div>
       )}
-=======
 
- 
       <Row>
         {dataCard &&
           dataCard.map((data) => (

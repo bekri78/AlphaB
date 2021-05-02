@@ -45,5 +45,7 @@ export const Container = styled.div`
     font-size: 16px;
     margin-bottom: 12px;
     width: 100%;
+    height: 100%;
+    position: relative;
   }
 `;

@@ -15,7 +15,7 @@ function Example(props) {
   }, [props.text]);
 
   const onEnd = () => {
-    alert('ok ');
+    console.log('fini');
   };
   const { speak, cancel, speaking, supported, voices } = useSpeechSynthesis({
     onEnd,
