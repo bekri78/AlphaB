@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
   gris: {
     backgroundColor: '#C0C0C0',
   },
-  jaune: {
-    backgroundColor: '#FFFF00',
+  bleu: {
+    backgroundColor: 'blue',
   },
 
   inputLabel: {
