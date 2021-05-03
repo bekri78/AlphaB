@@ -100,7 +100,6 @@ function CardMaps() {
     setDataCard(dataPlace);
   };
 
- 
   const rating = (newRating) => {
     {
       dataPlace
@@ -110,12 +109,11 @@ function CardMaps() {
         });
     }
   };
- 
+
   return (
     <Container>
       <h1>Map</h1>
       {/* appel du props et attribution des nouvelle lat et lnt setLat et setLng */}
-
       <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
       <div id="map">
         <GoogleMapReact
@@ -142,7 +140,7 @@ function CardMaps() {
       <div className="container-filter">
         <FilterKm changeRadius={(radius) => setRadius(radius)} />
         <FilterNote changeRating={(newValue) => rating(newValue)} />
-      </div> 
+      </div>
       {idDetail && (
         <div className="btn-holder">
           <button className="btn btn-1 hover-filled-slide-left" onClick={ResetCardAndColor}>
@@ -150,9 +148,7 @@ function CardMaps() {
           </button>
         </div>
       )}
-=======
-
- 
+      =======
       <Row>
         {dataCard &&
           dataCard.map((data) => (
