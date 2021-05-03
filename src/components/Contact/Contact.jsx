@@ -60,7 +60,7 @@ function Contact() {
     e.preventDefault();
     if (firstname && lastname && isEmail() && message) {
       //ajout modal de validation
-      enqueueSnackbar('Votre message a bien été envoyé.', { variant: 'success' });
+
       axios
         .post('http://localhost:4000/users', {
           firstname,
@@ -69,14 +69,18 @@ function Contact() {
           message,
         })
         .then(function (response) {
-          console.log(response);
+          console.log(response.status);
           setFirstname('');
           setLastname('');
           setEmail('');
           setMessage('');
+          if (response.status === 201) {
+            enqueueSnackbar('Votre message a bien été envoyé.', { variant: 'success' });
+          }
         })
         .catch(function (error) {
           console.log(error);
+          enqueueSnackbar('Une erreur est survenue.', { variant: 'error' });
         });
     } else {
       failMessage();
