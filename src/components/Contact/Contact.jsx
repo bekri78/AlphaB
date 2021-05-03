@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import ContactModalSubmit from './ContactModalSubmit';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { SnackbarProvider, useSnackbar } from 'notistack';
@@ -30,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     border: 0,
     color: 'white',
     fontSize: '15px',
-    // boxShadow: '0 3px 5px 2px rgba(64, 212, 243, .5)',
   },
 }));
 
@@ -59,8 +57,6 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (firstname && lastname && isEmail() && message) {
-      //ajout modal de validation
-
       axios
         .post('http://localhost:4000/users', {
           firstname,
@@ -74,6 +70,7 @@ function Contact() {
           setLastname('');
           setEmail('');
           setMessage('');
+          //ajout modal de validation
           if (response.status === 201) {
             enqueueSnackbar('Votre message a bien été envoyé.', { variant: 'success' });
           }
