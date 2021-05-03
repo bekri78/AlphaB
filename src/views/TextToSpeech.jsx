@@ -5,6 +5,7 @@ import SpeechRecognitionExample from '../components/Speech/useSpeechRecognition'
 import Interlignage from '../components/Interlignage';
 import Intermot from '../components/Intermot';
 import Espace from '../components/Espace';
+import FontSize from '../components/FontSize/FontSize';
 import Couleur from '../components/Couleur';
 import Voyelles from '../components/Voyelles';
 import Police from '../components/Police';
@@ -63,6 +64,7 @@ function TextToSpeech() {
   const [value, setValue] = useState();
   const [modifiedValue, setModifiedValue] = useState([]); // creation d'un state array pour contenir le texte tranformer de voyelles.jsx
   const [currentPolice, setCurrentPolice] = useState('');
+  const [currentSize, setCurrentSize] = useState('');
   const [currentLineHeight, setCurrentLineHeight] = useState(''); //useState pour modifier interlignage
   const [currentWordSpace, setCurrentWordSpace] = useState(''); //useState pour modifier inter-mot
   const [letterSpacing, setLetterSpacing] = useState('');
@@ -89,6 +91,7 @@ function TextToSpeech() {
         <Interlignage onChangeLine={(newLineHeight) => setCurrentLineHeight(newLineHeight)} />
         <Intermot onChangeWord={(newWordSpace) => setCurrentWordSpace(newWordSpace)} />
         <Espace letterSpacingModifier={(newEspace) => setLetterSpacing(newEspace)} />
+        <FontSize onChangeFontSize={(newFontSize) => setCurrentSize(newFontSize)} />
         <Police onChangePolice={(newPolice) => setCurrentPolice(newPolice)} />
         <Couleur colorModifier={handleColorModifier} />
         <Voyelles textModifier={handleTextModifier} value={value} />
@@ -117,6 +120,7 @@ function TextToSpeech() {
             inputProps={{
               style: {
                 fontFamily: currentPolice,
+                fontSize: currentSize,
                 lineHeight: currentLineHeight,
                 wordSpacing: currentWordSpace,
                 letterSpacing: letterSpacing,
@@ -137,6 +141,7 @@ function TextToSpeech() {
                 <Typography
                   style={{
                     fontFamily: currentPolice,
+                    fontSize: currentSize,
                     lineHeight: currentLineHeight,
                     wordSpacing: currentWordSpace,
                     letterSpacing: letterSpacing,
