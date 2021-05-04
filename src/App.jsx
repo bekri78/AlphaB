@@ -12,6 +12,7 @@ function App() {
   return (
     <div>
       <HideAppBar />
+
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/texte" component={(SimpleAccordion, TextToSpeech)} />

@@ -23,18 +23,18 @@
   max-width: 1000px;
   margin: 10px auto 35px;
 }
-.btn {
+.btne {
   position: relative;
   display: inline-block;
   width: auto;
   height: auto;
-  background-color: transparent;
+  /* background-color: transparent; */
   border: none;
   cursor: pointer;
   margin: 0px 25px 15px;
   min-width: 150px;
 }
-.btn span {
+.btne span {
   position: relative;
   display: inline-block;
   font-size: 14px;
@@ -60,14 +60,14 @@
   color: rgb(28, 31, 30);
   transition: 0.2s 0.1s;
 }
-.btn.hover-filled-slide-left::before {
+.btne.hover-filled-slide-left::before {
   top: 0;
   bottom: 0;
   left: 0;
   height: 100%;
   width: 100%;
 }
-.btn.hover-filled-slide-left:hover::before {
+.btne.hover-filled-slide-left:hover::before {
   width: 0%;
 }
 

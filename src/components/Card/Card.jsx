@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
-import { Col } from 'react-bootstrap';
+import React, { useState } from 'react';
 import SimpleRating from './Stars/Stars';
+import Liste from './List/List';
+import { Col } from 'react-bootstrap';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import { Card, CardHeader, CardMedia, CardContent, CardActions, Collapse, Avatar, IconButton, Typography } from '@material-ui/core';
@@ -32,14 +33,37 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: red[500],
   },
 }));
+// etape  recuperer place_id
+// etape 2 axios sur le place_id
+// afficher les informations
 
 export default function CardMaterialUi(props) {
+  const [dataReview, setDataReview] = useState([]);
+  const [number, setNumber] = useState('');
+  const place = props.placeId;
+
+  const commentaire = async () => {
+    const cors = 'https://api.allorigins.win/get?url=';
+    const endpoint = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place}&key=AIzaSyATaVEl_K2D9IcWPICwcog27_C1TsOQGr0`;
+    const encodedEndpoint = encodeURIComponent(endpoint);
+    try {
+      const resquest = await fetch(`${cors}${encodedEndpoint}`);
+      const json = await resquest.json();
+      const results = await JSON.parse(json.contents);
+      console.log(results);
+      setDataReview(results.result.reviews);
+      setNumber(results.result.formatted_phone_number);
+    } catch (e) {
+      console.log(`Error : ${e}.`);
+    }
+  };
   const googleStreetView = `https://maps.googleapis.com/maps/api/streetview?size=600x600&location=${props.cardLat},${props.cardLng}&heading=360&pitch=-0.76&key=AIzaSyATaVEl_K2D9IcWPICwcog27_C1TsOQGr0`;
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+    commentaire();
   };
 
   return (
@@ -62,10 +86,6 @@ export default function CardMaterialUi(props) {
         <CardMedia className={classes.media} image={googleStreetView} title="Paella dish" />
         <CardContent>
           <SimpleRating stars={props.starsRating} />
-          {/* <Typography variant="body2" color="textSecondary" component="p">
-            This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the
-            mussels, if you like.
-          </Typography> */}
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
@@ -86,20 +106,22 @@ export default function CardMaterialUi(props) {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Method:</Typography>
-            <Typography paragraph>Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10 minutes.</Typography>
-            <Typography paragraph>
-              Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high heat. Add chicken, shrimp and chorizo, and cook,
-              stirring occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken and chorizo
-              in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook, stirring often until thickened and fragrant,
-              about 10 minutes. Add saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-            </Typography>
-            <Typography paragraph>
-              Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook without stirring, until most of the liquid is
-              absorbed, 15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook again
-              without stirring, until mussels have opened and rice is just tender, 5 to 7 minutes more. (Discard any mussels that don’t open.)
-            </Typography>
-            <Typography>Set aside off of the heat to let rest for 10 minutes, and then serve.</Typography>
+            <Typography>Contact: {number}</Typography>
+            {dataReview &&
+              dataReview.map((comment, index) => {
+                return (
+                  <Liste
+                    key={index}
+                    number={comment.number}
+                    commentaire={comment.reviews}
+                    author={comment.author_name}
+                    date={comment.relative_time_description}
+                    text={comment.text}
+                    profile={comment.profile_photo_url}
+                    noteUser={comment.rating}
+                  />
+                );
+              })}
           </CardContent>
         </Collapse>
       </Card>

@@ -12,7 +12,6 @@ import Footer from '../components/Footer/Footer';
 import InputBase from '@material-ui/core/InputBase';
 
 import { makeStyles } from '@material-ui/core/styles';
-
 import { Box, Typography, CardContent, Card } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
