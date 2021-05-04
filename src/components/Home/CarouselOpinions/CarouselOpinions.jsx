@@ -41,16 +41,21 @@ function CarouselOpinions() {
         }}
         loop={true}
         className="mySwiper">
-        <SwiperSlide className="card-opinion">
-          <div className="card-content">
-            <div className="layer"></div>
-            <p>{results[0].message}</p>
-            <div className="card-user">
-              <div className="card-user-name">{`${results[0].firstname} ${results[0].lastname.charAt(0)}.`}</div>
-              <div className="card-user-job">{results[0].job}</div>
-            </div>
-          </div>
-        </SwiperSlide>
+        {results.map((result) => {
+          console.log(result.id);
+          return (
+            <SwiperSlide key={result.id} className="card-opinion">
+              <div className="card-content">
+                <div className="layer"></div>
+                <p>{result.message}</p>
+                <div className="card-user">
+                  <div className="card-user-name">{`${result.firstname} ${result.lastname.charAt(0)}.`}</div>
+                  <div className="card-user-job">{result.job}</div>
+                </div>
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
