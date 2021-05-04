@@ -62,16 +62,16 @@ export default function Police(props) {
           <MenuItem className={classes.menuItem} value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={'"New Tegomin", serif'}>
-            <Typography className={classes.menuItem} style={{ fontFamily: '"New Tegomin", serif' }}>
-              Police Tegomin
+          <MenuItem value={'"Verdana", sans serif'}>
+            <Typography className={classes.menuItem} style={{ fontFamily: '"Verdana", sans serif' }}>
+              Police Verdana
             </Typography>
           </MenuItem>
-          <MenuItem className={classes.menuItem} value={'"Dancing Script", serif'}>
-            <Typography style={{ fontFamily: '"Dancing Script", serif' }}>Police Dancing</Typography>
+          <MenuItem className={classes.menuItem} value={'"Tahoma", sans serif'}>
+            <Typography style={{ fontFamily: '"Tahoma", serif' }}>Police Tahoma</Typography>
           </MenuItem>
-          <MenuItem className={classes.menuItem} value={'"Source Serif Pro", serif'}>
-            <Typography style={{ fontFamily: '"Source Serif Pro", serif' }}>Police serif Pro</Typography>
+          <MenuItem className={classes.menuItem} value={'"Comic sans MS", sans serif'}>
+            <Typography style={{ fontFamily: '"Comic sans MS", sans serif' }}>Police Comic sans MS</Typography>
           </MenuItem>
         </Select>
       </FormControl>
