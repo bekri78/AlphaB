@@ -114,7 +114,6 @@ function CardMaps() {
     <Container>
       <h1>Map</h1>
       {/* appel du props et attribution des nouvelle lat et lnt setLat et setLng */}
-
       <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
       <div id="map">
         <GoogleMapReact
@@ -149,6 +148,7 @@ function CardMaps() {
           </button>
         </div>
       )}
+ 
       <Row>
         {dataCard &&
           dataCard.map((data) => (
