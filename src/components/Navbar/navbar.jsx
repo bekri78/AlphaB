@@ -8,6 +8,9 @@ import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 function Navigation() {
   return (
     <Navbar className="nav" collapseOnSelec stycky="top" expand="sm" bg="" variant="dark">
+      <Navbar.Brand>
+        <img id="logo" src={AlphaB} alt="AlphaB" />
+      </Navbar.Brand>
       <NavbarToggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav>
@@ -25,7 +28,6 @@ function Navigation() {
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
-      <img id="logo" src={AlphaB} alt="AlphaB" />
     </Navbar>
   );
 }
