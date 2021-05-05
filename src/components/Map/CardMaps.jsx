@@ -54,6 +54,8 @@ function CardMaps() {
   };
 
   const errorLocation = (error) => {
+    setLat(48.8534);
+    setLng(2.3488);
     setOpen(!open);
     switch (error.code) {
       case error.PERMISSION_DENIED:
