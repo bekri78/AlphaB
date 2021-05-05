@@ -107,9 +107,11 @@ function CardMaps() {
     setResetBtn(false);
   };
 
+
   const rating = (newValue) => {
-    console.log('rating', newValue);
+    
     let arrayRating = [];
+
     {
       dataPlace
         .filter((el) => el.rating === newValue)
@@ -159,14 +161,22 @@ function CardMaps() {
         </GoogleMapReact>
         {error && <CustomizedDialogs error={error} open={open} />}
       </div>
+ 
       {resetBtn && (
+ 
+      <div className="container-filter">
+        <FilterKm changeRadius={(radius) => setRadius(radius)} />
+        <FilterNote changeRating={(newValue) => rating(newValue)} />
+      </div>
+      {idDetail && (
+ 
         <div className="btn-holder">
           <button className="btne btn-1 hover-filled-slide-left" onClick={ResetCardAndColor}>
             <span>Retour</span>
           </button>
         </div>
       )}
-
+ 
       <Row>
         {dataRating &&
           dataRating.map((data) => (

@@ -33,7 +33,11 @@
     "express": "^4.17.1",
     "framer-motion": "^4.1.11",
     "google-map-react": "^2.1.9",
+ 
     "gsap": "^3.6.1",
+ 
+    "notistack": "^1.0.6",
+ 
     "postcss": "^8.2.10",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
