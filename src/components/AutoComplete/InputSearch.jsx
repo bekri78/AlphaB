@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import usePlacesAutocomplete from '@atomap/use-places-autocomplete';
 import './InputSearch.css';
 import Button from 'react-bootstrap/Button';
-const key = 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24'; // clef google map api
+const key = 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24';
 export default function PredictionsOnInputChange(props) {
-  const [selectedPrediction, setSelectedPrediction] = useState(null); // etape1 format adresse : etape 2 conversion en lat  lng
+  const [selectedPrediction, setSelectedPrediction] = useState(null);
   const [searchValue, setSearchValue] = useState('');
   const { predictions, error } = usePlacesAutocomplete(searchValue);
   const [coordonnateLat, setCoordonateLat] = useState(null);
@@ -34,7 +34,7 @@ export default function PredictionsOnInputChange(props) {
   const handlePredictionSelection = (e, prediction) => {
     e.preventDefault();
     console.log(prediction.description);
-    setSelectedPrediction(prediction.description); //adresse
+    setSelectedPrediction(prediction.description);
     setSearchValue('');
   };
 
@@ -72,7 +72,6 @@ export default function PredictionsOnInputChange(props) {
                 <Button variant="light" className="btnSearch" onClick={(e) => handlePredictionSelection(e, prediction)}>
                   {prediction?.description || 'Not found'}
                 </Button>{' '}
-                {/* <button onClick={(e) => handlePredictionSelection(e, prediction)}>{prediction?.description || 'Not found'}</button> */}
               </li>
             ))}
         </ul>

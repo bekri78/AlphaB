@@ -28,9 +28,7 @@ function Example(props) {
     props.vocaleTexte(value);
   }, [value]);
 
-  const onEnd = () => {
-    console.log('je suis la');
-  };
+  const onEnd = () => {};
 
   const onResult = (result) => {
     setValue(result);
