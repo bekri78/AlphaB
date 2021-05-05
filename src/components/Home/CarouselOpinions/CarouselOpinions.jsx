@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Box from '@material-ui/core/Box';
-import Rating from '@material-ui/lab/Rating';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectCoverflow, Pagination } from 'swiper/core';
-import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
+
+import Box from '@material-ui/core/Box';
+import Rating from '@material-ui/lab/Rating';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+
 import 'swiper/swiper.min.css';
 import 'swiper/components/effect-coverflow/effect-coverflow.min.css';
 import 'swiper/components/pagination/pagination.min.css';
