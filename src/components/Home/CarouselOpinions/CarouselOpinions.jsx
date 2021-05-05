@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-// import Swiper core and required modules
+import Box from '@material-ui/core/Box';
+import Rating from '@material-ui/lab/Rating';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectCoverflow, Pagination } from 'swiper/core';
+import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
+import { makeStyles } from '@material-ui/core/styles';
 import 'swiper/swiper.min.css';
 import 'swiper/components/effect-coverflow/effect-coverflow.min.css';
 import 'swiper/components/pagination/pagination.min.css';
@@ -11,7 +14,19 @@ import './CarouselOpinions.css';
 // install Swiper modules
 SwiperCore.use([EffectCoverflow, Pagination]);
 
+const useStyles = makeStyles(() => ({
+  rating: {
+    marginBottom: 0,
+    marginTop: 0,
+    color: 'white',
+  },
+  star: {
+    color: 'white',
+  },
+}));
+
 function CarouselOpinions() {
+  const classes = useStyles();
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -53,6 +68,10 @@ function CarouselOpinions() {
                   <div className="card-user-job">{result.job}</div>
                 </div>
               </div>
+              <Box className={classes.rating} id="rating" component="fieldset" mb={3} borderColor="transparent">
+                <Typography component="legend"></Typography>
+                <Rating className={classes.star} name="read-only" value={result.rating} readOnly />
+              </Box>
             </SwiperSlide>
           );
         })}

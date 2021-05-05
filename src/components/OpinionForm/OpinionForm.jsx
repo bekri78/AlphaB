@@ -5,6 +5,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Rating from '@material-ui/lab/Rating';
+import { SnackbarProvider, useSnackbar } from 'notistack';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function OpinionForm() {
+function OpinionForm() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [firstname, setFirstname] = useState('');
@@ -46,6 +47,7 @@ export default function OpinionForm() {
   const [job, setJob] = useState('');
   const [message, setMessage] = useState('');
   const [rating, setRating] = React.useState(0);
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -57,7 +59,7 @@ export default function OpinionForm() {
 
   const failMessage = () => {
     //ajout modal d'erreur
-    // enqueueSnackbar('Tous les champs doivent être renseignés.', { variant: 'error' });
+    enqueueSnackbar('Tous les champs doivent être renseignés.', { variant: 'error' });
   };
 
   const handleSubmit = (e) => {
@@ -78,14 +80,15 @@ export default function OpinionForm() {
           setJob('');
           setMessage('');
           setRating('');
+          handleClose();
           //ajout modal de validation
-          // if (response.status === 201) {
-          //   enqueueSnackbar('Votre message a bien été envoyé.', { variant: 'success' });
-          // }
+          if (response.status === 201) {
+            enqueueSnackbar('Votre message a bien été envoyé.', { variant: 'success' });
+          }
         })
         .catch(function (error) {
           console.log(error);
-          // enqueueSnackbar('Une erreur est survenue.', { variant: 'error' });
+          enqueueSnackbar('Une erreur est survenue.', { variant: 'error' });
         });
     } else {
       failMessage();
@@ -211,5 +214,13 @@ export default function OpinionForm() {
         </div>
       </Dialog>
     </div>
+  );
+}
+
+export default function IntegrationNotistack() {
+  return (
+    <SnackbarProvider maxSnack={3} autoHideDuration={2000}>
+      <OpinionForm />
+    </SnackbarProvider>
   );
 }

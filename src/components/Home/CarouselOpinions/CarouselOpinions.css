@@ -1,13 +1,3 @@
-@font-face {
-  font-family: 'Raleway-bold';
-  src: local('Raleway-bold'), url('./fonts/Raleway-Bold.ttf') format('ttf');
-}
-
-@font-face {
-  font-family: 'Raleway-regular';
-  src: local('Raleway-regular'), url('./fonts/Raleway-Regular.ttf') format('ttf');
-}
-
 .opinion-container {
   width: 100%;
   height: auto;
@@ -23,7 +13,7 @@
   background-position: center;
   background-size: cover;
   width: 10%;
-  height: 300px;
+  height: 320px;
 }
 
 .swiper-container-3d .swiper-slide-shadow-left,
@@ -48,7 +38,12 @@
 }
 
 .card-user-name {
-  font-size: 20px;
+  font-size: 20px !important;
+  padding-bottom: 0 !important;
+}
+
+.card-user-job {
+  padding-bottom: 0 !important;
 }
 
 .card-content {
@@ -76,12 +71,13 @@
 
 .card-content p,
 .card-user-name,
-.card-user-job {
+.card-user-job,
+#rating {
   position: relative;
   padding: 10px 40px;
   z-index: 4;
   color: white;
-  font-family: 'Raleway-regular', Arial, serif;
+  font-family: 'Raleway', Arial, serif;
   font-size: 16px;
 }
 
@@ -90,6 +86,13 @@
   padding: 10px 40px;
   z-index: 4;
   color: white;
-  font-family: 'Raleway-bold', Arial, serif;
+  font-family: 'Raleway', Arial, serif;
+  font-weight: bold;
   font-size: 20px;
+}
+
+@media screen and (max-width: 1440px) {
+  .opinion-container {
+    display: none;
+  }
 }
