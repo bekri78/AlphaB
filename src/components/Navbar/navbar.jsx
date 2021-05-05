@@ -1,6 +1,5 @@
 import React from 'react';
 import './Navbar.css';
-// import styles from '../nav.module.css';
 import AlphaB from './img/logo.png';
 import { Nav, Navbar } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
