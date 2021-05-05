@@ -128,6 +128,7 @@ function CardMaps() {
     <Container>
       <h3>Les professionnels</h3>
       {/* appel du props et attribution des nouvelle lat et lnt setLat et setLng */}
+ 
       <div className="container-filter">
         <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
         <div style={{ display: 'flex' }}>
@@ -139,6 +140,9 @@ function CardMaps() {
           />
         </div>
       </div>
+ 
+      <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
+ 
       <div id="map">
         <GoogleMapReact
           bootstrapURLKeys={{
