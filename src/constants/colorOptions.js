@@ -19,9 +19,9 @@ const config = [
   },
   {
     id: 4,
-    value: 'yellow',
-    class: 'jaune',
-    letter: 'J',
+    value: 'blue',
+    class: 'bleu',
+    letter: 'B',
   },
 ];
 
