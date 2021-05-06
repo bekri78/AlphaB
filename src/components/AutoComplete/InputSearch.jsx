@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import usePlacesAutocomplete from '@atomap/use-places-autocomplete';
 import './InputSearch.css';
-const key = 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24'; // clef google map api
+import Button from 'react-bootstrap/Button';
+const key = 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24';
 export default function PredictionsOnInputChange(props) {
-  const [selectedPrediction, setSelectedPrediction] = useState(null); // etape1 format adresse : etape 2 conversion en lat  lng
+  const [selectedPrediction, setSelectedPrediction] = useState(null);
   const [searchValue, setSearchValue] = useState('');
   const { predictions, error } = usePlacesAutocomplete(searchValue);
   const [coordonnateLat, setCoordonateLat] = useState(null);
@@ -33,7 +34,8 @@ export default function PredictionsOnInputChange(props) {
   const handlePredictionSelection = (e, prediction) => {
     e.preventDefault();
     console.log(prediction.description);
-    setSelectedPrediction(prediction.description); //adresse
+    setSelectedPrediction(prediction.description);
+    setSearchValue('');
   };
 
   const resquestApi = async () => {
@@ -55,14 +57,23 @@ export default function PredictionsOnInputChange(props) {
 
   return (
     <>
-      <form>
-        <input id="inputAsress" name="predictionSearch" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+      <form id="form">
+        <input
+          id="inputAsress"
+          placeholder="Entrez une adresse..."
+          name="predictionSearch"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
         <ul>
-          {predictions?.map((prediction) => (
-            <li key={prediction?.place_id}>
-              <button onClick={(e) => handlePredictionSelection(e, prediction)}>{prediction?.description || 'Not found'}</button>
-            </li>
-          ))}
+          {searchValue &&
+            predictions?.map((prediction) => (
+              <li key={prediction?.place_id}>
+                <Button variant="light" className="btnSearch" onClick={(e) => handlePredictionSelection(e, prediction)}>
+                  {prediction?.description || 'Not found'}
+                </Button>{' '}
+              </li>
+            ))}
         </ul>
 
         <p className="adresse">Votre Selection: {selectedPrediction || 'Aucune'}</p>
