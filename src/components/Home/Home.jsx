@@ -1,6 +1,6 @@
 import React from 'react';
 import CarouselOpinions from './CarouselOpinions/CarouselOpinions';
-// import Footer from '../Footer/Footer';
+import Footer from '../Footer/Footer';
 import { Container, Row, Col } from 'react-bootstrap';
 import AOS from 'aos';
 
@@ -17,7 +17,6 @@ import HomCenterLeft from './Design/home_center_left.svg';
 import HomCenterRight from './Design/home_center_right.svg';
 import HomCenterLeft2 from './Design/home_center_left2.svg';
 import HomCenterRight2 from './Design/home_center_right2.svg';
-// import HomBottom from './Design/home_bottom.svg';
 
 function Home() {
   return (
@@ -47,7 +46,7 @@ function Home() {
             <div style={{ display: 'flex', justifyContent: 'space-evenly', padding: 5, width: '50%', margin: 'auto' }}>
               <img className="quotesLeft" src={quoteLeft} alt="quoteLeft" />
               <p className="quotes">
-                {" En France, 6 à 8% de la population est concernée par des troubles appelés 'Dys' : dyslexies, dyspraxie, dysphasie. "}
+                {" En France, 6 à 8% de la population est concernée par des troubles appelés 'Dys': dyslexies, dyspraxie, dysphasie. "}
               </p>
               <img className="quotesRight" src={quoteRight} alt="quotesRight" />
             </div>
@@ -88,18 +87,13 @@ function Home() {
             </p>
           </Col>
         </Row>
-        {/* <Row>
-          <Col xs={12} sm={12} md={12} lg={12}>
-            <img src={HomBottom} alt="img5" />
-          </Col>
-        </Row> */}
+
         <Row>
           <Col xs={12} sm={12} md={12} lg={12}>
             <img src={HomCenterRight2} alt="img4" id="design-right2" />
           </Col>
         </Row>
         <Row>
-          {/* <div className="presentation"> */}
           {/* <div className="home_bubble">
               <div className="bubble b_one"></div>
               
@@ -119,19 +113,17 @@ function Home() {
             </p>
           </Col>
 
-          {/* <div className="conteneur4">
-              <p className="textHome4" data-aos="fade-up"></p>
-            </div> */}
-          {/* <div className="conteneur5">
+          <div className="conteneur4">
+            <p className="textHome4" data-aos="fade-up"></p>
+          </div>
+          <div className="conteneur5">
             <p className="textHome5" data-aos="fade-up"></p>
-          </div> */}
+          </div>
           <Col xs={12} sm={12} md={12} lg={6}>
             <div className="conteneur6">
               <img id="imgGirl" src={svg} alt="img" />
             </div>
           </Col>
-
-          {/* </div> */}
         </Row>
         <Row>
           <div className="home">
@@ -153,6 +145,7 @@ function Home() {
           <CarouselOpinions />
         </Row>
       </Container>
+      <Footer />
     </>
   );
 }

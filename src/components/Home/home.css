@@ -95,9 +95,13 @@
   font-family: 'Raleway';
   font-style: normal;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 23px;
   line-height: 41px;
   color: #ffffff;
+}
+
+#Abdou {
+  font-size: 23px;
 }
 
 .quotesRight {
@@ -165,12 +169,6 @@
   width: 40vw;
 }
 /* Section 4 */
-/* .presentation {
-  width: 100%;
-  height: auto;
-  background-color: #326dc9;
-  padding: 0 300px 0;
-} */
 
 .textHome3 {
   font-family: 'Raleway';
@@ -179,7 +177,7 @@
   font-size: 20px;
   line-height: 41px;
   color: #ffffff;
-  padding-top: 10%;
+  padding-top: 20%;
 }
 
 /* Section 5 */
@@ -192,17 +190,6 @@
   position: relative;
   margin-bottom: -10%;
 }
-
-/* #quotesAbdu {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 41px;
-  color: #ffffff;
-  width: 80%;
-  padding-top: 100px;
-} */
 
 #imgGirl {
   width: 80%;
@@ -476,10 +463,13 @@
 /* Media queries */
 
 @media screen and (max-width: 768px) {
-  /* #quotes {
+  .quotes {
     font-size: 16px;
-    line-height: 41px;
-  } */
+    line-height: 25px;
+  }
+  #Abdou {
+    font-size: 16px;
+  }
 }
 
 @media screen and (max-width: 995px) {
@@ -528,11 +518,15 @@
     justify-content: center;
   }
 
-  /* .quotes {
+  .quotes {
     margin-top: 10%;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 25px;
-  } */
+  }
+
+  #Abdou {
+    font-size: 18px;
+  }
 
   .quotesRight {
     position: relative;
@@ -587,12 +581,3 @@
     margin: 0px 60px 60px 60px;
   }
 }
-
-/* .quotes {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 41px;
-  color: #ffffff;
-} */
