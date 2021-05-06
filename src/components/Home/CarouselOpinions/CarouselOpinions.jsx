@@ -64,7 +64,9 @@ function CarouselOpinions() {
             <SwiperSlide key={result.id} className="card-opinion">
               <div className="card-content">
                 <div className="layer"></div>
+
                 <p>{result.message}</p>
+
                 <div className="card-user">
                   <div className="card-user-name">{`${result.firstname} ${result.lastname.charAt(0)}.`}</div>
                   <div className="card-user-job">{result.job}</div>

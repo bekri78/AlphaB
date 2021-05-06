@@ -1,11 +1,25 @@
-.firstSection {
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluid {
+  margin: 0;
   background-color: #326dc9;
+}
+
+/* Section 1 */
+.bigcontainer {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
-  padding-top: 50px;
-  gap: 0px;
-  border: solid red 1px;
+  gap: 50px;
+  margin-left: 15%;
+}
+
+.smallcontainer {
+  display: flex;
+  flex-direction: row;
 }
 
 .title {
@@ -14,24 +28,13 @@
   font-size: 60px;
 }
 
-.bigcontainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 80px;
-}
-
-.smallcontainer {
-  display: flex;
-  flex-direction: row;
-}
-
 .logo {
   width: 65px;
   height: 65px;
 }
 
-.sstitle {
+.sub-title {
+  text-align: center;
   color: white;
   font-family: 'Raleway';
   font-size: 30px;
@@ -52,7 +55,7 @@
 }
 
 .button:hover {
-  background-color: #ff00ff;
+  background-color: #d65ea6;
 }
 
 .button:active {
@@ -61,13 +64,535 @@
   transform: translateY(2px);
 }
 
-.bigImg {
-  width: 30%;
-  height: 30%;
-}
-
-.paragraphe {
-  font-family: 'Raleway';
-  font-size: 25px;
+#button-link {
+  list-style: none;
   color: white;
 }
+
+#button-link:hover {
+  text-decoration: none;
+}
+
+.bigImg {
+  height: 90vh;
+}
+
+/* Section 2 */
+.home {
+  height: auto;
+  width: 100%;
+  text-align: center;
+  background-color: #326dc9;
+  padding-top: 10%;
+}
+
+.quotesLeft {
+  position: relative;
+  margin-top: -100px;
+}
+
+.quotes {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 41px;
+  color: #ffffff;
+}
+
+.quotesRight {
+  position: relative;
+  margin-bottom: -11%;
+}
+
+.quote {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  width: 45%;
+  margin: auto;
+}
+
+#Abdou {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 41px;
+  color: #ffffff;
+}
+
+/* Section 3 */
+
+.textHome {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 41px;
+  color: #ffffff;
+  text-align: left;
+}
+
+.textHome2 {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 41px;
+  color: #ffffff;
+  text-align: left;
+  padding-top: 10%;
+}
+
+#design-top {
+  width: 80vw;
+}
+
+#design-left-center {
+  width: 15vw;
+}
+
+#design-right-center {
+  width: 50vw;
+}
+
+#design-right2 {
+  display: none;
+}
+
+#design-left2 {
+  width: 40vw;
+}
+/* Section 4 */
+/* .presentation {
+  width: 100%;
+  height: auto;
+  background-color: #326dc9;
+  padding: 0 300px 0;
+} */
+
+.textHome3 {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 41px;
+  color: #ffffff;
+  padding-top: 10%;
+}
+
+/* Section 5 */
+.quotesLeftAbdu {
+  position: relative;
+  margin-top: -100px;
+}
+
+.quotesRightAbdu {
+  position: relative;
+  margin-bottom: -10%;
+}
+
+/* #quotesAbdu {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 41px;
+  color: #ffffff;
+  width: 80%;
+  padding-top: 100px;
+} */
+
+#imgGirl {
+  width: 80%;
+  height: 80%;
+  padding-top: 20%;
+  padding-right: 15%;
+}
+
+.conteneur4 {
+  display: flex;
+  justify-content: flex-end;
+}
+.conteneur5 {
+  display: flex;
+  justify-content: flex-start;
+}
+.conteneur6 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Bubble */
+.home_bubble .bubble.b_one {
+  background: #070707d1;
+  top: 25%;
+  left: 73%;
+  animation: spin2 2s infinite alternate;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: spin2;
+}
+.home_bubble .bubble.b_height {
+  background: #9ae60dd1;
+  top: 65%;
+  left: 76%;
+  animation: spin2 2s infinite alternate;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: spin2;
+}
+.home_bubble .bubble.b_seven {
+  background: #09e715d1;
+  top: 15%;
+  left: 76%;
+  animation: spin2 2s infinite alternate;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: spin2;
+}
+
+.home_bubble .bubble.b_four,
+.home_bubble .bubble.b_one {
+  width: 40px;
+  height: 40px;
+}
+
+.home_bubble .bubble {
+  position: absolute;
+  border-radius: 50%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.home_bubble .bubble.b_two {
+  display: hidden;
+}
+
+.home_bubble .bubble.b_one,
+.home_bubble .bubble.b_two {
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+}
+
+.home_bubble .bubble.b_three {
+  background: #d65ea6;
+  top: 190%;
+  left: 159px;
+  -webkit-animation: spin1 1s infinite alternate;
+  animation: spin1 1s infinite alternate;
+  width: 14px;
+  height: 14px;
+}
+
+.home_bubble .bubble.b_four {
+  background: #d65ea6;
+  /* top: 78%;
+  left: 205px; */
+  -webkit-animation: spin1 2s infinite alternate;
+  animation: spin1 2s infinite alternate;
+}
+
+.home_bubble .bubble.b_five {
+  background: #ff9398;
+  top: 250px;
+  left: 355px;
+  -webkit-animation: spin1 3s infinite alternate;
+  animation: spin1 3s infinite alternate;
+}
+
+.home_bubble .bubble.b_six {
+  background: #111111;
+  top: 207%;
+  left: 55%;
+  -webkit-animation: spin2 2s infinite alternate;
+  animation: spin2 2s infinite alternate;
+}
+
+.home_bubble .bubble.b_six,
+.home_bubble .bubble.b_three {
+  width: 70px;
+  height: 70px;
+}
+.home_bubble .bubble.b_seven {
+  background: #d65ea6;
+  top: 10%;
+  left: 159px;
+  -webkit-animation: spin1 1s infinite alternate;
+  animation: spin1 1s infinite alternate;
+  width: 14px;
+  height: 14px;
+}
+
+.home_bubble .bubble.b_height {
+  background: #d65ea6;
+  top: 19%;
+  left: 159px;
+  -webkit-animation: spin1 1s infinite alternate;
+  animation: spin1 1s infinite alternate;
+  width: 14px;
+  height: 14px;
+}
+
+@keyframes spin1 {
+  0% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+}
+
+@keyframes spin2 {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    -webkit-transform: translateY(40px);
+    transform: translateY(40px);
+  }
+}
+
+@media (max-width: 1400px) {
+  .frelencer_banner_area {
+    height: 700px;
+  }
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp3 {
+  0% {
+    -webkit-transform: translateY(15px);
+    transform: translateY(15px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/* Media queries */
+
+@media screen and (max-width: 768px) {
+  /* #quotes {
+    font-size: 16px;
+    line-height: 41px;
+  } */
+}
+
+@media screen and (max-width: 995px) {
+  .bubble.b_three {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .bb {
+    display: flex;
+    align-items: center;
+  }
+  .bigcontainer {
+    margin: 0;
+    margin-top: 15%;
+    margin-bottom: 5%;
+  }
+
+  .title {
+    font-size: 50px;
+  }
+
+  .logo {
+    font-size: 50px;
+    width: 55px;
+    height: 55px;
+  }
+
+  .sub-title {
+    font-size: 25px;
+  }
+
+  .button {
+    width: 150px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+  .bigImg {
+    display: none;
+  }
+
+  .quote {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* .quotes {
+    margin-top: 10%;
+    font-size: 20px;
+    line-height: 25px;
+  } */
+
+  .quotesRight {
+    position: relative;
+    margin-top: 40%;
+  }
+
+  #quote1,
+  #quote2 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .textHome,
+  .textHome2,
+  .textHome3 {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .textHome {
+    margin: 60px;
+  }
+
+  .textHome2 {
+    margin: 10px 60px 60px 60px;
+  }
+
+  #design-top {
+    display: none;
+  }
+  #design-left2 {
+    display: none;
+  }
+
+  .home_bubble .bubble.b_two {
+    background: #d65ea6;
+    top: 135%;
+    left: 87%;
+    -webkit-animation: spin1 2s infinite alternate;
+    animation: spin1 2s infinite alternate;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: spin1;
+  }
+
+  .textHome3 {
+    margin: 0px 60px 60px 60px;
+  }
+}
+
+/* .quotes {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 41px;
+  color: #ffffff;
+} */

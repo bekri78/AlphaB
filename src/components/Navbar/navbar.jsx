@@ -6,7 +6,7 @@ import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 
 function Navigation() {
   return (
-    <Navbar className="nav" collapseOnSelec stycky="top" expand="sm" bg="" variant="dark">
+    <Navbar className="nav" collapseOnSelec sticky="top" expand="sm" bg="" variant="dark">
       <Navbar.Brand>
         <img id="logo" src={AlphaB} alt="AlphaB" />
       </Navbar.Brand>
