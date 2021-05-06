@@ -28,9 +28,7 @@ function Example(props) {
     props.vocaleTexte(value);
   }, [value]);
 
-  const onEnd = () => {
-    console.log('je suis la');
-  };
+  const onEnd = () => {};
 
   const onResult = (result) => {
     setValue(result);
@@ -69,6 +67,9 @@ function Example(props) {
                 </option>
               ))}
             </select>
+            <div style={{ height: 105, display: 'flex', justifyContent: 'center' }}>
+              <p>Selectionner votre langue afin de permettre une meilleur retranscription de vos mots.</p>
+            </div>
             <Button variant="contained" color="primary" disabled={blocked} onClick={toggle}>
               {listening ? 'Stop' : 'Parler'}
             </Button>

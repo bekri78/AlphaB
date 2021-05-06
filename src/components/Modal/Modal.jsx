@@ -9,8 +9,9 @@ import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
-
+import SvgError from './svgError.svg';
 import Typography from '@material-ui/core/Typography';
+import './Modal.css';
 
 const styles = (theme) => ({
   root: {
@@ -67,21 +68,15 @@ export default function CustomizedDialogs(props) {
           {props.error}
         </DialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui.
-            Donec ullamcorper nulla non metus auctor fringilla.
+          <Typography gutterBottom style={{ display: 'flex', justifyContent: 'center' }}>
+            <img src={SvgError} id="svgError" alt="svgError" />
+            {"Oups.. Il semble que votre position n'est pas disponible, la carte sera centré sur paris. "}
+            {"Mais pas d'inquietude vous pourrez toujours renseigner une adresse ultérieurement. "}
           </Typography>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">
-            Save changes
+            Compris
           </Button>
         </DialogActions>
       </Dialog>
