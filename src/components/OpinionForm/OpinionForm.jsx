@@ -97,7 +97,7 @@ function OpinionForm() {
 
   return (
     <div>
-      <Button className="opinion-button" variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button className="opinion-button" variant="contained" color="primary" onClick={handleClickOpen}>
         Laisser un avis
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">

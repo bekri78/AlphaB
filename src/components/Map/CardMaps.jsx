@@ -107,9 +107,7 @@ function CardMaps() {
     setResetBtn(false);
   };
 
-
   const rating = (newValue) => {
-    
     let arrayRating = [];
 
     {
@@ -128,7 +126,7 @@ function CardMaps() {
     <Container>
       <h3>Les professionnels</h3>
       {/* appel du props et attribution des nouvelle lat et lnt setLat et setLng */}
- 
+
       <div className="container-filter">
         <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
         <div style={{ display: 'flex' }}>
@@ -140,9 +138,9 @@ function CardMaps() {
           />
         </div>
       </div>
- 
+
       <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
- 
+
       <div id="map">
         <GoogleMapReact
           bootstrapURLKeys={{
@@ -165,22 +163,21 @@ function CardMaps() {
         </GoogleMapReact>
         {error && <CustomizedDialogs error={error} open={open} />}
       </div>
- 
+
       {resetBtn && (
- 
-      <div className="container-filter">
-        <FilterKm changeRadius={(radius) => setRadius(radius)} />
-        <FilterNote changeRating={(newValue) => rating(newValue)} />
-      </div>
+        <div className="container-filter">
+          <FilterKm changeRadius={(radius) => setRadius(radius)} />
+          <FilterNote changeRating={(newValue) => rating(newValue)} />
+        </div>
+      )}
       {idDetail && (
- 
         <div className="btn-holder">
           <button className="btne btn-1 hover-filled-slide-left" onClick={ResetCardAndColor}>
             <span>Retour</span>
           </button>
         </div>
       )}
- 
+
       <Row>
         {dataRating &&
           dataRating.map((data) => (
