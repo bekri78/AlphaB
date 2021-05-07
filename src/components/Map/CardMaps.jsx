@@ -6,6 +6,7 @@ import FilterKm from './FilterKm';
 import InpuPredictionsOnInputChangetSearch from '../AutoComplete/InputSearch';
 import CustomizedDialogs from '../Modal/Modal';
 import FilterNote from '../FilterNote/FilterNote';
+import MapStyle from './MapStyle';
 import GoogleMapReact from 'google-map-react';
 import './CardMaps.css';
 import { Container, Row } from 'react-bootstrap';
@@ -25,6 +26,9 @@ function CardMaps() {
   const [radius, setRadius] = useState(5);
   const center = { lat: lat, lng: lng };
   const resultRadius = radius * 1000;
+  const options = {
+    styles: MapStyle,
+  };
 
   useEffect(() => {
     // a ne faire qu'une seule fois si localisation est presente
@@ -129,8 +133,8 @@ function CardMaps() {
 
       <div className="container-filter">
         <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
-        <div style={{ display: 'flex' }}>
-          <FilterKm changeRadius={(radius) => setRadius(radius)} />
+        <div className="input" style={{ display: 'flex' }}>
+          <FilterKm className="filterKm" changeRadius={(radius) => setRadius(radius)} />
           <FilterNote
             changeRating={(newValue) => {
               rating(newValue);
@@ -138,16 +142,14 @@ function CardMaps() {
           />
         </div>
       </div>
-
-      <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
-
       <div id="map">
         <GoogleMapReact
           bootstrapURLKeys={{
             key: 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24',
           }}
           center={center}
-          zoom={12}>
+          zoom={12}
+          options={options}>
           <Marker2 lat={lat} lng={lng} color="red" text="my-marker" />
           {dataCard &&
             dataCard.map((data) => (
@@ -165,12 +167,6 @@ function CardMaps() {
       </div>
 
       {resetBtn && (
-        <div className="container-filter">
-          <FilterKm changeRadius={(radius) => setRadius(radius)} />
-          <FilterNote changeRating={(newValue) => rating(newValue)} />
-        </div>
-      )}
-      {idDetail && (
         <div className="btn-holder">
           <button className="btne btn-1 hover-filled-slide-left" onClick={ResetCardAndColor}>
             <span>Retour</span>
@@ -178,7 +174,7 @@ function CardMaps() {
         </div>
       )}
 
-      <Row>
+      <Row className="align-items-center">
         {dataRating &&
           dataRating.map((data) => (
             <CardMaterialUi
