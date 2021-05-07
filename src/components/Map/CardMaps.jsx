@@ -6,6 +6,7 @@ import FilterKm from './FilterKm';
 import InpuPredictionsOnInputChangetSearch from '../AutoComplete/InputSearch';
 import CustomizedDialogs from '../Modal/Modal';
 import FilterNote from '../FilterNote/FilterNote';
+import MapStyle from './MapStyle';
 import GoogleMapReact from 'google-map-react';
 import './CardMaps.css';
 import { Container, Row } from 'react-bootstrap';
@@ -25,6 +26,9 @@ function CardMaps() {
   const [radius, setRadius] = useState(5);
   const center = { lat: lat, lng: lng };
   const resultRadius = radius * 1000;
+  const options = {
+    styles: MapStyle,
+  };
 
   useEffect(() => {
     // a ne faire qu'une seule fois si localisation est presente
@@ -145,7 +149,8 @@ function CardMaps() {
             key: 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24',
           }}
           center={center}
-          zoom={12}>
+          zoom={12}
+          options={options}>
           <Marker2 lat={lat} lng={lng} color="red" text="my-marker" />
           {dataCard &&
             dataCard.map((data) => (
