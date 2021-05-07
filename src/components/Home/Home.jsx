@@ -1,5 +1,7 @@
 import React from 'react';
+
 import CarouselOpinions from './CarouselOpinions/CarouselOpinions';
+
 import './Home.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
