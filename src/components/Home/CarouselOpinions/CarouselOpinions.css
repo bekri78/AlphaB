@@ -1,7 +1,9 @@
 .opinion-container {
   width: 100%;
   height: auto;
-  margin: auto;
+  padding-top: 100px;
+  padding-bottom: 200px;
+  background-color: #326dc9;
 }
 
 .swiper-container {
