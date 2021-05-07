@@ -1,10 +1,25 @@
+h3 {
+  padding-top: 7%;
+  padding-bottom: 5%;
+  font-family: 'Raleway';
+  font-weight: bold;
+}
+
+.input {
+  padding-bottom: 3%;
+}
+
+.container-filter {
+  display: flex;
+  justify-content: baseline;
+}
+
 #map {
   height: 70vh;
   width: 100%;
   margin-bottom: 50px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
- 
 
 :active,
 :hover,
@@ -17,6 +32,7 @@
   position: absolute;
   content: '';
 }
+
 .btn-holder {
   display: flex;
   flex-wrap: wrap;
@@ -24,18 +40,18 @@
   max-width: 1000px;
   margin: 10px auto 35px;
 }
-.btn {
+.btne {
   position: relative;
   display: inline-block;
   width: auto;
   height: auto;
-  background-color: transparent;
+  /* background-color: transparent; */
   border: none;
   cursor: pointer;
   margin: 0px 25px 15px;
   min-width: 150px;
 }
-.btn span {
+.btne span {
   position: relative;
   display: inline-block;
   font-size: 14px;
@@ -61,20 +77,38 @@
   color: rgb(28, 31, 30);
   transition: 0.2s 0.1s;
 }
-.btn.hover-filled-slide-left::before {
+.btne.hover-filled-slide-left::before {
   top: 0;
   bottom: 0;
   left: 0;
   height: 100%;
   width: 100%;
 }
-.btn.hover-filled-slide-left:hover::before {
+.btne.hover-filled-slide-left:hover::before {
   width: 0%;
 }
-=======
+
 .container-filter {
-display: flex;
-justify-content: space-between;
-  
+  display: flex;
+  justify-content: space-between;
 }
- 
+
+@media screen and (max-width: 1024px) {
+  h3 {
+    text-align: center;
+  }
+
+  .container-filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #discrete-slider {
+    margin-top: 30px;
+  }
+
+  #discrete-Note {
+    margin-top: 30px;
+  }
+}

@@ -36,7 +36,6 @@ function FilterKm(props) {
     // eslint-disable-next-line react/prop-types
     props.changeRadius(newValue);
   };
-  console.log(value);
 
   return (
     <div className={classes.root}>

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Marker from './Marker/Marker.tsx';
+import Marker2 from './Marker/Marker2.tsx';
 import CardMaterialUi from '../Card/Card';
+import Footer from '../Footer/Footer';
 import FilterKm from './FilterKm';
 import InpuPredictionsOnInputChangetSearch from '../AutoComplete/InputSearch';
 import CustomizedDialogs from '../Modal/Modal';
 import FilterNote from '../FilterNote/FilterNote';
-
+import MapStyle from './MapStyle';
 import GoogleMapReact from 'google-map-react';
 import './CardMaps.css';
 import { Container, Row } from 'react-bootstrap';
@@ -18,13 +20,16 @@ function CardMaps() {
   const [error, setError] = useState('');
   const [dataPlace, setDataPlace] = useState([]);
   const [dataCard, setDataCard] = useState([]);
+  const [dataRating, setDataRating] = useState([]);
   const [idDetail, setIdDetail] = useState('');
+  const [resetBtn, setResetBtn] = useState(false);
   const [open, setOpen] = useState(false);
-  const [radius, setRadius] = useState(10);
+  const [radius, setRadius] = useState(5);
   const center = { lat: lat, lng: lng };
   const resultRadius = radius * 1000;
-
-  console.log(`I am radius : ${radius}`);
+  const options = {
+    styles: MapStyle,
+  };
 
   useEffect(() => {
     // a ne faire qu'une seule fois si localisation est presente
@@ -54,6 +59,8 @@ function CardMaps() {
   };
 
   const errorLocation = (error) => {
+    setLat(48.8534);
+    setLng(2.3488);
     setOpen(!open);
     switch (error.code) {
       case error.PERMISSION_DENIED:
@@ -79,6 +86,7 @@ function CardMaps() {
       const { results } = JSON.parse(json.contents);
       setDataPlace(results);
       setDataCard(results);
+      setDataRating(results);
     } catch (e) {
       console.log(`Error : ${e}.`);
     }
@@ -89,8 +97,9 @@ function CardMaps() {
       dataPlace
         .filter((el) => el.place_id.includes(id)) //filtre dataPlace au niveau de place_id qui contient (id)
         .map((filterName) => {
-          setDataCard([filterName]); // assignation du nouveau tableau filtré a dataCard
+          setDataRating([filterName]); // assignation du nouveau tableau filtré a dataCard
           setIdDetail(filterName.place_id); // assignation de l'id de l'object filtré a idDetail
+          setResetBtn(true); // assignation de l'id de l'object filtré a idDetail
         });
     }
   };
@@ -98,72 +107,94 @@ function CardMaps() {
   const ResetCardAndColor = () => {
     setIdDetail('');
     setDataCard(dataPlace);
+    setDataRating(dataPlace);
+
+    setResetBtn(false);
   };
 
-  const rating = (newRating) => {
+  const rating = (newValue) => {
+    let arrayRating = [];
+
     {
       dataPlace
-        .filter((el) => el.rating === newRating)
+        .filter((el) => el.rating === newValue)
         .map((filterRating) => {
-          setDataPlace([filterRating]);
+          arrayRating.push(filterRating);
+          setDataCard(arrayRating);
+          setDataRating(arrayRating);
+          setResetBtn(true);
         });
     }
   };
 
   return (
-    <Container>
-      <h1>Map</h1>
-      {/* appel du props et attribution des nouvelle lat et lnt setLat et setLng */}
+    <>
+      <Container>
+        <h3>Les professionnels</h3>
+        {/* appel du props et attribution des nouvelle lat et lnt setLat et setLng */}
 
-      <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
-      <div id="map">
-        <GoogleMapReact
-          bootstrapURLKeys={{
-            key: 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24',
-          }}
-          center={center}
-          zoom={12}>
-          <Marker lat={lat} lng={lng} color="red" text="my-marker" />
-          {dataPlace &&
-            dataPlace.map((data) => (
-              <Marker
+        <div className="container-filter">
+          <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
+          <div className="input" style={{ display: 'flex' }}>
+            <FilterKm className="filterKm" changeRadius={(radius) => setRadius(radius)} />
+            <FilterNote
+              changeRating={(newValue) => {
+                rating(newValue);
+              }}
+            />
+          </div>
+        </div>
+        <div id="map">
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24',
+            }}
+            center={center}
+            zoom={12}
+            options={options}>
+            <Marker2 lat={lat} lng={lng} color="red" text="my-marker" />
+            {dataCard &&
+              dataCard.map((data) => (
+                <Marker
+                  key={data.place_id}
+                  lat={data.geometry.location.lat}
+                  lng={data.geometry.location.lng}
+                  idSpecifique={idDetail}
+                  id={data.place_id}
+                  idRecup={(id) => filterMarker(id)} /* recuperation de l'id du markers pour filtre */
+                />
+              ))}
+          </GoogleMapReact>
+          {error && <CustomizedDialogs error={error} open={open} />}
+        </div>
+
+        {resetBtn && (
+          <div className="btn-holder">
+            <button className="btne btn-1 hover-filled-slide-left" onClick={ResetCardAndColor}>
+              <span>Retour</span>
+            </button>
+          </div>
+        )}
+
+        <Row className="align-items-center">
+          {dataRating &&
+            dataRating.map((data) => (
+              <CardMaterialUi
                 key={data.place_id}
-                lat={data.geometry.location.lat}
-                lng={data.geometry.location.lng}
-                idSpecifique={idDetail}
-                id={data.place_id}
-                idRecup={(id) => filterMarker(id)} /* recuperation de l'id du markers pour filtre */
+                placeId={data.place_id}
+                name={data.name}
+                adress={data.formatted_address}
+                initiale={data.name.charAt(0)}
+                starsRating={data.rating}
+                cardLat={data.geometry.location.lat}
+                cardLng={data.geometry.location.lng}
               />
             ))}
-        </GoogleMapReact>
-        {error && <CustomizedDialogs error={error} open={open} />}
-      </div>
-      <div className="container-filter">
-        <FilterKm changeRadius={(radius) => setRadius(radius)} />
-        <FilterNote changeRating={(newValue) => rating(newValue)} />
-      </div>
-      {idDetail && (
-        <div className="btn-holder">
-          <button className="btn btn-1 hover-filled-slide-left" onClick={ResetCardAndColor}>
-            <span>Retour</span>
-          </button>
-        </div>
-      )}
-      <Row>
-        {dataCard &&
-          dataCard.map((data) => (
-            <CardMaterialUi
-              key={data.place_id}
-              name={data.name}
-              adress={data.formatted_address}
-              initiale={data.name.charAt(0)}
-              starsRating={data.rating}
-              cardLat={data.geometry.location.lat}
-              cardLng={data.geometry.location.lng}
-            />
-          ))}
-      </Row>
-    </Container>
+        </Row>
+      </Container>
+      <Footer />
+    </>
   );
 }
+
 export default CardMaps;
