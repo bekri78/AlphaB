@@ -28,7 +28,9 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '534px',
     overflow: 'auto',
     margin: '8px',
+    '@media screen and (max-width: 425px)': { margin: '0px' },
   },
+
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
@@ -36,12 +38,14 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     height: '100%',
+    width: '100%',
     marginTop: '0!important',
   },
   color: {
     display: 'flex',
     justifyContent: 'space-evenly',
     marginBottom: '-10px',
+    flexWrap: 'wrap',
   },
   containerWrapper: {
     width: '100%',
@@ -49,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     gridColumnGap: '10px',
+    '@media screen and (max-width: 425px)': { display: 'block' },
   },
   botom: {
     margin: '10px',
@@ -59,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     margin: '50px',
+    flexWrap: 'wrap',
   },
 }));
 
@@ -120,14 +126,13 @@ function TextToSpeech() {
             onChange={handleValueChange}
             inputProps={{
               style: {
- 
                 fontFamily: currentPolice,
                 fontSize: currentSize,
                 lineHeight: currentLineHeight,
                 wordSpacing: currentWordSpace,
                 letterSpacing: letterSpacing,
                 color: colorText,
- 
+
                 boxShadow: '0 0 10px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
                 minHeight: '497px',
                 padding: 18,

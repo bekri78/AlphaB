@@ -139,5 +139,6 @@ function Home() {
     </>
   );
 }
+
 AOS.init();
 export default Home;

@@ -29,6 +29,12 @@ export const Container = styled.div`
     text-align: center;
   }
 
+  @media screen and (max-width: 368px) {
+    p {
+      font-size: small;
+    }
+  }
+
   h2 {
     margin-top: 0;
     text-align: center;
