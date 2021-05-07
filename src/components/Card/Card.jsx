@@ -6,8 +6,8 @@ import { Col } from 'react-bootstrap';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import { Card, CardHeader, CardMedia, CardContent, CardActions, Collapse, Avatar, IconButton, Typography } from '@material-ui/core';
-import { red } from '@material-ui/core/colors';
-import { Favorite, Share, ExpandMore, MoreVert } from '@material-ui/icons';
+
+import { ExpandMore, MoreVert } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     transform: 'rotate(180deg)',
   },
   avatar: {
-    backgroundColor: red[500],
+    backgroundColor: '#D65EA6',
   },
 }));
 // etape  recuperer place_id
@@ -88,12 +88,6 @@ export default function CardMaterialUi(props) {
           <SimpleRating stars={props.starsRating} />
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <Favorite />
-          </IconButton>
-          <IconButton aria-label="share">
-            <Share />
-          </IconButton>
           <IconButton
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
