@@ -9,13 +9,13 @@
 }
 .logoFooter {
   height: auto;
-  max-width: 100%;
+  max-width: 80%;
   vertical-align: middle;
   border-style: none;
 }
 
 .footer-area {
-  background-color: beige;
+  background-color: rgba(14, 14, 14, 0.899);
 }
 .footer-itemss {
   text-align: center;
@@ -23,11 +23,37 @@
 ul {
   display: flex;
   flex-direction: column;
-
   text-align: center;
 }
+
+#textbottom {
+  color: white;
+}
 .copyright-area {
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(136, 134, 134, 0.66);
+}
+
+.copyright-left,
+.copyright-right {
+  color: white;
+}
+
+.copyright-name {
+  padding: 3px;
+}
+
+.footer-itemss > ul > li > a {
+  color: white;
+}
+
+.footer-itemss {
+  margin-left: 30px;
+}
+
+.titlefooter {
+  color: white;
+  text-decoration: underline;
+  margin: 0px;
 }
 .social-icons svg {
   display: block;
@@ -45,12 +71,13 @@ ul {
   overflow: hidden;
 }
 .footer-top {
-  padding: 100px;
+  padding: 0px;
 }
 svg {
   overflow: hidden;
   vertical-align: middle;
 }
+
 .footer-area .social-icons > a {
   width: 40px;
   height: 40px;
@@ -91,4 +118,18 @@ svg {
 }
 .fa-vine:before {
   content: '\f1ca';
+}
+
+.buttonopinion {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 425px) {
+  .logoFooter {
+    display: none;
+  }
+
+  .footer-items p {
+    text-align: center;
+  }
 }
