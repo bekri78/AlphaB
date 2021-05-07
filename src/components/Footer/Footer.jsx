@@ -1,4 +1,5 @@
 import React from 'react';
+import OpinionForm from '../OpinionForm/OpinionForm';
 import { Container, Col, Row } from 'react-bootstrap';
 import Logo from '../Navbar/img/logo.png';
 import './Footer.css';
@@ -7,13 +8,70 @@ function Footer() {
     <footer className="footer-area footer-fixed">
       <div className="footer-top ">
         <Container>
-          <Row>
-            <Col xs={12} sm={12} md={6} lg={4}>
+          <Row className="align-items-center">
+            <Col xs={12} sm={12} md={6} lg={3}>
               <div className="footer-items">
                 <a className="navbar-brand" href="/#">
                   <img className="logoFooter" alt="logo" src={Logo} />
                 </a>
-                <p className="mt-2 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis non, fugit totam vel laboriosam vitae.</p>
+                <p className="mt-2 mb-3" id="textbottom">
+                  {'Alpha B'} <br></br>
+                  {"L'appli qui facilite la lecture"}
+                </p>
+              </div>
+            </Col>
+            <Col xs={12} sm={12} md={6} lg={3}>
+              <div className="footer-itemss">
+                <ul>
+                  <li className="py-2">
+                    <a href="/#">Accueil</a>
+                  </li>
+                  <li className="py-2">
+                    <a href="/#">Text</a>
+                  </li>
+                  <li className="py-2">
+                    <a href="/map">Maps</a>
+                  </li>
+
+                  <li className="py-2">
+                    <a href="/contact">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </Col>
+            <Col xs={12} sm={12} md={6} lg={3}>
+              <div className="footer-itemss">
+                <ul>
+                  <li className="py-2">
+                    <p className="titlefooter">Liens utiles</p>
+                  </li>
+                  <li className="py-2">
+                    <a href="https://solidarites-sante.gouv.fr/prevention-en-sante/sante-des-populations/enfants/article/les-troubles-du-langage-et-des-apprentissages">
+                      Ministère des solidarités
+                    </a>
+                  </li>
+                  <li className="py-2">
+                    <a href="https://www.ffdys.com/troubles-dys/dyslexie-et-dysorthographie">Fédération des Dys</a>
+                  </li>
+
+                  <li className="py-2">
+                    <a href="https://www.dys-positif.fr/">Association DYS-POSITIF</a>
+                  </li>
+                </ul>
+              </div>
+            </Col>
+            <Col xs={12} sm={12} md={6} lg={3} className="buttonopinion">
+              <OpinionForm />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      <div className="footer-bottom">
+        <Container>
+          <Row className="align-items-center">
+            <Col xs={12} sm={12} md={12} lg={12}>
+              <div className="copyright-area d-flex flex-wrap justify-content-center justify-content-sm-between text-center py-4">
+                <div className="copyright-left">© Copyrights 2021 AlphaB All rights reserved.</div>
                 <div className="social-icons d-flex">
                   <a className="facebook" href="/#">
                     <svg
@@ -80,59 +138,20 @@ function Footer() {
                     </svg>
                   </a>
                 </div>
-              </div>
-            </Col>
-            <Col xs={12} sm={12} md={6} lg={4}>
-              <div className="footer-itemss">
-                <h3 className="footer-title mb-2">Navigation</h3>
-                <ul>
-                  <li className="py-2">
-                    <a href="/#">Accueil</a>
-                  </li>
-                  <li className="py-2">
-                    <a href="/#">Text</a>
-                  </li>
-                  <li className="py-2">
-                    <a href="/map">Maps</a>
-                  </li>
-
-                  <li className="py-2">
-                    <a href="/contact">Contact</a>
-                  </li>
-                </ul>
-              </div>
-            </Col>
-            <Col xs={12} sm={12} md={6} lg={4}>
-              <div className="footer-itemss">
-                <h3 className="footer-title mb-2">Product Help</h3>
-                <ul>
-                  <li className="py-2">
-                    <a href="/#">FAQ</a>
-                  </li>
-                  <li className="py-2">
-                    <a href="/#">Privacy Policy</a>
-                  </li>
-                  <li className="py-2">
-                    <a href="/#">Support</a>
-                  </li>
-
-                  <li className="py-2">
-                    <a href="/#">Contact</a>
-                  </li>
-                </ul>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-      <div className="footer-bottom">
-        <Container>
-          <Row>
-            <Col xs={12} sm={12} md={12} lg={12}>
-              <div className="copyright-area d-flex flex-wrap justify-content-center justify-content-sm-between text-center py-4">
-                <div className="copyright-left">© Copyrights 2021 AlphaB All rights reserved.</div>
                 <div className="copyright-right">
-                  Made with <i className="fas fa-heart"></i> By <a href="/#">Theme Land</a>
+                  Made By{' '}
+                  <a className="copyright-name" href="https://www.linkedin.com/in/anne-laure-ferrari-480676209/" target="_blank" rel="noreferrer">
+                    Emeline
+                  </a>
+                  <a className="copyright-name" href="https://www.linkedin.com/in/sokun-thy-te-51aa9b211/" target="_blank" rel="noreferrer">
+                    Scotty
+                  </a>
+                  <a className="copyright-name" href="https://www.linkedin.com/in/mehdi-bekri/" target="_blank" rel="noreferrer">
+                    Mehdi
+                  </a>
+                  <a className="copyright-name" href="https://www.linkedin.com/in/anne-laure-ferrari-480676209/" target="_blank" rel="noreferrer">
+                    Anne-Laure
+                  </a>
                 </div>
               </div>
             </Col>
