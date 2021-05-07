@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Footer from '../Footer/Footer';
 import { SnackbarProvider, useSnackbar } from 'notistack';
 import { makeStyles } from '@material-ui/core/styles';
 import Design from './img/design-contact.png';
@@ -178,6 +179,7 @@ function Contact() {
           </Button>
         </React.Fragment>
       </div>
+      <Footer />
     </>
   );
 }

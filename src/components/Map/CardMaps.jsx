@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Marker from './Marker/Marker.tsx';
 import Marker2 from './Marker/Marker2.tsx';
 import CardMaterialUi from '../Card/Card';
+import Footer from '../Footer/Footer';
 import FilterKm from './FilterKm';
 import InpuPredictionsOnInputChangetSearch from '../AutoComplete/InputSearch';
 import CustomizedDialogs from '../Modal/Modal';
@@ -123,77 +124,80 @@ function CardMaps() {
   };
 
   return (
-    <Container>
-      <h3>Les professionnels</h3>
-      {/* appel du props et attribution des nouvelle lat et lnt setLat et setLng */}
+    <>
+      <Container>
+        <h3>Les professionnels</h3>
+        {/* appel du props et attribution des nouvelle lat et lnt setLat et setLng */}
 
-      <div className="container-filter">
-        <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
-        <div style={{ display: 'flex' }}>
-          <FilterKm changeRadius={(radius) => setRadius(radius)} />
-          <FilterNote
-            changeRating={(newValue) => {
-              rating(newValue);
-            }}
-          />
+        <div className="container-filter">
+          <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
+          <div style={{ display: 'flex' }}>
+            <FilterKm changeRadius={(radius) => setRadius(radius)} />
+            <FilterNote
+              changeRating={(newValue) => {
+                rating(newValue);
+              }}
+            />
+          </div>
         </div>
-      </div>
 
-      <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
+        <InpuPredictionsOnInputChangetSearch newLat={(latInput) => setLat(latInput)} newLng={(lngInput) => setLng(lngInput)} />
 
-      <div id="map">
-        <GoogleMapReact
-          bootstrapURLKeys={{
-            key: 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24',
-          }}
-          center={center}
-          zoom={12}>
-          <Marker2 lat={lat} lng={lng} color="red" text="my-marker" />
-          {dataCard &&
-            dataCard.map((data) => (
-              <Marker
+        <div id="map">
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: 'AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24',
+            }}
+            center={center}
+            zoom={12}>
+            <Marker2 lat={lat} lng={lng} color="red" text="my-marker" />
+            {dataCard &&
+              dataCard.map((data) => (
+                <Marker
+                  key={data.place_id}
+                  lat={data.geometry.location.lat}
+                  lng={data.geometry.location.lng}
+                  idSpecifique={idDetail}
+                  id={data.place_id}
+                  idRecup={(id) => filterMarker(id)} /* recuperation de l'id du markers pour filtre */
+                />
+              ))}
+          </GoogleMapReact>
+          {error && <CustomizedDialogs error={error} open={open} />}
+        </div>
+
+        {resetBtn && (
+          <div className="container-filter">
+            <FilterKm changeRadius={(radius) => setRadius(radius)} />
+            <FilterNote changeRating={(newValue) => rating(newValue)} />
+          </div>
+        )}
+        {idDetail && (
+          <div className="btn-holder">
+            <button className="btne btn-1 hover-filled-slide-left" onClick={ResetCardAndColor}>
+              <span>Retour</span>
+            </button>
+          </div>
+        )}
+
+        <Row>
+          {dataRating &&
+            dataRating.map((data) => (
+              <CardMaterialUi
                 key={data.place_id}
-                lat={data.geometry.location.lat}
-                lng={data.geometry.location.lng}
-                idSpecifique={idDetail}
-                id={data.place_id}
-                idRecup={(id) => filterMarker(id)} /* recuperation de l'id du markers pour filtre */
+                placeId={data.place_id}
+                name={data.name}
+                adress={data.formatted_address}
+                initiale={data.name.charAt(0)}
+                starsRating={data.rating}
+                cardLat={data.geometry.location.lat}
+                cardLng={data.geometry.location.lng}
               />
             ))}
-        </GoogleMapReact>
-        {error && <CustomizedDialogs error={error} open={open} />}
-      </div>
-
-      {resetBtn && (
-        <div className="container-filter">
-          <FilterKm changeRadius={(radius) => setRadius(radius)} />
-          <FilterNote changeRating={(newValue) => rating(newValue)} />
-        </div>
-      )}
-      {idDetail && (
-        <div className="btn-holder">
-          <button className="btne btn-1 hover-filled-slide-left" onClick={ResetCardAndColor}>
-            <span>Retour</span>
-          </button>
-        </div>
-      )}
-
-      <Row>
-        {dataRating &&
-          dataRating.map((data) => (
-            <CardMaterialUi
-              key={data.place_id}
-              placeId={data.place_id}
-              name={data.name}
-              adress={data.formatted_address}
-              initiale={data.name.charAt(0)}
-              starsRating={data.rating}
-              cardLat={data.geometry.location.lat}
-              cardLng={data.geometry.location.lng}
-            />
-          ))}
-      </Row>
-    </Container>
+        </Row>
+      </Container>
+      <Footer />
+    </>
   );
 }
 
