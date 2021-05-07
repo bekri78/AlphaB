@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import '../Map/CardMaps.css';
 
 const labels = {
   1: 'A vos risques et périls',

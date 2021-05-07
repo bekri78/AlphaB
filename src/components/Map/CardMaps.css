@@ -1,3 +1,19 @@
+h3 {
+  padding-top: 7%;
+  padding-bottom: 5%;
+  font-family: 'Raleway';
+  font-weight: bold;
+}
+
+.input {
+  padding-bottom: 3%;
+}
+
+.container-filter {
+  display: flex;
+  justify-content: baseline;
+}
+
 #map {
   height: 70vh;
   width: 100%;
@@ -16,6 +32,7 @@
   position: absolute;
   content: '';
 }
+
 .btn-holder {
   display: flex;
   flex-wrap: wrap;
@@ -74,4 +91,24 @@
 .container-filter {
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 1024px) {
+  h3 {
+    text-align: center;
+  }
+
+  .container-filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #discrete-slider {
+    margin-top: 30px;
+  }
+
+  #discrete-Note {
+    margin-top: 30px;
+  }
 }
