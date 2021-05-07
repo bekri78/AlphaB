@@ -13,6 +13,8 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
       width: '60ch',
+      '@media screen and (max-width: 650px)': { width: '40ch' },
+      '@media screen and (max-width: 415px)': { width: '30ch' },
     },
     display: 'flex',
     alignItems: 'center',

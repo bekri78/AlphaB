@@ -142,7 +142,6 @@ function CardMaps() {
           />
         </div>
       </div>
-
       <div id="map">
         <GoogleMapReact
           bootstrapURLKeys={{
