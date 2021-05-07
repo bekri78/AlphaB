@@ -24,7 +24,7 @@ function Footer() {
               <div className="footer-itemss">
                 <ul>
                   <li className="py-2">
-                    <p className="titlefooter">Accueil</p>
+                    <a href="/#">Accueil</a>
                   </li>
                   <li className="py-2">
                     <a href="/#">Text</a>
@@ -46,19 +46,21 @@ function Footer() {
                     <p className="titlefooter">Liens utiles</p>
                   </li>
                   <li className="py-2">
-                    <a href="/#">Privacy Policy</a>
+                    <a href="https://solidarites-sante.gouv.fr/prevention-en-sante/sante-des-populations/enfants/article/les-troubles-du-langage-et-des-apprentissages">
+                      Ministère des solidarités
+                    </a>
                   </li>
                   <li className="py-2">
-                    <a href="/#">Support</a>
+                    <a href="https://www.ffdys.com/troubles-dys/dyslexie-et-dysorthographie">Fédération des Dys</a>
                   </li>
 
                   <li className="py-2">
-                    <a href="/#">Contact</a>
+                    <a href="https://www.dys-positif.fr/">Association DYS-POSITIF</a>
                   </li>
                 </ul>
               </div>
             </Col>
-            <Col xs={12} sm={12} md={6} lg={3}>
+            <Col xs={12} sm={12} md={6} lg={3} className="buttonopinion">
               <OpinionForm />
             </Col>
           </Row>

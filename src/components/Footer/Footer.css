@@ -30,7 +30,7 @@ ul {
   color: white;
 }
 .copyright-area {
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(136, 134, 134, 0.66);
 }
 
 .copyright-left,
@@ -46,8 +46,14 @@ ul {
   color: white;
 }
 
+.footer-itemss {
+  margin-left: 30px;
+}
+
 .titlefooter {
   color: white;
+  text-decoration: underline;
+  margin: 0px;
 }
 .social-icons svg {
   display: block;
@@ -71,6 +77,7 @@ svg {
   overflow: hidden;
   vertical-align: middle;
 }
+
 .footer-area .social-icons > a {
   width: 40px;
   height: 40px;
@@ -111,4 +118,18 @@ svg {
 }
 .fa-vine:before {
   content: '\f1ca';
+}
+
+.buttonopinion {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 425px) {
+  .logoFooter {
+    display: none;
+  }
+
+  .footer-items p {
+    text-align: center;
+  }
 }
