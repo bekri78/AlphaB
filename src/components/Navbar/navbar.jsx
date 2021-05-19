@@ -1,8 +1,9 @@
 import React from 'react';
-import './Navbar.css';
+import firebase from '../../utils/firebaseConfig';
 import AlphaB from './img/logo.png';
 import { Nav, Navbar } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
+import './Navbar.css';
 
 function Navigation() {
   return (
@@ -25,6 +26,7 @@ function Navigation() {
           <Nav.Link className="liens" href="/contact">
             Contact
           </Nav.Link>
+          <button onClick={() => firebase.auth().signOut()}>deco</button>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
