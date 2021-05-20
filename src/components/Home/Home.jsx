@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Avis from '../Avis/Avis';
 import Footer from '../Footer/Footer';
 import { Container, Row, Col } from 'react-bootstrap';
 import AOS from 'aos';
@@ -213,6 +213,7 @@ function Home() {
           <path d="M1200 0L0 0 598.97 114.72 1200 0z" className="shape-fill"></path>
         </svg>
       </div>
+      <Avis />
       <Footer />
     </div>
   );

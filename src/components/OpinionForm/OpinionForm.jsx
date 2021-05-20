@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UidContext } from '../UidContext';
+import firebase from '../../utils/firebaseConfig';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Rating from '@material-ui/lab/Rating';
-import { SnackbarProvider, useSnackbar } from 'notistack';
+
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import axios from 'axios';
-
 import { makeStyles } from '@material-ui/core/styles';
 import './OpinionForm.css';
 
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     height: 42,
     marginBottom: '25px',
     marginRight: '25px',
-    background: 'linear-gradient(to right top, #40d4f3, #4dd8f6, #58ddf9, #62e1fc, #6ce6ff)',
+    background: '#481ab4;',
     borderRadius: 7,
     border: 0,
     color: 'white',
@@ -47,7 +47,26 @@ function OpinionForm() {
   const [job, setJob] = useState('');
   const [message, setMessage] = useState('');
   const [rating, setRating] = React.useState(0);
-  const { enqueueSnackbar } = useSnackbar();
+  const uid = useContext(UidContext);
+  // const { enqueueSnackbar } = useSnackbar();
+
+  const createAvis = () => {
+    const avisDB = firebase.database().ref('avisDB');
+    const avis = {
+      uid,
+      firstname,
+      lastname,
+      job,
+      rating,
+      message,
+    };
+    avisDB.push(avis);
+    setJob('');
+    setLastname('');
+    setMessage('');
+    setRating('');
+    setFirstname('');
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -57,43 +76,22 @@ function OpinionForm() {
     setOpen(false);
   };
 
-  const failMessage = () => {
-    //ajout modal d'erreur
-    enqueueSnackbar('Tous les champs doivent être renseignés.', { variant: 'error' });
-  };
+  // const failMessage = () => {
+  //   //ajout modal d'erreur
+  //   enqueueSnackbar('Tous les champs doivent être renseignés.', { variant: 'error' });
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (firstname && lastname && message && rating) {
-      axios
-        .post('http://localhost:4000/ratings', {
-          firstname,
-          lastname,
-          job,
-          message,
-          rating,
-        })
-        .then(function (response) {
-          console.log(response.status);
-          setFirstname('');
-          setLastname('');
-          setJob('');
-          setMessage('');
-          setRating('');
-          handleClose();
-          //ajout modal de validation
-          if (response.status === 201) {
-            enqueueSnackbar('Votre message a bien été envoyé.', { variant: 'success' });
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-          enqueueSnackbar('Une erreur est survenue.', { variant: 'error' });
-        });
-    } else {
-      failMessage();
-    }
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (firstname && lastname && message && rating) {
+  //     //ajout modal de validation
+  //     if (firstname) {
+  //       enqueueSnackbar('Votre message a bien été envoyé.', { variant: 'success' });
+  //     }
+  //   } else {
+  //     failMessage();
+  //   }
+  // };
 
   return (
     <div>
@@ -207,7 +205,7 @@ function OpinionForm() {
 
         <div className={classes.rootButton}>
           <React.Fragment>
-            <Button className={classes.buttonSubmit} variant="contained" onClick={handleSubmit}>
+            <Button className={classes.buttonSubmit} variant="contained" onClick={createAvis}>
               Envoyer
             </Button>
           </React.Fragment>
@@ -216,11 +214,4 @@ function OpinionForm() {
     </div>
   );
 }
-
-export default function IntegrationNotistack() {
-  return (
-    <SnackbarProvider maxSnack={3} autoHideDuration={2000}>
-      <OpinionForm />
-    </SnackbarProvider>
-  );
-}
+export default OpinionForm;

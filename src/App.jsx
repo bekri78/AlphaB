@@ -9,10 +9,12 @@ import logo from './components/Navbar/img/logo.png';
 import ScrollReveal from './components/ScrollReveal/ScrollReveal';
 import firebase from './utils/firebaseConfig';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import { UidContext } from './components/UidContext';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 function App() {
   const [isSignedIn, setSignedIn] = useState(false);
+  const [uid, setUid] = useState(null);
   const uiConfig = {
     signInFlow: 'popup',
     signInOptions: [
@@ -25,34 +27,39 @@ function App() {
     },
   };
   useEffect(() => {
+    console.log('je suis la');
     firebase.auth().onAuthStateChanged((user) => {
       setSignedIn(!!user);
+      console.log(user);
+      setUid(user.uid); // recuperation id unique utilisateur
     });
   }, []);
   return (
-    <div>
-      {isSignedIn ? (
-        <>
-          <Navigation />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/texte" component={(SimpleAccordion, TextToSpeech)} />
-            <Route path="/map" component={CardMaps} />
-            <Route path="/contact" component={Contact} />
-          </Switch>
-        </>
-      ) : (
-        <div style={{ backgroundColor: '#1b2437' }}>
-          <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', paddingTop: '50px' }}>
-            <img src={logo} alt="logo" id="logoConnexion" />
-            <p style={{ paddingTop: '2%', color: 'white', fontSize: 'large', marginTop: 'auto' }}>Connexion</p>
-          </div>
+    <UidContext.Provider value={uid}>
+      <div>
+        {isSignedIn ? (
+          <>
+            <Navigation />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/texte" component={(SimpleAccordion, TextToSpeech)} />
+              <Route path="/map" component={CardMaps} />
+              <Route path="/contact" component={Contact} />
+            </Switch>
+          </>
+        ) : (
+          <div style={{ backgroundColor: '#1b2437' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', paddingTop: '50px' }}>
+              <img src={logo} alt="logo" id="logoConnexion" />
+              <p style={{ paddingTop: '2%', color: 'white', fontSize: 'large', marginTop: 'auto' }}>Connexion</p>
+            </div>
 
-          <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-          <ScrollReveal />
-        </div>
-      )}
-    </div>
+            <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+            <ScrollReveal />
+          </div>
+        )}
+      </div>
+    </UidContext.Provider>
   );
 }
 
