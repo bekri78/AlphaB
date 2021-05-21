@@ -47,9 +47,9 @@ function Avis() {
           {avisList && avisList.map((item, index) => <UpdateDelete item={item} key={index} />)}
         </Carousel>
         <p className="allAvis">Decouvrire tous les avis</p>
-        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '2%' }}>
-          <Switch checked={!loading} onChange={onChange} />
 
+        <Switch checked={!loading} onChange={onChange} />
+        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '2%' }}>
           <Card
             style={{ width: 300, margin: 16, display: affichageCardLoader ? 'block' : 'none', backgroundColor: '#553ab8' }}
             loading={loading}></Card>

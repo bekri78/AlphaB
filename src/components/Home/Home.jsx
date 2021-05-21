@@ -43,7 +43,7 @@ function Home() {
       </div>
       <div
         style={{
-          height: '320px',
+          height: 'auto',
           width: '100%',
           backgroundColor: '#1b2437',
           display: 'flex',
@@ -72,7 +72,7 @@ function Home() {
           flexWrap: 'wrap',
         }}>
         <img className="imgDys" src={Dyslexy} alt="dyslexy" />
-        <p style={{ color: 'white', fontFamily: 'Raleway', fontStyle: 'normal', fontWeight: 'normal', width: '50%' }}>
+        <p className="dyslexiqueExplication">
           Comment pense un dyslexique ?<br></br> Ainsi, le dyslexique ne comprend que le sens partiel d&#39;un mot ou d&#39;une phrase, mais pas son
           sens global.<br></br> Le message d&#39;un texte peut lui échapper totalement ou partiellement.<br></br> De ce fait, il peut avoir des
           blocages dans la lecture et des difficultés dans différentes matières

@@ -58,7 +58,12 @@
   position: relative;
   z-index: 2;
 }
-
+.dyslexiqueExplication {
+  color: white;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+}
 .custom-shape-divider-top-1621515812 {
   top: 0;
   left: 0;
@@ -288,4 +293,37 @@ h3 {
 
 .custom-shape-divider-top-1621549109 .shape-fill {
   fill: #ffcb36;
+}
+
+.imgDys {
+  width: 35%;
+}
+@media screen and (max-width: 1264px) {
+  .imgDys {
+    width: 40%;
+  }
+  .dyslexiqueExplication {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .textAlphaB {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .textHome {
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: auto;
+  }
+  .imgDys {
+    width: 90%;
+  }
+  .textAlphaB {
+    width: 65% !important;
+    font-size: 20px;
+  }
 }

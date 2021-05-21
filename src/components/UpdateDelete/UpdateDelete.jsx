@@ -71,7 +71,7 @@ function UpdateDelete({ item }) {
   return (
     <>
       {update === false && (
-        <Card style={{ width: '18rem', margin: 'auto' }}>
+        <Card style={{ width: '18rem', height: 'auto', margin: 'auto' }}>
           <Card.Body>
             <Card.Title>
               {item.firstname} {item.lastname}
@@ -81,11 +81,11 @@ function UpdateDelete({ item }) {
             <Rate style={{ paddingLeft: '1.25rem' }} disabled value={item.rating} />
             <Card.Text> Avis: {item.message}</Card.Text>
             {authorCheck() && (
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Button variant="primary" onClick={showModal}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: 0, height: 'auto' }}>
+                <Button variant="primary" size="sm" onClick={showModal}>
                   modifier
                 </Button>
-                <Button variant="warning" onClick={deleteItem}>
+                <Button variant="warning" size="sm" onClick={deleteItem}>
                   supprimer
                 </Button>
               </div>
