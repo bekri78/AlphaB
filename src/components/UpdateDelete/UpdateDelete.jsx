@@ -71,7 +71,7 @@ function UpdateDelete({ item }) {
   return (
     <>
       {update === false && (
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '18rem', margin: 'auto' }}>
           <Card.Body>
             <Card.Title>
               {item.firstname} {item.lastname}

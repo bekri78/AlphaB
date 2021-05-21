@@ -3,11 +3,11 @@ import Avis from '../Avis/Avis';
 import Footer from '../Footer/Footer';
 import { Container, Row, Col } from 'react-bootstrap';
 import AOS from 'aos';
-import './home.css';
+import './Home.css';
 import 'aos/dist/aos.css';
 import Dyslexy from './Img/dyslexy.png';
 import Dyslexy2 from './Img/dys2Img.png';
-import Book from './Img/whitesvg.svg';
+import Book from './Img/Aaa.svg';
 import Tech from './Img/tecghh.png';
 import Reglage from './Img/reglage.png';
 import Help from './Img/help.png';
@@ -15,8 +15,8 @@ import Cadena from './Img/cadena.png';
 
 function Home() {
   return (
-    <div style={{ whith: 'auto', height: 'auto', margin: 0, backgroundColor: '#D2FDFF' }}>
-      <Container fluid style={{ height: '500px', backgroundColor: '#4D6D9A' }}>
+    <div style={{ whith: 'auto', height: 'auto', margin: 0, backgroundColor: 'white' }}>
+      <Container fluid style={{ height: '360px', backgroundColor: '#25a954' }}>
         <Row className="d-flex justify-content-center">
           {' '}
           <Col sm={12} xs={12} md={6} lg={6} className="d-inline-flex">
@@ -26,49 +26,53 @@ function Home() {
             <p className="textHome">L’appli facilitateur de lecture</p>
           </Col>
           <Col sm={12} xs={12} md={6} lg={6}>
-            <img style={{ width: '80%' }} src={Book} alt="book" />
+            <img style={{ width: '80%' }} src={Book} id="book" alt="book" />
           </Col>
         </Row>
       </Container>
 
-      <div className="custom-shape-divider-top-1621251299">
+      <div className="custom-shape-divider-top-1621515812">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-            className="shape-fill"></path>
+          <path d="M1200 0L0 0 892.25 114.72 1200 0z" className="shape-fill"></path>
         </svg>
       </div>
-      <div className="dis">
-        <p>En France, 6 à 8% de la population est concernée par des troubles appelés Dys: dyslexies, dyspraxie, dysphasie.</p>
-      </div>
-
-      <div className="custom-shape-divider-bottom-1621284037">
+      <div className="custom-shape-divider-bottom-1621514761">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z" className="shape-fill"></path>
+          <path d="M1200 0L0 0 892.25 114.72 1200 0z" className="shape-fill"></path>
         </svg>
-        <div
-          style={{
-            height: '320px',
-            width: '100vw',
-            backgroundColor: '#3d4147',
-            display: 'flex',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-          }}>
-          <img src={Tech} alt="tech" style={{ width: '250px', height: '250px' }} />
-
-          <p className="textAlphaB" style={{ color: 'white', width: '25%' }}>
-            La lecture est omniprésente dans notre quotiden.<br></br> Pour AlphaB, il est essentiel d’apporter une aide concrète à toutes personnes en
-            difficulté.<br></br> AlphaB a créé une solution adaptée et efficace pour pour toutes les personnes nécessitant une assistance lors de la
-            lecture.
-          </p>
-        </div>
+      </div>
+      <div
+        style={{
+          height: '320px',
+          width: '100%',
+          backgroundColor: '#1b2437',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+        }}>
+        <p className="textAlphaB" style={{ color: 'white', width: '50%' }}>
+          8 à 12 % de la population mondiale est touchée par des troubles de la lecture et de l&apos;écriture spécifique selon l&apos;OMS. <br></br>
+          Le plus connus etant la dyslexie.<br></br>
+          La lecture est omniprésente dans notre quotiden.<br></br> Pour AlphaB, il est essentiel d’apporter une aide concrète à toutes personnes en
+          difficulté.<br></br> AlphaB a créé une solution adaptée et efficace pour pour toutes les personnes nécessitant une assistance lors de la
+          lecture.
+        </p>
+        <img src={Tech} alt="tech" style={{ width: '150px', height: '150px' }} />
       </div>
 
-      <div style={{ height: 'auto', width: '100%', backgroundColor: '#3d4147', display: 'flex', alignItems: 'center' }}>
+      <div
+        style={{
+          height: 'auto',
+          width: '100%',
+          backgroundColor: '#1b2437',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+        }}>
         <img className="imgDys" src={Dyslexy} alt="dyslexy" />
-        <p style={{ color: 'white', fontFamily: 'Raleway', fontStyle: 'normal', fontWeight: 'normal' }}>
+        <p style={{ color: 'white', fontFamily: 'Raleway', fontStyle: 'normal', fontWeight: 'normal', width: '50%' }}>
           Comment pense un dyslexique ?<br></br> Ainsi, le dyslexique ne comprend que le sens partiel d&#39;un mot ou d&#39;une phrase, mais pas son
           sens global.<br></br> Le message d&#39;un texte peut lui échapper totalement ou partiellement.<br></br> De ce fait, il peut avoir des
           blocages dans la lecture et des difficultés dans différentes matières
@@ -195,24 +199,25 @@ function Home() {
         style={{
           height: 'auto',
           width: '100%',
-          backgroundColor: '#F3D250',
+          backgroundColor: '#ffcb36',
           display: 'flex',
-          flexWrap: 'wrap',
+          justifyContent: 'center',
           alignItems: 'center',
-          justifyContent: 'flex-end',
+          flexWrap: 'wrap',
         }}>
-        <p style={{ color: 'black', fontFamily: 'Raleway', fontStyle: 'normal', fontWeight: 'normal' }}>
+        <p style={{ color: 'black', fontFamily: 'Raleway', fontStyle: 'normal', fontWeight: 'normal', width: '50%' }}>
           Comment pense un dyslexique ?<br></br> Ainsi, le dyslexique ne comprend que le sens partiel d&#39;un mot ou d&#39;une phrase, mais pas son
           sens global.<br></br> Le message d&#39;un texte peut lui échapper totalement ou partiellement.<br></br> De ce fait, il peut avoir des
           blocages dans la lecture et des difficultés dans différentes matières
         </p>
         <img className="imgDys" src={Dyslexy2} alt="dyslexy" />
       </div>
-      <div className="custom-shape-divider-top-1621301422">
+      <div className="custom-shape-divider-top-1621549109">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M1200 0L0 0 598.97 114.72 1200 0z" className="shape-fill"></path>
+          <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" className="shape-fill"></path>
         </svg>
       </div>
+
       <Avis />
       <Footer />
     </div>

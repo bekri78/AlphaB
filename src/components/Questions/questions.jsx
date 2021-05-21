@@ -12,10 +12,11 @@ import { ExpandMore } from '@material-ui/icons';
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: 'auto',
-    width: '50%',
-    padding: '24px',
+    width: '100%',
+    paddingLeft: '30%',
+    paddingRight: '30%',
     backgroundColor: '#f5f5f5',
-    marginBottom: '100px',
+    paddingBottom: '100px',
   },
 
   heading: {
@@ -25,8 +26,10 @@ const useStyles = makeStyles((theme) => ({
   question: {
     display: 'flex',
     justifyContent: 'center',
+    backgroundColor: '#f5f5f5',
   },
   button: {
+    backgroundColor: '#f5f5f5',
     '& > *': {
       margin: theme.spacing(4),
     },

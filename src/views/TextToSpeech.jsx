@@ -11,9 +11,9 @@ import Voyelles from '../components/Voyelles';
 import Police from '../components/Police';
 import Footer from '../components/Footer/Footer';
 import InputBase from '@material-ui/core/InputBase';
-
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography, CardContent, Card } from '@material-ui/core';
+import './TextToSpeech.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-evenly',
     marginBottom: '-10px',
     flexWrap: 'wrap',
+    paddingTop: '5%',
   },
   containerWrapper: {
     width: '100%',
@@ -63,8 +64,9 @@ const useStyles = makeStyles((theme) => ({
   cardAudio: {
     display: 'flex',
     justifyContent: 'center',
-    margin: '50px',
     flexWrap: 'wrap',
+    backgroundColor: '#f5f5f5',
+    width: '100%',
   },
 }));
 
@@ -100,11 +102,16 @@ function TextToSpeech() {
   });
 
   return (
-    <>
+    <div style={{ backgroundColor: '#ff7c35' }}>
       <SimpleAccordion />
       <div className={classes.cardAudio}>
         <SpeechSynthesisExample text={value} />
         <SpeechRecognitionExample vocaleTexte={(mots) => setValue(mots)} />
+      </div>
+      <div className="custom-shape-divider-top-1621554253">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" className="shape-fill"></path>
+        </svg>
       </div>
       <div className={classes.color}>
         <Interlignage onChangeLine={(newLineHeight) => setCurrentLineHeight(newLineHeight)} />
@@ -129,6 +136,8 @@ function TextToSpeech() {
                 boxShadow: '0 0 10px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
                 minHeight: '497px',
                 padding: 18,
+                backgroundColor: 'white',
+                borderRadius: '4px',
               },
             }}
           />
@@ -162,7 +171,7 @@ function TextToSpeech() {
         </Box>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
