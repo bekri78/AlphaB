@@ -44,11 +44,11 @@ function Avis() {
       <div style={{ backgroundColor: '#553ab8', height: 'auto' }}>
         <p className="topAvis">Top commentaire</p>
         <Carousel style={{ backgroundColor: '#553ab8' }} autoplay>
-          {avisList && avisList.map((item, index) => <UpdateDelete item={item} key={index} />)}
+          {avisList && avisList.map((item, index) => <UpdateDelete item={item} center={true} key={index} />)}
         </Carousel>
         <p className="allAvis">Decouvrire tous les avis</p>
 
-        <Switch checked={!loading} onChange={onChange} />
+        <Switch style={{ marginLeft: '20%' }} checked={!loading} onChange={onChange} />
         <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '2%' }}>
           <Card
             style={{ width: 300, margin: 16, display: affichageCardLoader ? 'block' : 'none', backgroundColor: '#553ab8' }}
@@ -60,7 +60,7 @@ function Avis() {
             style={{ width: 300, margin: 16, display: affichageCardLoader ? 'block' : 'none', backgroundColor: '#553ab8' }}
             loading={loading}></Card>
 
-          {avisList && affichage && avisList.map((item, index) => <UpdateDelete item={item} key={index} />)}
+          {avisList && affichage && avisList.map((item, index) => <UpdateDelete item={item} center={false} key={index} />)}
         </div>
       </div>
     </div>

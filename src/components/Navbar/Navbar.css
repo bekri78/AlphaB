@@ -10,16 +10,12 @@
 .liens {
   color: white !important;
   font-family: 'Raleway', sans-serif;
-  font-size: 18px;
-  margin: 0px 20px 0px;
   display: inline-block;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+
   position: relative;
 }
 .liens:hover {
   text-decoration: underline;
   text-underline-position: under;
-  font-weight: bold;
-  text-shadow: rgb(8, 21, 45) 1px 0px 9px;
 }

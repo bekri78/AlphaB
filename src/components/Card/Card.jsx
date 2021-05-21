@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     transform: 'rotate(180deg)',
   },
   avatar: {
-    backgroundColor: '#D65EA6',
+    backgroundColor: '#e31d65',
   },
 }));
 // etape  recuperer place_id

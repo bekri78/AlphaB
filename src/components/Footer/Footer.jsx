@@ -75,7 +75,7 @@ function Footer() {
                 <div className="social-icons d-flex">
                   <a className="facebook" href="/#">
                     <svg
-                      className="svg-inline--fa fa-facebook-f fa-w-10"
+                      className="svg-inline fa-facebook-f fa-w-10"
                       aria-hidden="true"
                       focusable="false"
                       data-prefix="fab"
@@ -91,7 +91,7 @@ function Footer() {
                   </a>
                   <a className="twitter" href="/#">
                     <svg
-                      className="svg-inline--fa fa-twitter fa-w-16"
+                      className="svg-inline fa-twitter fa-w-10"
                       aria-hidden="true"
                       focusable="false"
                       data-prefix="fab"
@@ -107,7 +107,7 @@ function Footer() {
                   </a>
                   <a className="google-plus" href="/#">
                     <svg
-                      className="svg-inline--fa fa-google-plus-g fa-w-20"
+                      className="svg-inline fa-google-plus-g fa-w-10"
                       aria-hidden="true"
                       focusable="false"
                       data-prefix="fab"
@@ -123,7 +123,7 @@ function Footer() {
                   </a>
                   <a className="vine" href="/#">
                     <svg
-                      className="svg-inline--fa fa-vine fa-w-12"
+                      className="svg-inline fa-vine fa-w-12"
                       aria-hidden="true"
                       focusable="false"
                       data-prefix="fab"

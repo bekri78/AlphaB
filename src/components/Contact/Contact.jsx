@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Design from './img/design-contact.png';
 import Design2 from './img/design-contact2.png';
 import './Contact.css';
-import axios from 'axios';
+import emailjs from 'emailjs-com';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,31 +60,30 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (firstname && lastname && isEmail() && message) {
-      axios
-        .post('http://localhost:4000/users', {
-          firstname,
-          lastname,
-          email,
-          message,
-        })
-        .then(function (response) {
-          console.log(response.status);
-          setFirstname('');
-          setLastname('');
-          setEmail('');
-          setMessage('');
-          //ajout modal de validation
-          if (response.status === 201) {
-            enqueueSnackbar('Votre message a bien été envoyé.', { variant: 'success' });
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-          enqueueSnackbar('Une erreur est survenue.', { variant: 'error' });
-        });
+      sendEmail({
+        firstname,
+        lastname,
+        email,
+        message,
+      });
     } else {
-      failMessage();
+      failMessage('Merci de remplir correctement les champs requis *');
     }
+  };
+  const sendEmail = (variable) => {
+    console.log(variable);
+    emailjs.send('service_ar8ie92', 'template_7te270a', variable, 'user_CeUZSbU8Tow2n0Uj8WHhH').then(
+      () => {
+        enqueueSnackbar('Envoyé !.', { variant: 'success' });
+        setFirstname('');
+        setLastname('');
+        setEmail('');
+        setMessage('');
+      },
+      (error) => {
+        failMessage('Une erreur est survenu veuillez ressayer', error);
+      },
+    );
   };
 
   return (
@@ -193,3 +192,4 @@ export default function IntegrationNotistack() {
     </SnackbarProvider>
   );
 }
+emailjs.init('user_CeUZSbU8Tow2n0Uj8WHhH');

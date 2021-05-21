@@ -206,9 +206,11 @@ function Home() {
           flexWrap: 'wrap',
         }}>
         <p style={{ color: 'black', fontFamily: 'Raleway', fontStyle: 'normal', fontWeight: 'normal', width: '50%' }}>
-          Comment pense un dyslexique ?<br></br> Ainsi, le dyslexique ne comprend que le sens partiel d&#39;un mot ou d&#39;une phrase, mais pas son
-          sens global.<br></br> Le message d&#39;un texte peut lui échapper totalement ou partiellement.<br></br> De ce fait, il peut avoir des
-          blocages dans la lecture et des difficultés dans différentes matières
+          Les facultés fondamentales (des dyslexiques), si elles ne sont pas réprimées ou détruites par les parents ou le système éducatif, peuvent se
+          fondre en 2 traits caractéristiques :<br></br> une intelligence supérieure à la moyenne et une créativité exceptionnelle. Et de là peut
+          émerger le talent véritable de la dyslexie : le don d’excellence. Comment pense un dyslexique ?<br></br> Ainsi, le dyslexique ne comprend
+          que le sens partiel d&#39;un mot ou d&#39;une phrase, mais pas son sens global.<br></br> Le message d&#39;un texte peut lui échapper
+          totalement ou partiellement.<br></br> De ce fait, il peut avoir des blocages dans la lecture et des difficultés dans différentes matières
         </p>
         <img className="imgDys" src={Dyslexy2} alt="dyslexy" />
       </div>

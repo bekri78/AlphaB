@@ -27,10 +27,8 @@ function App() {
     },
   };
   useEffect(() => {
-    console.log('je suis la');
     firebase.auth().onAuthStateChanged((user) => {
       setSignedIn(!!user);
-      console.log(user);
       setUid(user.uid); // recuperation id unique utilisateur
     });
   }, []);

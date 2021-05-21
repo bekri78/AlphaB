@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form';
 import { Modal, Rate } from 'antd';
 import { UidContext } from '../UidContext';
 import './UpdateDelete.css';
-function UpdateDelete({ item }) {
+function UpdateDelete({ item, center }) {
   const [update, setUpdate] = useState(false);
   const [firstnameUpdate, setFirstNameUpdate] = useState(null);
   const [lastnameUpdate, setlastNameUpdate] = useState(null);
@@ -70,30 +70,33 @@ function UpdateDelete({ item }) {
   };
   return (
     <>
-      {update === false && (
-        <Card style={{ width: '18rem', height: 'auto', margin: 'auto' }}>
-          <Card.Body>
-            <Card.Title>
-              {item.firstname} {item.lastname}
-            </Card.Title>
-            <Card.Subtitle className="mb-1 text-muted">Metier : {item.job}</Card.Subtitle>
-            Note:
-            <Rate style={{ paddingLeft: '1.25rem' }} disabled value={item.rating} />
-            <Card.Text> Avis: {item.message}</Card.Text>
-            {authorCheck() && (
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: 0, height: 'auto' }}>
-                <Button variant="primary" size="sm" onClick={showModal}>
-                  modifier
-                </Button>
-                <Button variant="warning" size="sm" onClick={deleteItem}>
-                  supprimer
-                </Button>
-              </div>
-            )}
-          </Card.Body>
-          <Card.Footer className="text-muted">2 days ago</Card.Footer>
-        </Card>
-      )}
+      {
+        (update === false && console.log(center),
+        (
+          <Card style={{ width: '18rem', height: 'auto', margin: center ? 'auto' : '2%' }}>
+            <Card.Body>
+              <Card.Title>
+                {item.firstname} {item.lastname}
+              </Card.Title>
+              <Card.Subtitle className="mb-1 text-muted">Metier : {item.job}</Card.Subtitle>
+              Note:
+              <Rate style={{ paddingLeft: '1.25rem' }} disabled value={item.rating} />
+              <Card.Text> Avis: {item.message}</Card.Text>
+              {authorCheck() && (
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: 0, height: 'auto' }}>
+                  <Button variant="primary" size="sm" onClick={showModal}>
+                    modifier
+                  </Button>
+                  <Button variant="warning" size="sm" onClick={deleteItem}>
+                    supprimer
+                  </Button>
+                </div>
+              )}
+            </Card.Body>
+            <Card.Footer className="text-muted">2 days ago</Card.Footer>
+          </Card>
+        ))
+      }
 
       <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
         <Form>
