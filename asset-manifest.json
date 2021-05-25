@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/AlphaB/static/css/main.bedaafab.chunk.css",
-    "main.js": "/AlphaB/static/js/main.f2dab938.chunk.js",
-    "main.js.map": "/AlphaB/static/js/main.f2dab938.chunk.js.map",
-    "runtime-main.js": "/AlphaB/static/js/runtime-main.c5652826.js",
-    "runtime-main.js.map": "/AlphaB/static/js/runtime-main.c5652826.js.map",
-    "static/css/2.a7a85ca3.chunk.css": "/AlphaB/static/css/2.a7a85ca3.chunk.css",
-    "static/js/2.c7139cf9.chunk.js": "/AlphaB/static/js/2.c7139cf9.chunk.js",
-    "static/js/2.c7139cf9.chunk.js.map": "/AlphaB/static/js/2.c7139cf9.chunk.js.map",
-    "static/js/3.49a0eff7.chunk.js": "/AlphaB/static/js/3.49a0eff7.chunk.js",
-    "static/js/3.49a0eff7.chunk.js.map": "/AlphaB/static/js/3.49a0eff7.chunk.js.map",
+    "main.js": "/AlphaB/static/js/main.0a6b4288.chunk.js",
+    "main.js.map": "/AlphaB/static/js/main.0a6b4288.chunk.js.map",
+    "runtime-main.js": "/AlphaB/static/js/runtime-main.07105c9e.js",
+    "runtime-main.js.map": "/AlphaB/static/js/runtime-main.07105c9e.js.map",
+    "static/css/2.7fc9bc2b.chunk.css": "/AlphaB/static/css/2.7fc9bc2b.chunk.css",
+    "static/js/2.d372a2f1.chunk.js": "/AlphaB/static/js/2.d372a2f1.chunk.js",
+    "static/js/2.d372a2f1.chunk.js.map": "/AlphaB/static/js/2.d372a2f1.chunk.js.map",
+    "static/js/3.b669c3f2.chunk.js": "/AlphaB/static/js/3.b669c3f2.chunk.js",
+    "static/js/3.b669c3f2.chunk.js.map": "/AlphaB/static/js/3.b669c3f2.chunk.js.map",
     "index.html": "/AlphaB/index.html",
-    "static/css/2.a7a85ca3.chunk.css.map": "/AlphaB/static/css/2.a7a85ca3.chunk.css.map",
+    "static/css/2.7fc9bc2b.chunk.css.map": "/AlphaB/static/css/2.7fc9bc2b.chunk.css.map",
     "static/css/main.bedaafab.chunk.css.map": "/AlphaB/static/css/main.bedaafab.chunk.css.map",
-    "static/js/2.c7139cf9.chunk.js.LICENSE.txt": "/AlphaB/static/js/2.c7139cf9.chunk.js.LICENSE.txt",
+    "static/js/2.d372a2f1.chunk.js.LICENSE.txt": "/AlphaB/static/js/2.d372a2f1.chunk.js.LICENSE.txt",
     "static/media/Aaa.a842db1c.svg": "/AlphaB/static/media/Aaa.a842db1c.svg",
     "static/media/Contact.css": "/AlphaB/static/media/Raleway-Bold.d1a96e2a.ttf",
     "static/media/cadena.88d3227b.png": "/AlphaB/static/media/cadena.88d3227b.png",
@@ -28,10 +28,10 @@
     "static/media/tecghh.4ba1f153.png": "/AlphaB/static/media/tecghh.4ba1f153.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.c5652826.js",
-    "static/css/2.a7a85ca3.chunk.css",
-    "static/js/2.c7139cf9.chunk.js",
+    "static/js/runtime-main.07105c9e.js",
+    "static/css/2.7fc9bc2b.chunk.css",
+    "static/js/2.d372a2f1.chunk.js",
     "static/css/main.bedaafab.chunk.css",
-    "static/js/main.f2dab938.chunk.js"
+    "static/js/main.0a6b4288.chunk.js"
   ]
 }
