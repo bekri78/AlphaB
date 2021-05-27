@@ -1,24 +1,23 @@
 {
   "files": {
-    "main.css": "/AlphaB/static/css/main.ad3f95be.chunk.css",
-    "main.js": "/AlphaB/static/js/main.d5ec366b.chunk.js",
-    "main.js.map": "/AlphaB/static/js/main.d5ec366b.chunk.js.map",
-    "runtime-main.js": "/AlphaB/static/js/runtime-main.c5652826.js",
-    "runtime-main.js.map": "/AlphaB/static/js/runtime-main.c5652826.js.map",
+    "main.css": "/AlphaB/static/css/main.f3be995e.chunk.css",
+    "main.js": "/AlphaB/static/js/main.d28edb6d.chunk.js",
+    "main.js.map": "/AlphaB/static/js/main.d28edb6d.chunk.js.map",
+    "runtime-main.js": "/AlphaB/static/js/runtime-main.2bd6055f.js",
+    "runtime-main.js.map": "/AlphaB/static/js/runtime-main.2bd6055f.js.map",
     "static/css/2.e4e35064.chunk.css": "/AlphaB/static/css/2.e4e35064.chunk.css",
-    "static/js/2.0991171c.chunk.js": "/AlphaB/static/js/2.0991171c.chunk.js",
-    "static/js/2.0991171c.chunk.js.map": "/AlphaB/static/js/2.0991171c.chunk.js.map",
-    "static/js/3.49a0eff7.chunk.js": "/AlphaB/static/js/3.49a0eff7.chunk.js",
-    "static/js/3.49a0eff7.chunk.js.map": "/AlphaB/static/js/3.49a0eff7.chunk.js.map",
+    "static/js/2.62001c89.chunk.js": "/AlphaB/static/js/2.62001c89.chunk.js",
+    "static/js/2.62001c89.chunk.js.map": "/AlphaB/static/js/2.62001c89.chunk.js.map",
+    "static/js/3.4cb12bd2.chunk.js": "/AlphaB/static/js/3.4cb12bd2.chunk.js",
+    "static/js/3.4cb12bd2.chunk.js.map": "/AlphaB/static/js/3.4cb12bd2.chunk.js.map",
     "index.html": "/AlphaB/index.html",
     "static/css/2.e4e35064.chunk.css.map": "/AlphaB/static/css/2.e4e35064.chunk.css.map",
-    "static/css/main.ad3f95be.chunk.css.map": "/AlphaB/static/css/main.ad3f95be.chunk.css.map",
-    "static/js/2.0991171c.chunk.js.LICENSE.txt": "/AlphaB/static/js/2.0991171c.chunk.js.LICENSE.txt",
+    "static/css/main.f3be995e.chunk.css.map": "/AlphaB/static/css/main.f3be995e.chunk.css.map",
+    "static/js/2.62001c89.chunk.js.LICENSE.txt": "/AlphaB/static/js/2.62001c89.chunk.js.LICENSE.txt",
     "static/media/Aaa.a842db1c.svg": "/AlphaB/static/media/Aaa.a842db1c.svg",
     "static/media/Contact.css": "/AlphaB/static/media/Raleway-Bold.d1a96e2a.ttf",
     "static/media/cadena.88d3227b.png": "/AlphaB/static/media/cadena.88d3227b.png",
-    "static/media/design-contact.e5ca76bf.png": "/AlphaB/static/media/design-contact.e5ca76bf.png",
-    "static/media/design-contact2.1ecad8ca.png": "/AlphaB/static/media/design-contact2.1ecad8ca.png",
+    "static/media/contactsvg.8772682d.svg": "/AlphaB/static/media/contactsvg.8772682d.svg",
     "static/media/dys2Img.9af89496.png": "/AlphaB/static/media/dys2Img.9af89496.png",
     "static/media/dyslexy.b11afda0.png": "/AlphaB/static/media/dyslexy.b11afda0.png",
     "static/media/help.f7efd8c7.png": "/AlphaB/static/media/help.f7efd8c7.png",
@@ -28,10 +27,10 @@
     "static/media/tecghh.4ba1f153.png": "/AlphaB/static/media/tecghh.4ba1f153.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.c5652826.js",
+    "static/js/runtime-main.2bd6055f.js",
     "static/css/2.e4e35064.chunk.css",
-    "static/js/2.0991171c.chunk.js",
-    "static/css/main.ad3f95be.chunk.css",
-    "static/js/main.d5ec366b.chunk.js"
+    "static/js/2.62001c89.chunk.js",
+    "static/css/main.f3be995e.chunk.css",
+    "static/js/main.d28edb6d.chunk.js"
   ]
 }
