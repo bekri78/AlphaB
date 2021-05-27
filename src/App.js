@@ -7,7 +7,6 @@ import SimpleAccordion from "./components/Questions/questions";
 import Contact from "./components/Contact/Contact";
 
 import { Route, Switch } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
 
 import ScrollReveal from "./components/ScrollReveal/ScrollReveal";
 import firebase from "./utils/firebaseConfig";
@@ -37,6 +36,7 @@ function App() {
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      firebase.auth.GithubAuthProvider.PROVIDER_ID,
     ],
     callbacks: {
       signInSuccess: () => false,
@@ -48,19 +48,18 @@ function App() {
       <UidContext.Provider value={uid}>
         {isSignedIn ? (
           <>
-            <BrowserRouter>
-              <Navigation />
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/home" component={Home} />
-                <Route
-                  path="/texte"
-                  component={(SimpleAccordion, TextToSpeech)}
-                />
-                <Route path="/map" component={CardMaps} />
-                <Route path="/contact" component={Contact} />
-              </Switch>
-            </BrowserRouter>
+            <Navigation />
+            <Switch>
+              <Route exact path="/" component={Home} />
+
+              <Route
+                exact
+                path="/texte"
+                component={(SimpleAccordion, TextToSpeech)}
+              />
+              <Route exact path="/map" component={CardMaps} />
+              <Route exact path="/contact" component={Contact} />
+            </Switch>
           </>
         ) : (
           <div style={{ backgroundColor: "#1b2437" }}>

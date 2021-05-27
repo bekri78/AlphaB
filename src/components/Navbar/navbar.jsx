@@ -3,6 +3,7 @@ import firebase from '../../utils/firebaseConfig';
 import AlphaB from './img/logo.png';
 import { Nav, Navbar, Button } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/esm/NavDropdown';
+import {Link}from 'react-router-dom'
 import './Navbar.css';
 
 function Navigation() {
@@ -15,18 +16,18 @@ function Navigation() {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link className="liens" href="/">
+          <Link className="liens" to="/">
             Accueil
-          </Nav.Link>
-          <Nav.Link className="liens" href="/texte">
+          </Link>
+          <Link className="liens" to="/texte">
             Outils
-          </Nav.Link>
-          <Nav.Link className="liens" href="/map">
+          </Link>
+          <Link className="liens" to="/map">
             Professionnels
-          </Nav.Link>
-          <Nav.Link className="liens" href="/contact">
+          </Link>
+          <Link className="liens" to="/contact">
             Contact
-          </Nav.Link>
+          </Link>
           <NavDropdown title="Theme" className="liens" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Light</NavDropdown.Item>
             <NavDropdown.Divider />

@@ -4,8 +4,7 @@ import Button from '@material-ui/core/Button';
 import Footer from '../Footer/Footer';
 import { SnackbarProvider, useSnackbar } from 'notistack';
 import { makeStyles } from '@material-ui/core/styles';
-import Design from './img/design-contact.png';
-import Design2 from './img/design-contact2.png';
+ import ContactSvg from './img/contactsvg.svg'
 import './Contact.css';
 import emailjs from 'emailjs-com';
 
@@ -89,8 +88,8 @@ function Contact() {
   return (
     <>
       <div className="container-design">
-        <img id="design" src={Design} alt="design" />
-        <img id="design" src={Design2} alt="design" />
+        <img id="design" src={ContactSvg} alt="design" />
+       
       </div>
       <h2 className="title-contact">Écrivez-nous</h2>
       <form className={classes.root} noValidate autoComplete="off">

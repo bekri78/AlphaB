@@ -15,7 +15,6 @@ function UpdateDelete({ item, center }) {
   const [lastnameUpdate, setlastNameUpdate] = useState(null);
   const [jobUpdate, setJobUpdate] = useState(null);
   const [messageUpdate, setMessageUpdate] = useState(null);
-  const [isModalVisible, setIsModalVisible] = useState(false);
   const [ratingUpdate, setRatingUpdate] = useState(null);
   const uid = useContext(UidContext);
   const [show, setShow] = useState(false);
@@ -49,12 +48,14 @@ function UpdateDelete({ item, center }) {
         message: messageUpdate,
       });
     }
+     
     if (ratingUpdate !== null) {
       avis.update({
         rating: ratingUpdate,
       });
     }
     setUpdate(false);
+    handleClose()
   };
 
   const deleteItem = () => {
@@ -72,9 +73,9 @@ function UpdateDelete({ item, center }) {
               {item.firstname} {item.lastname}
             </Card.Title>
             <Card.Subtitle className="mb-1 text-muted">Metier : {item.job}</Card.Subtitle>
-            Note:
-            <Rating style={{ paddingLeft: '1.25rem' }} name="read-only" value={item.rating} readOnly />
-          
+            <div style={{display:'flex'}}>
+            Note: <Rating style={{ paddingLeft: '1.25rem' }} name="read-only" value={item.rating} readOnly />
+          </div>
             <Card.Text> Avis: {item.message}</Card.Text>
             {authorCheck() && (
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: 0, height: 'auto' }}>
@@ -87,7 +88,7 @@ function UpdateDelete({ item, center }) {
               </div>
             )}
           </Card.Body>
-          <Card.Footer className="text-muted">2 days ago</Card.Footer>
+          <Card.Footer className="text-muted">Le: { item.dateFormated}</Card.Footer>
         </Card>
       
       )}
@@ -122,6 +123,10 @@ function UpdateDelete({ item, center }) {
             <Form.Control as="textarea" defaultValue={item.message} onChange={(e) => setMessageUpdate(e.target.value)} rows={3} />
           </Form.Group>
         </Form>
+        <Modal.Footer>
+    <Button variant="secondary" onClick={handleClose}>Close</Button>
+    <Button variant="primary" onClick={updateItem}>Save changes</Button>
+  </Modal.Footer>
       </Modal>
     </>
   );

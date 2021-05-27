@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { UidContext } from '../UidContext';
+import {  format } from 'date-fns'
+ 
 import firebase from '../../utils/firebaseConfig';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -49,6 +51,8 @@ function OpinionForm() {
   const [rating, setRating] = React.useState(0);
   const uid = useContext(UidContext);
   const { enqueueSnackbar } = useSnackbar();
+  const date = new Date()
+  const dateFormated = format(date,"dd/MM/yyyy")
 
   const createAvis = () => {
     const avisDB = firebase.database().ref('avisDB');
@@ -59,6 +63,8 @@ function OpinionForm() {
       job,
       rating,
       message,
+      dateFormated,
+       
     };
     if (uid && firstname && lastname && job && rating && message) {
       avisDB.push(avis);
@@ -81,7 +87,8 @@ function OpinionForm() {
   const handleClose = () => {
     setOpen(false);
   };
-
+  
+ 
   return (
     <div>
       <Button className="opinion-button" variant="contained" color="primary" onClick={handleClickOpen}>

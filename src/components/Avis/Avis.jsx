@@ -5,13 +5,15 @@ import UpdateDelete from '../UpdateDelete/UpdateDelete';
 import Carousel from 'react-bootstrap/Carousel'
 import Fade from 'react-bootstrap/Fade'
 import Button from 'react-bootstrap/Button'
+import AOS from 'aos';
+ 
+import 'aos/dist/aos.css';
 
 import './Avis.css';
 function Avis() {
   const [avisList, setAvisList] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [affichage, setAffichage] = useState(false);
-  const [affichageCardLoader, setAffichageCardLoader] = useState(true);
+ 
+ 
   const [indexe, setIndex] = useState(0);
   const [open, setOpen] = useState(false);
 
@@ -32,15 +34,10 @@ function Avis() {
     });
   }, []);
 
-  const onChange = (checked) => {
-    setLoading(!checked);
-    setAffichage(!affichage);
-    setAffichageCardLoader(!affichageCardLoader);
-  };
-
+   
   return (
     <div style={{ margin: 'auto' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '5%' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '5%' }} data-aos="fade-up"  data-aos-duration="1000">
         <h2 style={{ textAlign: 'center' }}>Ils sont conquis et vous ?</h2>
         <img style={{ width: '30%' }} src={Joy} alt="joy" />
       </div>
@@ -67,11 +64,11 @@ function Avis() {
         aria-controls="example-fade-text"
         aria-expanded={open}
       >
-        {open ? 'Cacher':'Afficher'}
+        {open ? 'Masquer':'Afficher'}
       </Button>
         </div>
         <Fade in={open}>
-        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '2%' }}>
+        <div style={{ display: open ? 'flex':'none', justifyContent: 'center', flexWrap: 'wrap', padding: '2%' }}>
            
           
            
@@ -83,5 +80,5 @@ function Avis() {
     </div>
   );
 }
-
+AOS.init();
 export default Avis;

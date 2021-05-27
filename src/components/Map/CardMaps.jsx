@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import Marker from './Marker/Marker.tsx';
 import Marker2 from './Marker/Marker2.tsx';
@@ -93,7 +95,7 @@ function CardMaps() {
   };
 
   const filterMarker = (id) => {
-    {
+    
       dataPlace
         .filter((el) => el.place_id.includes(id)) //filtre dataPlace au niveau de place_id qui contient (id)
         .map((filterName) => {
@@ -101,7 +103,7 @@ function CardMaps() {
           setIdDetail(filterName.place_id); // assignation de l'id de l'object filtré a idDetail
           setResetBtn(true); // assignation de l'id de l'object filtré a idDetail
         });
-    }
+    
   };
 
   const ResetCardAndColor = () => {
@@ -115,7 +117,7 @@ function CardMaps() {
   const rating = (newValue) => {
     let arrayRating = [];
 
-    {
+    
       dataPlace
         .filter((el) => el.rating === newValue)
         .map((filterRating) => {
@@ -124,7 +126,7 @@ function CardMaps() {
           setDataRating(arrayRating);
           setResetBtn(true);
         });
-    }
+    
   };
 
   return (

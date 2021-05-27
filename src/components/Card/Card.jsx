@@ -32,6 +32,12 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: '#e31d65',
   },
+  header:{
+    minHeight:100,
+    maxHeight:100,
+    overflow: 'auto',
+
+  }
 }));
 // etape  recuperer place_id
 // etape 2 axios sur le place_id
@@ -69,7 +75,7 @@ export default function CardMaterialUi(props) {
   return (
     <Col xs={12} sm={12} md={6} lg={4}>
       <Card className={classes.root}>
-        <CardHeader
+        <CardHeader className={classes.header}
           avatar={
             <Avatar aria-label="recipe" className={classes.avatar}>
               {props.initiale}
