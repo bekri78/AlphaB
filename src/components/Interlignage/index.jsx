@@ -58,7 +58,7 @@ export default function Interlignage(props) {
           onOpen={handleOpenSelectLine}
           value={line}
           onChange={handleChangeLineClick}>
-          <MenuItem className={classes.menuItem} value="">
+          <MenuItem className={classes.menuItem} value="initial">
             <em>None</em>
           </MenuItem>
           <MenuItem className={classes.menuItem} value={1.5}>

@@ -1,4 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useCallback, Fragment } from 'react';
+import Pdf from 'react-to-pdf';
 import SimpleAccordion from '../components/Questions/questions';
 import SpeechSynthesisExample from '../components/Speech/useSpeechSynthesis';
 import SpeechRecognitionExample from '../components/Speech/useSpeechRecognition';
@@ -12,7 +14,7 @@ import Police from '../components/Police';
 import Footer from '../components/Footer/Footer';
 import InputBase from '@material-ui/core/InputBase';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Typography, CardContent, Card } from '@material-ui/core';
+import { Box, Typography, CardContent, Card, Button } from '@material-ui/core';
 import './TextToSpeech.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -70,15 +72,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const ref = React.createRef();
 function TextToSpeech() {
   const classes = useStyles();
   const [value, setValue] = useState();
   const [modifiedValue, setModifiedValue] = useState([]); // creation d'un state array pour contenir le texte tranformer de voyelles.jsx
   const [currentPolice, setCurrentPolice] = useState('');
   const [currentSize, setCurrentSize] = useState('');
-  const [currentLineHeight, setCurrentLineHeight] = useState(''); //useState pour modifier interlignage
+  const [currentLineHeight, setCurrentLineHeight] = useState('initial'); //useState pour modifier interlignage
   const [currentWordSpace, setCurrentWordSpace] = useState(''); //useState pour modifier inter-mot
-  const [letterSpacing, setLetterSpacing] = useState('');
+  const [letterSpacing, setLetterSpacing] = useState('initial');
   const [colorText, setColorText] = useState('');
   const [affichage, setAffichage] = useState(true);
 
@@ -123,6 +126,9 @@ function TextToSpeech() {
         <Voyelles textModifier={handleTextModifier} value={value} />
       </div>
       <div className={classes.root}>
+        <Pdf targetRef={ref} filename="AlphaB.pdf">
+        {({ toPdf }) => <Button  style={{marginLeft:'auto', marginRight:8}}onClick={toPdf} variant="contained">Télécharger</Button>}
+      </Pdf>
         <Box className={classes.containerWrapper}>
           <InputBase
             id="filled-full-width"
@@ -144,7 +150,7 @@ function TextToSpeech() {
           {/* wordBreak: 'break-all'  = retour a la ligne du text automatique*/}
           <div style={{ wordBreak: 'break-all' }}>
             {/* utilisation d'une card car textarea ne supporte pas le html */}
-            <Card className={classes.root2}>
+            <Card className={classes.root2} ref={ref}>
               <CardContent>
                 {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
                   Vos Modifications
@@ -171,6 +177,7 @@ function TextToSpeech() {
         </Box>
       </div>
       <Footer />
+   
     </div>
   );
 }

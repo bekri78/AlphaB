@@ -3,7 +3,9 @@ import OpinionForme from '../OpinionForm/OpinionForm';
 import { Container, Col, Row } from 'react-bootstrap';
 import Logo from '../Navbar/img/logo.png';
 import './Footer.css';
+import { useTranslation } from "react-i18next";
 function Footer() {
+  const [t] = useTranslation("global");
   return (
     <footer className="footer-area footer-fixed">
       <div className="footer-top ">
@@ -16,7 +18,8 @@ function Footer() {
                 </a>
                 <p className="mt-2 mb-3" id="textbottom">
                   {'Alpha B'} <br></br>
-                  {"L'appli qui facilite la lecture"}
+                  {t("footer.title")}
+                 
                 </p>
               </div>
             </Col>
@@ -24,17 +27,17 @@ function Footer() {
               <div className="footer-itemss">
                 <ul>
                   <li className="py-2">
-                    <a href="/#">Accueil</a>
+                    <a href="/#">{t("footer.accueil")}</a>
                   </li>
                   <li className="py-2">
-                    <a href="/#">Text</a>
+                    <a href="/#">{t("footer.outils")}</a>
                   </li>
                   <li className="py-2">
-                    <a href="/map">Maps</a>
+                    <a href="/map">{t("footer.carte")}</a>
                   </li>
 
                   <li className="py-2">
-                    <a href="/contact">Contact</a>
+                    <a href="/contact">{t("footer.contact")}</a>
                   </li>
                 </ul>
               </div>
@@ -71,7 +74,7 @@ function Footer() {
           <Row className="align-items-center">
             <Col xs={12} sm={12} md={12} lg={12}>
               <div className="copyright-area d-flex flex-wrap justify-content-center justify-content-sm-between text-center py-4">
-                <div className="copyright-left">© Copyrights 2021 AlphaB All rights reserved.</div>
+                <div className="copyright-left">   {t("footer.copyrights")}</div>
                 <div className="social-icons d-flex">
                   <a className="facebook" href="/#">
                     <svg
@@ -139,15 +142,15 @@ function Footer() {
                   </a>
                 </div>
                 <div className="copyright-right">
-                  Made By{' '}
+                {t("footer.personne")}
+                  <a className="copyright-name" href="https://www.linkedin.com/in/mehdi-bekri/" target="_blank" rel="noreferrer">
+                    Mehdi
+                  </a>
                   <a className="copyright-name" href="https://www.linkedin.com/in/anne-laure-ferrari-480676209/" target="_blank" rel="noreferrer">
                     Emeline
                   </a>
                   <a className="copyright-name" href="https://www.linkedin.com/in/sokun-thy-te-51aa9b211/" target="_blank" rel="noreferrer">
                     Scotty
-                  </a>
-                  <a className="copyright-name" href="https://www.linkedin.com/in/mehdi-bekri/" target="_blank" rel="noreferrer">
-                    Mehdi
                   </a>
                   <a className="copyright-name" href="https://www.linkedin.com/in/anne-laure-ferrari-480676209/" target="_blank" rel="noreferrer">
                     Anne-Laure

@@ -5,6 +5,7 @@ import UpdateDelete from '../UpdateDelete/UpdateDelete';
 import Carousel from 'react-bootstrap/Carousel'
 import Fade from 'react-bootstrap/Fade'
 import Button from 'react-bootstrap/Button'
+import { useTranslation } from "react-i18next";
 import AOS from 'aos';
  
 import 'aos/dist/aos.css';
@@ -12,11 +13,9 @@ import 'aos/dist/aos.css';
 import './Avis.css';
 function Avis() {
   const [avisList, setAvisList] = useState([]);
- 
- 
   const [indexe, setIndex] = useState(0);
   const [open, setOpen] = useState(false);
-
+  const [t] = useTranslation("global");
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
@@ -38,7 +37,7 @@ function Avis() {
   return (
     <div style={{ margin: 'auto' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '5%' }} data-aos="fade-up"  data-aos-duration="1000">
-        <h2 style={{ textAlign: 'center' }}>Ils sont conquis et vous ?</h2>
+        <h2 style={{ textAlign: 'center' }}>{t("avis.avisTitle")}</h2>
         <img style={{ width: '30%' }} src={Joy} alt="joy" />
       </div>
       <div className="custom-shape-divider-bottom-1621548384">
@@ -47,7 +46,7 @@ function Avis() {
         </svg>
       </div>
       <div style={{ backgroundColor: '#553ab8', height: 'auto' }}>
-        <p className="topAvis">Top commentaire</p>
+        <p className="topAvis">{t("avis.topComment")}</p>
         <Carousel style={{ backgroundColor: '#553ab8' }} activeIndex={indexe} onSelect={handleSelect}>
       
           {avisList && avisList.map((item, index) =>  (
@@ -58,13 +57,13 @@ function Avis() {
         }
         </Carousel>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 'auto', height: 'auto' }}>
-          <p className="allAvis">Decouvrir tous les avis</p>
+          <p className="allAvis">{t("avis.decouvrir")}</p>
           <Button
         onClick={() => setOpen(!open)}
         aria-controls="example-fade-text"
         aria-expanded={open}
       >
-        {open ? 'Masquer':'Afficher'}
+        {open ? t("avis.masquer"):t("avis.afficher")}
       </Button>
         </div>
         <Fade in={open}>

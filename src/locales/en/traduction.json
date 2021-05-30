@@ -1,0 +1,53 @@
+{
+    "home":{
+        "title":"The reading facilitator app ",
+        "oms":"8 to 12% of the world population is affected by reading and writing disorders specific according to the WHO, the most famous being dyslexia. Reading is omnipresent in our daily life.",
+        "oms2":"For AlphaB, it is essential to provide concrete help to all people in difficulty.",
+        "oms3":"AlphaB has created a suitable and effective solution for all those who require assistance while reading.",
+        "dislexique":"How does a dyslexic think?",
+        "dislexique1":" Thus, the dyslexic understands only the partial meaning of a word or phrase, but not its overall meaning.",
+        "dislexique2":" The message of a text can escape him totally or partially.",
+        "dislexique3":"As a result, he may have blockages in reading and difficulties in different subjects.",
+        "dyslexique4":"The fundamental faculties (of dyslexics), if they are not repressed or destroyed by parents or the education system, can merge into 2 characteristic traits:",
+        "dyslexique5":"above-average intelligence and exceptional creativity. And from there can emerge the true talent of dyslexia: the gift of excellence.",
+        "dyslexique6":"the solutions to treat dyslexia?",
+        "dyslexique7":"There is no treatment but support to reduce the incidence of this disorder.",
+        "dyslexique8":"It is imperative to identify the dyslexic child as early as possible. Sometimes, in an informed environment, we can spot the disorder at the end of kindergarten"
+    },
+    "info":{
+        "title":" Express features",
+        "texte":"A simple tool is accessible to all in order to facilitate the reading and understanding of texts",
+        "block1Title":"Adaptable",
+        "block1Text":" Depending on your preferences, the tool adapts to your daily reading needs.",
+        "block2Title":"Comments",
+        "block2Text":" Use our tool and leave us a comment, we will be happy to post it on our site.",
+        "block3Title":"Private data",
+        "block3Text":" As part of our privacy policy AlphaB does not collect your data or your texts.",
+        "block4Title":" Easy to adjust",
+        "block4Text":"For children and adults we have simplified the functionality as much as possible.",
+        "block5Title":" Usable on Mobile",
+        "block5Text":"Available on mobile as well as on all different media",
+        "block6Title":"Help Use",
+        "block6Text":"A question answer is available to understand the tools if necessary"
+
+    },
+    "avis":{
+        "avisTitle":"They are satisfied and you?",
+        "topComment":"Best comments",
+        "decouvrir":"Discover all reviews",
+        "afficher":"display",
+        "masquer":"hide"
+    },
+    "footer":{
+        "title":"The app that makes reading easier",
+        "copyrights":"© Copyrights 2021 AlphaB All rights reserved.",
+        "accueil":"Home",
+        "outils":"Tools",
+        "carte":"Maps",
+        "contact":"Contact",
+        "personne": "Made by"
+
+    }
+}
+
+ 

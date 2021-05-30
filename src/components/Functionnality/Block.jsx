@@ -4,7 +4,9 @@ import AOS from 'aos';
 import Reglage from '../Home/Img/reglage.png';
 import Help from '../Home/Img/help.png';
 import Cadena from '../Home/Img/cadena.png';
+import { useTranslation } from "react-i18next";
 export default function Functionnality() {
+  const [t] = useTranslation("global");
     return (
       
                <Container>
@@ -24,11 +26,11 @@ export default function Functionnality() {
                 fill="currentColor"
                 d="M176 80c-52.94 0-96 43.06-96 96 0 8.84 7.16 16 16 16s16-7.16 16-16c0-35.3 28.72-64 64-64 8.84 0 16-7.16 16-16s-7.16-16-16-16zM96.06 459.17c0 3.15.93 6.22 2.68 8.84l24.51 36.84c2.97 4.46 7.97 7.14 13.32 7.14h78.85c5.36 0 10.36-2.68 13.32-7.14l24.51-36.84c1.74-2.62 2.67-5.7 2.68-8.84l.05-43.18H96.02l.04 43.18zM176 0C73.72 0 0 82.97 0 176c0 44.37 16.45 84.85 43.56 115.78 16.64 18.99 42.74 58.8 52.42 92.16v.06h48v-.12c-.01-4.77-.72-9.51-2.15-14.07-5.59-17.81-22.82-64.77-62.17-109.67-20.54-23.43-31.52-53.15-31.61-84.14-.2-73.64 59.67-128 127.95-128 70.58 0 128 57.42 128 128 0 30.97-11.24 60.85-31.65 84.14-39.11 44.61-56.42 91.47-62.1 109.46a47.507 47.507 0 0 0-2.22 14.3v.1h48v-.05c9.68-33.37 35.78-73.18 52.42-92.16C335.55 260.85 352 220.37 352 176 352 78.8 273.2 0 176 0z"></path>
             </svg>
-            <span className="text-primary">Information</span>
+            <span className="text-primary">Info</span>
           </span>
-          <h2 className="sc-hKwCoD kcKwBQ"> Functionnalitées express</h2>
+          <h2 className="sc-hKwCoD kcKwBQ">{t("info.title")}</h2>
           <p className="sc-eCImvq fULbhd">
-         Un outils simple est accessible a tous afin de  faciliter la lecture et la comprehension de textes
+          {t("info.texte")}
           </p>
         </section>
         <Row>
@@ -42,8 +44,8 @@ export default function Functionnality() {
                 />
               </div>
               <div className="icon-text">
-                <h3 className="mb-2">Adaptable</h3>
-                <p className="sc-jRQAMF hDxSWz">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos.</p>
+                <h3 className="mb-2"> {t("info.block1Title")}</h3>
+                <p className="sc-jRQAMF hDxSWz"> {t("info.block1Text")}</p>
               </div>
             </div>
           </div>
@@ -57,8 +59,8 @@ export default function Functionnality() {
                 />
               </div>
               <div className="icon-text">
-                <h3 className="mb-2">Live Chat</h3>
-                <p className="sc-jRQAMF hDxSWz">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos.</p>
+                <h3 className="mb-2">{t("info.block2Title")}</h3>
+                <p className="sc-jRQAMF hDxSWz">{t("info.block2Text")} </p>
               </div>
             </div>
           </div>
@@ -68,8 +70,8 @@ export default function Functionnality() {
                 <img className="avatar-sm" src={Cadena} alt="" />
               </div>
               <div className="icon-text">
-                <h3 className="mb-2">Secure Data</h3>
-                <p className="sc-jRQAMF hDxSWz">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos.</p>
+                <h3 className="mb-2">{t("info.block3Title")}</h3>
+                <p className="sc-jRQAMF hDxSWz">{t("info.block3Text")}</p>
               </div>
             </div>
           </div>
@@ -79,8 +81,8 @@ export default function Functionnality() {
                 <img className="avatar-sm" src={Reglage} alt="" />
               </div>
               <div className="icon-text">
-                <h3 className="mb-2">Facile a regler</h3>
-                <p className="sc-jRQAMF hDxSWz">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos.</p>
+                <h3 className="mb-2"> {t("info.block4Title")}</h3>
+                <p className="sc-jRQAMF hDxSWz">{t("info.block4Text")}</p>
               </div>
             </div>
           </div>
@@ -94,8 +96,8 @@ export default function Functionnality() {
                 />
               </div>
               <div className="icon-text">
-                <h3 className="mb-2">Utilisable sur Mobile</h3>
-                <p className="sc-jRQAMF hDxSWz">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos.</p>
+                <h3 className="mb-2"> {t("info.block5Title")}</h3>
+                <p className="sc-jRQAMF hDxSWz">{t("info.block5Text")} </p>
               </div>
             </div>
           </div>
@@ -105,8 +107,8 @@ export default function Functionnality() {
                 <img className="avatar-sm" src={Help} alt="" />
               </div>
               <div className="icon-text">
-                <h3 className="mb-2">Aide Utilisation</h3>
-                <p className="sc-jRQAMF hDxSWz">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos.</p>
+                <h3 className="mb-2">{t("info.block6Title")}</h3>
+                <p className="sc-jRQAMF hDxSWz">{t("info.block6Text")}</p>
               </div>
             </div>
           </div>

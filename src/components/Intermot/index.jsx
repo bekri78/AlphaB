@@ -58,7 +58,7 @@ export default function Intermot(props) {
           onOpen={handleOpenSelectLine}
           value={wordSpace}
           onChange={handleChangeWordSpaceClick}>
-          <MenuItem className={classes.menuItem} value="">
+          <MenuItem className={classes.menuItem} value="initial">
             <em>None</em>
           </MenuItem>
           <MenuItem className={classes.menuItem} value={3}>

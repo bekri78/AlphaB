@@ -1,16 +1,22 @@
-import React from 'react';
-import firebase from '../../utils/firebaseConfig';
-import AlphaB from './img/logo.png';
-import { Nav, Navbar, Button } from 'react-bootstrap';
-import NavDropdown from 'react-bootstrap/esm/NavDropdown';
-import {Link}from 'react-router-dom'
-import './Navbar.css';
+import React from "react";
+import firebase from "../../utils/firebaseConfig";
+import AlphaB from "./img/logo.png";
+import { Nav, Navbar, Button } from "react-bootstrap";
+import NavDropdown from "react-bootstrap/esm/NavDropdown";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
-function Navigation() {
+function Navigation(props) {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="sticky-top">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      className="sticky-top"
+    >
       <Navbar.Brand href="#home">
-        {' '}
+        {" "}
         <img id="logo" src={AlphaB} alt="AlphaB" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -28,10 +34,35 @@ function Navigation() {
           <Link className="liens" to="/contact">
             Contact
           </Link>
-          <NavDropdown title="Theme" className="liens" id="collasible-nav-dropdown">
+          <NavDropdown
+            title="Theme"
+            className="liens"
+            id="collasible-nav-dropdown"
+          >
             <NavDropdown.Item href="#action/3.1">Light</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="#action/3.2">Dark</NavDropdown.Item>
+          </NavDropdown>
+          <NavDropdown
+            title="Lang"
+            className="liens"
+            id="collasible-nav-dropdown"
+          >
+            <NavDropdown.Item onClick={() => props.changeLng("fr")}>
+              FR
+            </NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item onClick={() => props.changeLng("en")}>
+              EN
+            </NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item onClick={() => props.changeLng("es")}>
+              ES
+            </NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item onClick={() => props.changeLng("it")}>
+              IT
+            </NavDropdown.Item>
           </NavDropdown>
         </Nav>
         <Nav>

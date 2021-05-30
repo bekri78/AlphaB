@@ -97,7 +97,7 @@ export default function SimpleAccordion() {
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+               Une fois que vous êtes satisfaits de vos modifications, cliquez sur le bouton telecharger pour le récuperer au format pdf.
               </Typography>
             </AccordionDetails>
           </Accordion>

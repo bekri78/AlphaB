@@ -43,3 +43,6 @@
   text-align: center;
   padding:2%;
 }
+.carousel-indicators{
+  position:inherit !important;
+}

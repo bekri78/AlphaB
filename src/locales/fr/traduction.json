@@ -1,0 +1,55 @@
+{
+    "home":{
+        "title":"L’appli facilitateur de lecture",
+        "oms":" 8 à 12 % de la population mondiale est touchée par des troubles de la lecture et de l'écriture spécifique selon l'OMS.Le plus connus etant la dyslexie. La lecture est omniprésente dans notre quotiden.",
+        "oms2":"Pour AlphaB, il est essentiel d’apporter une aide concrète à toutes personnes en difficulté.",
+        "oms3":" AlphaB a créé une solution adaptée et efficace pour pour toutes les personnes nécessitant une assistance lors de la lecture.",
+        "dislexique":"Comment pense un dyslexique ?",
+        "dislexique1":"Ainsi, le dyslexique ne comprend que le sens partiel d'un mot ou d'une phrase, mais pas son sens global.",
+        "dislexique2":"Le message d'un texte peut lui échapper totalement ou partiellement.",
+        "dislexique3":"De ce fait, il peut avoir des blocages dans la lecture et des difficultés dans différentes matières",
+        "dyslexique4":" Les facultés fondamentales (des dyslexiques), si elles ne sont pas réprimées ou détruites par les parents ou le système éducatif, peuvent se fondre en 2 traits caractéristiques :",
+        "dyslexique5":" une intelligence supérieure à la moyenne et une créativité exceptionnelle. Et de là peut émerger le talent véritable de la dyslexie : le don d’excellence.",
+        "dyslexique6":"les solutions pour traiter la dyslexie?",
+        "dyslexique7":" Il n'y a pas de traitement mais une prise en charge pour diminuer l'incidence de ce trouble.",
+        "dyslexique8":"Il est impératif de repérer le plus tôt possible l'enfant dyslexique. Parfois, au sein d'un environnement averti, on peut repérer le trouble dès la fin de maternelle"
+   
+        
+    },
+    "info":{
+        "title":"Fonctionnalitées expresses",
+        "texte":"Un outil simple est accessible a tous afin de faciliter la lecture et la comprehension de textes",
+        "block1Title":"Adaptable",
+        "block1Text":"Suivant vos preferences l'outil s'adapte a vos besoins du quotidien en matiere de lecture.",
+        "block2Title":"Avis",
+        "block2Text":"Utilisez notre outil et laissez nous un avis , nous serons ravis de l'afficher sur notre site.",
+        "block3Title":"Données privées",
+        "block3Text":"Dans le cadre de notre politique de confidentialité AlphaB ne collecte pas vos données ni vos textes.",
+        "block4Title":"Facile a regler",
+        "block4Text":"Pour petit est grand  nous avons simplifié au maximum les fonctionnalitées.",
+        "block5Title":"Utilisable sur Mobile",
+        "block5Text":"Disponible sur mobile ainsi que  sur tous les differents supports",
+        "block6Title":" Aide Utilisation",
+        "block6Text":"Un question reponse est disponible pour comprendre l'outils en cas de besoin"
+    },
+    "avis":{
+        "avisTitle":"Ils sont conquis et vous ?",
+        "topComment":"Top commentaires",
+        "decouvrir":"Decouvrir tous les avis",
+        "afficher":"afficher",
+        "masquer":"masquer"
+    },
+    "footer":{
+        "title":"L'appli qui facilite la lecture",
+        "copyrights":"© Copyrights 2021 AlphaB All rights reserved.",
+        "accueil":"Accueil",
+        "outils":"Outils",
+        "carte":"Carte",
+        "contact":"Contact",
+        "personne": "Fait par"
+
+    }
+    
+
+  
+}
