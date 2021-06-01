@@ -49,7 +49,60 @@
         "carte":"Menù",
         "contact":"Contact",
         "personne": "Fatto da"
-
+    },
+    "Outils":{
+    "entrer":"Inserisci il tuo testo",
+    "modifier":"Modifica il tuo testo",
+    "ecouter":"Ascolta il tuo testo",
+    "recuperer":"Recupera il suo testo",
+    "entrerText":"L'applicazione AlphaB ti offre qui 2 modi semplici e intuitivi per inserire il tuo testo.",
+    "entrerText2":"-Vocalmente, premendo il pulsante 'Parla'",
+    "entrerText3":"- Manualmente, semplicemente digitando il testo nell'apposito campo",
+    "modifierText":"Una volta che il tuo testo è stato scritto nella sezione di sinistra, avrai la possibilità di scegliere tra 7 opzioni di modifica, che possono essere tutte combinate, ti lasciamo libero di manipolarle. Troverai così quello che meglio si adatta al tuo comfort visivo.",
+    "ecouterText":"Per aiutarti attraverso i suoni, scegli dal nostro menu a tendina la voce che ti piace, la sua velocità di riproduzione e il suo tono. Una volta completata la configurazione, premere 'Riproduci'.",
+    "recupererText":"Una volta che sei soddisfatto delle modifiche, fai clic sul pulsante di download per ottenerlo in formato pdf.",
+    "voix":"voce",
+    "langue":"Lingua",
+    "langueText":"Seleziona la tua lingua per consentire una migliore trascrizione delle tue parole.",
+    "Interlignage":"Interlinea",
+    "Inter-mot":"Inter-parola",
+    "Inter-lettre":"Inter-lettera",
+    "Taille":"Formato",
+    "Police":"Carattere",
+    "Couleur":"Colore",
+    "CouleurVoyelle":"Colore vocale",
+    "telecharger":"Scarica",
+    "parler":"Parlare",
+    "aide":"HO BISOGNO DI AIUTO ?",
+    "compris":"ho capito"
+    },
+    "Opinion":{
+        "btn": "Lascia una recensione",
+        "title":"La tua opinione conta",
+        "texte":"Nel nostro processo di continua evoluzione, l'intero team AlphaB è interessato alla tua opinione perché senza di te non potremmo continuare la nostra grande avventura. Grazie per il tuo contributo.",
+        "nom":"Nome",
+        "prenom":"Conome",
+        "metier":"Lavoro",
+        "temoignage":"Testimonianza",
+        "envoyer":"Mandare"
+    },
+    "Navbar":{
+        "accueil":"Accoglienza",
+        "outils":"Utensili",
+        "professionnels":"Medico",
+        "contact":"Contact"
+    },
+    "Contact":{
+        "title":"Scrivi U.S",
+        "btn":"mandare",
+        "nom":"Nome",
+        "prenom":"Conome",
+        "message":"Messaggio",
+        "envoyer":"Il vostro messaggio è stato inviato.",
+        "erreur":"Si è verificato un errore, riprova",
+        "remplire":"Si prega di compilare correttamente i campi richiesti *",
+        "champs":"Tutti i campi devono essere completati."
     }
+    
   
 }

@@ -47,6 +47,59 @@
         "contact":"Contact",
         "personne": "Made by"
 
+    },
+    "Outils":{
+    "entrer":"Enter your text",
+    "modifier":"Modify your text",
+    "ecouter":"Listen to your text",
+    "recuperer":" Retrieve its text",
+    "entrerText":"The AlphaB application offers you here 2 simple and intuitive ways to insert your text.",
+    "entrerText2":"-Vocally, by pressing the 'Talk' button",
+    "entrerText3":"-Manually, by simply typing your text in the field provided for this purpose",
+    "modifierText":"Once your text is written in the left section, you will have the choice between 7 modification options, all of which can be combined, we leave you free to manipulate them. You will thus find the one that best matches your visual comfort.",
+    "ecouterText":"To help you through the sounds, choose from our drop-down menu the voice you like, its playback speed and its tone. Once your configuration is done, press 'Play'.",
+    "recupererText":" Once you are happy with your changes, click on the download button to get it in pdf format.",
+    "voix":"Voice",
+    "langue":"Language",
+    "langueText":"Select your language to allow a better transcription of your words.",
+    "Interlignage":"Interlignage",
+    "Inter-mot":"Line spacing",
+    "Inter-lettre":"Inter-letter",
+    "Taille":"Size",
+    "Police":"Font",
+    "Couleur":"Color",
+    "CouleurVoyelle":"Vowel color",
+    "telecharger":"Download",
+    "parler":"Speak",
+    "aide":"NEED HELP ?",
+    "compris":"I get it"
+    },
+    "Opinion":{
+        "btn":"Leave a review",
+        "title":"Your opinion matters",
+        "texte":"In our process of constant evolution, the entire AlphaB team is interested in your opinion because without you, we could not continue our great adventure. Thank you for your contribution.",
+        "nom":"Last Name",
+        "prenom":"First Name",
+        "metier":"Job",
+        "temoignage":"Testimony",
+        "envoyer":"Send"
+    },
+    "Navbar":{
+        "accueil":"Home",
+        "outils":"Tools",
+        "professionnels":"Doctor",
+        "contact":"Contact"
+    },
+    "Contact":{
+        "title":"Write to us",
+        "btn":"Send",
+        "nom":"Last Name",
+        "prenom":"First Name",
+        "message":"message",
+        "envoyer":"Your message has been sent.",
+        "erreur":"An error has occured please try again",
+        "remplire":"Please fill in the required fields correctly *",
+        "champs":"All fields must be completed."
     }
 }
 

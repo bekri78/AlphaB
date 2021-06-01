@@ -4,6 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -26,6 +27,7 @@ export default function Espace(props) {
   const classes = useStyles();
   const [letterSpacing, setLetterSpacing] = React.useState('');
   const [open, setOpen] = React.useState(false);
+  const [t] = useTranslation("global");
 
   const handleChange = (event) => {
     // eslint-disable-next-line react/prop-types
@@ -43,7 +45,7 @@ export default function Espace(props) {
 
   return (
     <div>
-      <h4>Inter-lettre</h4>
+      <h4>{t("Outils.Inter-lettre")}</h4>
       <FormControl className={classes.formControl}>
         <InputLabel className={classes.inputLabel} id="demo-controlled-open-select-label">
           Selectionner

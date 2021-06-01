@@ -4,12 +4,13 @@ import React, { useState, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import { useSpeechSynthesis } from '../ReactSpeech/';
 import { Container } from '../shared';
-
+import { useTranslation } from "react-i18next";
 function Example(props) {
   const [text, setText] = useState();
   const [pitch, setPitch] = useState(1);
   const [rate, setRate] = useState(1);
   const [voiceIndex, setVoiceIndex] = useState(null);
+  const [t] = useTranslation("global");
   useEffect(() => {
     setText(props.text);
   }, [props.text]);
@@ -34,7 +35,7 @@ function Example(props) {
         {!supported && <p>Quelle dommage il semble que vous ne puissiez utilisez cette fonctionnalitée.</p>}
         {supported && (
           <React.Fragment>
-            <label htmlFor="voice">Voice</label>
+            <label htmlFor="voice">{t("Outils.voix")}</label>
             <select
               id="voice"
               name="voice"

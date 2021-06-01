@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/no-onchange */
 import React, { useState, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import { useSpeechRecognition } from '../ReactSpeech/';
 import { Container } from '../shared';
+import { useTranslation } from "react-i18next";
 
 const languageOptions = [
   { label: 'Cambodian', value: 'km-KH' },
@@ -22,6 +24,7 @@ function Example(props) {
   const [lang, setLang] = useState('fr-FR');
   const [value, setValue] = useState('');
   const [blocked, setBlocked] = useState(false);
+  const [t] = useTranslation("global");
 
   useEffect(() => {
     console.log(value);
@@ -59,7 +62,7 @@ function Example(props) {
         {!supported && <p>Quelle dommage il semble que vous ne puissiez utilisez cette fonctionnalitée</p>}
         {supported && (
           <React.Fragment>
-            <label htmlFor="language">Langue</label>
+            <label htmlFor="language">{t("Outils.langue")}</label>
             <select form="speech-recognition-form" id="language" value={lang} onChange={changeLang}>
               {languageOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -68,10 +71,10 @@ function Example(props) {
               ))}
             </select>
             <div style={{ height: 112, display: 'flex', justifyContent: 'center' }}>
-              <p>Selectionner votre langue afin de permettre une meilleur retranscription de vos mots.</p>
+              <p> {t("Outils.langueText")} </p>
             </div>
             <Button variant="contained" color="primary" disabled={blocked} onClick={toggle}>
-              {listening ? 'Stop' : 'Parler'}
+              {listening ? 'Stop' : t("Outils.parler")}
             </Button>
 
             {blocked && <p style={erreurMic}>Le micro est bloqué sur ce navigateur verifiez vos parametres</p>}

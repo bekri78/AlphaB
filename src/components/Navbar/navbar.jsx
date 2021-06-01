@@ -1,12 +1,18 @@
 import React from "react";
 import firebase from "../../utils/firebaseConfig";
 import AlphaB from "./img/logo.png";
+import France from './img/france.svg'
+import Italy from './img/italy.svg'
+import Spain from './img/spain.svg'
+import United from './img/united.svg'
 import { Nav, Navbar, Button } from "react-bootstrap";
 import NavDropdown from "react-bootstrap/esm/NavDropdown";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { useTranslation } from "react-i18next";
 
 function Navigation(props) {
+  const [t] = useTranslation("global");
   return (
     <Navbar
       collapseOnSelect
@@ -15,7 +21,7 @@ function Navigation(props) {
       variant="dark"
       className="sticky-top"
     >
-      <Navbar.Brand href="#home">
+      <Navbar.Brand href="/">
         {" "}
         <img id="logo" src={AlphaB} alt="AlphaB" />
       </Navbar.Brand>
@@ -23,16 +29,16 @@ function Navigation(props) {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
           <Link className="liens" to="/">
-            Accueil
+          {t("Navbar.accueil")}
           </Link>
           <Link className="liens" to="/texte">
-            Outils
+          {t("Navbar.outils")}
           </Link>
           <Link className="liens" to="/map">
-            Professionnels
+          {t("Navbar.professionnels")}
           </Link>
           <Link className="liens" to="/contact">
-            Contact
+          {t("Navbar.contact")}
           </Link>
           <NavDropdown
             title="Theme"
@@ -48,20 +54,20 @@ function Navigation(props) {
             className="liens"
             id="collasible-nav-dropdown"
           >
-            <NavDropdown.Item onClick={() => props.changeLng("fr")}>
-              FR
+            <NavDropdown.Item className="lng" onClick={() => props.changeLng("fr")}>
+              FR    <img className="country" src={France} alt="france" />
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item onClick={() => props.changeLng("en")}>
-              EN
+            <NavDropdown.Item  className="lng" onClick={() => props.changeLng("en")}>
+              EN <img className="country" src={United} alt="united" />
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item onClick={() => props.changeLng("es")}>
-              ES
+            <NavDropdown.Item className="lng" onClick={() => props.changeLng("es")}>
+              ES <img className="country" src={Spain} alt="spain" />
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item onClick={() => props.changeLng("it")}>
-              IT
+            <NavDropdown.Item  className="lng"onClick={() => props.changeLng("it")}>
+              IT <img className="country" src={Italy} alt="italy" />
             </NavDropdown.Item>
           </NavDropdown>
         </Nav>

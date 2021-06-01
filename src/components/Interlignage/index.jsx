@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import './index.css';
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -27,6 +28,7 @@ export default function Interlignage(props) {
   const classes = useStyles();
   const [line, setLine] = React.useState('');
   const [openSelectLine, setOpenSelectLine] = React.useState(false);
+  const [t] = useTranslation("global");
 
   const handleChangeLineClick = (event) => {
     setLine(event.target.value);
@@ -44,7 +46,7 @@ export default function Interlignage(props) {
 
   return (
     <div>
-      <h4>Interlignage</h4>
+      <h4>{t("Outils.Interlignage")}</h4>
       <FormControl className={classes.formControl}>
         <InputLabel className={classes.inputLabel} id="controlled-open-select-label">
           Sélectionner

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { UidContext } from '../UidContext';
 import {  format } from 'date-fns'
- 
 import firebase from '../../utils/firebaseConfig';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -13,6 +12,7 @@ import { SnackbarProvider, useSnackbar } from 'notistack';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTranslation } from "react-i18next";
 import './OpinionForm.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -53,7 +53,7 @@ function OpinionForm() {
   const { enqueueSnackbar } = useSnackbar();
   const date = new Date()
   const dateFormated = format(date,"dd/MM/yyyy")
-
+  const [t] = useTranslation("global");
   const createAvis = () => {
     const avisDB = firebase.database().ref('avisDB');
     const avis = {
@@ -92,22 +92,21 @@ function OpinionForm() {
   return (
     <div>
       <Button className="opinion-button" variant="contained" color="primary" onClick={handleClickOpen}>
-        Laisser un avis
+       {t("Opinion.btn")}
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <h3 id="form-dialog-title">Votre avis compte</h3>
+        <h3 id="form-dialog-title"> {t("Opinion.title")}</h3>
         <DialogContent>
           <DialogContentText>
             <div className="presentation-opinion">
-              Dans notre démarche d’évolution constante, toute l’équipe d’AlphaB porte de l’intérêt à votre avis car sans vous, nous ne pourrions
-              continuer notre belle aventure. Merci pour votre contribution.
+            {t("Opinion.texte")}
             </div>
           </DialogContentText>
           <TextField
             id="firstname-opinion"
             className="text"
             variant="outlined"
-            label="Prénom"
+            label= {t("Opinion.prenom")}
             margin="dense"
             fullWidth
             value={firstname}
@@ -127,7 +126,7 @@ function OpinionForm() {
           <TextField
             id="lastname-opinion"
             variant="outlined"
-            label="Nom"
+            label= {t("Opinion.nom")}
             margin="dense"
             fullWidth
             type="text"
@@ -147,7 +146,7 @@ function OpinionForm() {
           <TextField
             id="job-opinion"
             variant="outlined"
-            label="Métier"
+            label= {t("Opinion.metier")}
             margin="dense"
             fullWidth
             type="text"
@@ -169,7 +168,7 @@ function OpinionForm() {
             variant="outlined"
             multiline
             rows={5}
-            label="Témoignage"
+            label= {t("Opinion.temoignage")}
             margin="dense"
             fullWidth
             type="text"
@@ -202,7 +201,7 @@ function OpinionForm() {
         <div className={classes.rootButton}>
           <React.Fragment>
             <Button className={classes.buttonSubmit} variant="contained" onClick={createAvis}>
-              Envoyer
+            {t("Opinion.envoyer")}
             </Button>
           </React.Fragment>
         </div>

@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
  import ContactSvg from './img/contactsvg.svg'
 import './Contact.css';
 import emailjs from 'emailjs-com';
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,10 +42,11 @@ function Contact() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const { enqueueSnackbar } = useSnackbar();
+  const [t] = useTranslation("global");
 
   const failMessage = () => {
     //ajout modal d'erreur
-    enqueueSnackbar('Tous les champs doivent être renseignés.', { variant: 'error' });
+    enqueueSnackbar( t("Contact.champs"), { variant: 'error' });
   };
 
   const isEmail = () => {
@@ -66,21 +68,21 @@ function Contact() {
         message,
       });
     } else {
-      failMessage('Merci de remplir correctement les champs requis *');
+      failMessage(t("Contact.remplire"));
     }
   };
   const sendEmail = (variable) => {
     console.log(variable);
     emailjs.send('service_ar8ie92', 'template_7te270a', variable, 'user_CeUZSbU8Tow2n0Uj8WHhH').then(
       () => {
-        enqueueSnackbar('Envoyé !.', { variant: 'success' });
+        enqueueSnackbar(t("Contact.envoyer"), { variant: 'success' });
         setFirstname('');
         setLastname('');
         setEmail('');
         setMessage('');
       },
       (error) => {
-        failMessage('Une erreur est survenu veuillez ressayer', error);
+        failMessage( t("Contact.erreur"), error);
       },
     );
   };
@@ -91,11 +93,11 @@ function Contact() {
         <img id="design" src={ContactSvg} alt="design" />
        
       </div>
-      <h2 className="title-contact">Écrivez-nous</h2>
+      <h2 className="title-contact">{t("Contact.title")}</h2>
       <form className={classes.root} noValidate autoComplete="off">
         <TextField
           id="outlined-basic"
-          label="Prénom"
+          label={t("Contact.prenom")}
           variant="outlined"
           value={firstname}
           type="text"
@@ -114,7 +116,7 @@ function Contact() {
         />
         <TextField
           id="outlined-basic"
-          label="Nom"
+          label={t("Contact.nom")}
           variant="outlined"
           value={lastname}
           type="text"
@@ -152,7 +154,7 @@ function Contact() {
         />
         <TextField
           id="outlined-multiline-static"
-          label="Message"
+          label={t("Contact.message")}
           multiline
           rows={7}
           variant="outlined"
@@ -175,7 +177,7 @@ function Contact() {
       <div className={classes.root}>
         <React.Fragment>
           <Button id="button-submit" className={classes.button} variant="contained" onClick={handleSubmit}>
-            Envoyer
+             {t("Contact.btn")}
           </Button>
         </React.Fragment>
       </div>

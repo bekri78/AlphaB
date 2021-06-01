@@ -7,6 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Avatar from '@material-ui/core/Avatar';
 import { deepOrange, deepPurple } from '@material-ui/core/colors';
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -40,6 +41,7 @@ export default function Couleur(props) {
   const classes = useStyles();
   const [couleur, setCouleur] = React.useState('');
   const [open, setOpen] = React.useState(false);
+  const [t] = useTranslation("global");
 
   const handleChange = (event) => {
     setCouleur(event.target.value);
@@ -56,7 +58,7 @@ export default function Couleur(props) {
 
   return (
     <div>
-      <h4>Couleur</h4>
+      <h4>{t("Outils.Couleur")}</h4>
       <FormControl className={classes.formControl}>
         <InputLabel className={classes.inputLabel} id="demo-controlled-open-select-label">
           Selectionner{' '}

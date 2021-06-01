@@ -50,6 +50,59 @@
         "contact":"Contact",
         "personne": "Hecho por"
 
+    },
+    "Outils":{
+    "entrer":"Ingrese su texto",
+    "modifier":"Edita tu texto",
+    "ecouter":"Escucha tu texto",
+    "recuperer":"Recuperar su texto",
+    "entrerText":"La aplicación AlphaB le ofrece aquí 2 formas sencillas e intuitivas de insertar su texto.",
+    "entrerText2":"-Vocalmente, presionando el botón 'Hablar'",
+    "entrerText3":"- Manualmente, simplemente escribiendo su texto en el campo provisto para tal fin",
+    "modifierText":"Una vez que su texto esté escrito en la sección izquierda, tendrá la opción de elegir entre 7 opciones de modificación, todas las cuales se pueden combinar, le dejamos libre para manipularlas. De este modo, encontrará el que mejor se adapte a su comodidad visual.",
+    "ecouterText":"Para ayudarte con los sonidos, elige de nuestro menú desplegable la voz que te gusta, su velocidad de reproducción y su tono. Una vez que haya terminado su configuración, presione 'Reproducir'.",
+    "recupererText":"Una vez que esté satisfecho con sus cambios, haga clic en el botón de descarga para obtenerlo en formato pdf.",
+    "voix":"Voz",
+    "langue":"Lengua",
+    "langueText":"Seleccione su idioma para permitir una mejor transcripción de sus palabras.",
+    "Interlignage":"Espaciado-líneas",
+    "Inter-mot":"Interpalabra",
+    "Inter-lettre":"Entre letras",
+    "Taille":"Tamaño",
+    "Police":"Tipografía",
+    "Couleur":"Color",
+    "CouleurVoyelle":"Color de las vocales",
+    "telecharger":"Descargar",
+    "parler":"Hablar",
+    "aide":"NECESIDAD DE AYUDA ?",
+    "compris":"he entendido"
+    },
+    "Opinion":{
+        "btn":"Dejar un comentario",
+        "title":"Tu opinion importa",
+        "texte":"En nuestro proceso de constante evolución, todo el equipo de AlphaB está interesado en tu opinión porque sin ti no podríamos continuar nuestra gran aventura. Gracias por tu contribución.",
+        "nom":"Apellido",
+        "prenom":"Nombre",
+        "metier":"Trabajo",
+        "temoignage":"Testimonio",
+        "envoyer":"Enviar"
+    },
+    "Navbar":{
+        "accueil":"Bienvenida",
+        "outils":"Herramientas",
+        "professionnels":"Médico",
+        "contact":"Contact"
+    },
+    "Contact":{
+        "title":"Escribenos",
+        "btn":"enviar",
+        "nom":"Apellido",
+        "prenom":"Nombre",
+        "message":"Mensaje",
+        "envoyer":"Su mensaje ha sido enviado correctamente.",
+        "erreur":"Se ha producido un error, inténtelo de nuevo",
+        "remplire":"Por favor complete los campos requeridos correctamente *",
+        "champs":"Todos los campos deben ser completados."
     }
   
 }

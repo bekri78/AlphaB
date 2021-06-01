@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
-
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Accordion from '@material-ui/core/Accordion';
@@ -8,6 +7,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import { ExpandMore } from '@material-ui/icons';
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SimpleAccordion() {
+  const [t] = useTranslation("global");
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const handleDisplay = () => {
@@ -47,7 +48,7 @@ export default function SimpleAccordion() {
     <>
       <div className={classes.button}>
         <Button variant="contained" onClick={handleDisplay}>
-          {open ? 'Compris' : "Besoin d'aide ?"}
+          {open ? t("Outils.compris") : t("Outils.aide")}
         </Button>
       </div>
       {open && (
@@ -60,44 +61,41 @@ export default function SimpleAccordion() {
         <div className={classes.root}>
           <Accordion>
             <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel1a-content" id="panel1a-header">
-              <Typography className={classes.heading}>Entrer son texte</Typography>
+              <Typography className={classes.heading}>{t("Outils.entrer")}</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                L'application AlphaB vous offre ici 2 manières simples et intuitives de pouvoir insérer votre texte. <br></br> - Vocalement, en
-                appuyant sur le bouton "Parler" <br></br>- Manuellement, en tapant simplement votre texte dans le champ prévu à cet effet
+              {t("Outils.entrerText")} <br></br> {t("Outils.entrerText2")}<br></br> {t("Outils.entrerText3")}
               </Typography>
             </AccordionDetails>
           </Accordion>
           <Accordion>
             <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel2a-content" id="panel2a-header">
-              <Typography className={classes.heading}>Modifier son texte</Typography>
+              <Typography className={classes.heading}>{t("Outils.modifier")}</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                Une fois votre texte écrit dans la section de gauche, vous aurez le choix entre 7 options de modifications, toutes combinables entre
-                elles, nous vous laissons le loisir de les manipuler. Vous trouverez ainsi celle qui correspondra au mieux à votre confort visuel.
+              {t("Outils.modifierText")}
               </Typography>
             </AccordionDetails>
           </Accordion>{' '}
           <Accordion>
             <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel2a-content" id="panel2a-header">
-              <Typography className={classes.heading}>Ecouter son texte</Typography>
+              <Typography className={classes.heading}>{t("Outils.ecouter")}</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                Pour vous aider à travers les sons, choisissez dans notre menu déroulant la voix qui vous plaît, sa vitesse de lecture ainsi que sa
-                tonalité. Une fois votre configuration effectuée, appuyez sur "Play".
+              {t("Outils.ecouterText")}
               </Typography>
             </AccordionDetails>
           </Accordion>
           <Accordion>
             <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel2a-content" id="panel2a-header">
-              <Typography className={classes.heading}>Recuperer son texte</Typography>
+              <Typography className={classes.heading}> {t("Outils.recuperer")}</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-               Une fois que vous êtes satisfaits de vos modifications, cliquez sur le bouton telecharger pour le récuperer au format pdf.
+              {t("Outils.recupererText")}
               </Typography>
             </AccordionDetails>
           </Accordion>

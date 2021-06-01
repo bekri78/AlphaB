@@ -15,6 +15,7 @@ import Footer from '../components/Footer/Footer';
 import InputBase from '@material-ui/core/InputBase';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography, CardContent, Card, Button } from '@material-ui/core';
+import { useTranslation } from "react-i18next";
 import './TextToSpeech.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -84,6 +85,7 @@ function TextToSpeech() {
   const [letterSpacing, setLetterSpacing] = useState('initial');
   const [colorText, setColorText] = useState('');
   const [affichage, setAffichage] = useState(true);
+  const [t] = useTranslation("global");
 
   // Callback avec array vide permet de ne pas re rendre la déclaration d'une function
   const handleValueChange = useCallback((event) => {
@@ -127,7 +129,7 @@ function TextToSpeech() {
       </div>
       <div className={classes.root}>
         <Pdf targetRef={ref} filename="AlphaB.pdf">
-        {({ toPdf }) => <Button  style={{marginLeft:'auto', marginRight:8}}onClick={toPdf} variant="contained">Télécharger</Button>}
+        {({ toPdf }) => <Button  style={{marginLeft:'auto', marginRight:8}}onClick={toPdf} variant="contained">{t("Outils.telecharger")}</Button>}
       </Pdf>
         <Box className={classes.containerWrapper}>
           <InputBase

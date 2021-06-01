@@ -6,6 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -28,6 +29,7 @@ export default function Police(props) {
   const classes = useStyles();
   const [police, setPolice] = React.useState('');
   const [open, setOpen] = React.useState(false);
+  const [t] = useTranslation("global");
 
   const handleChange = (event) => {
     // eslint-disable-next-line react/prop-types
@@ -46,7 +48,7 @@ export default function Police(props) {
 
   return (
     <div>
-      <h4>Police</h4>
+      <h4>{t("Outils.Police")}</h4>
       <FormControl className={classes.formControl}>
         <InputLabel className={classes.inputLabel} id="demo-controlled-open-select-label">
           Selectionner{' '}

@@ -7,12 +7,14 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Avatar from '@material-ui/core/Avatar';
+import { useTranslation } from "react-i18next";
 
 export default function Voyelles(props) {
   const classes = useStyles();
   const [colorValue, setColorValue] = React.useState('');
   const [open, setOpen] = React.useState(false);
   const textValue = props.value;
+  const [t] = useTranslation("global");
   const handleChange = (e) => {
     setColorValue(e.target.value);
 
@@ -42,7 +44,7 @@ export default function Voyelles(props) {
 
   return (
     <div>
-      <h4>Couleur voyelle</h4>
+      <h4>{t("Outils.CouleurVoyelle")}</h4>
       <FormControl className={classes.formControl}>
         <InputLabel style={{ fontWeight: 'bold' }} id="demo-controlled-open-select-label">
           Selectionner

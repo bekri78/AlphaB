@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 // import Button from '@material-ui/core/Button';
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -27,6 +28,7 @@ export default function Intermot(props) {
   const classes = useStyles();
   const [wordSpace, setWordSpace] = React.useState('');
   const [openSelectWord, setOpenSelectWord] = React.useState(false);
+  const [t] = useTranslation("global");
 
   const handleChangeWordSpaceClick = (event) => {
     setWordSpace(event.target.value);
@@ -44,7 +46,7 @@ export default function Intermot(props) {
 
   return (
     <div>
-      <h4>Inter-mot</h4>
+      <h4>{t("Outils.Inter-mot")}</h4>
       <FormControl className={classes.formControl}>
         <InputLabel className={classes.inputLabel} id="controlled-open-select-label">
           Sélectionner
