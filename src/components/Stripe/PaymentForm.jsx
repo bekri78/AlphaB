@@ -64,7 +64,7 @@ export default function PaymentForm() {
       </form>
       :
       <div>
-          <h2> felicitation</h2>
+          <h2> félicitation</h2>
       </div>
     }
       </>
