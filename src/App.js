@@ -6,6 +6,7 @@ import TextToSpeech from "./views/TextToSpeech";
 import CardMaps from "./components/Map/CardMaps";
 import SimpleAccordion from "./components/Questions/questions";
 import Contact from "./components/Contact/Contact";
+import Commande from "./components/Commande/Commande";
 import { Route, Switch } from "react-router-dom";
 import ScrollReveal from "./components/ScrollReveal/ScrollReveal";
 import firebase from "./utils/firebaseConfig";
@@ -14,16 +15,36 @@ import Access from "./Acces";
 import "./App.css";
 import { UidContext } from "./components/UidContext";
 import { useTranslation } from "react-i18next";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import storage from "local-storage-fallback";
 
+const GlobalStyle = createGlobalStyle`
+body{
+background-color: ${(props) =>
+  props.theme.mode === "dark" ? "#191970" : "#EEE"};
+   color: ${(props) => (props.theme.mode === "dark" ? "#EEE" : "#677294")}
+   
+  }
+
+}  
+  `;
+function getInitialTheme() {
+  const saveTheme = storage.getItem("theme");
+  return saveTheme ? JSON.parse(saveTheme) : { mode: "light" };
+}
 function App() {
   const [isSignedIn, setSignedIn] = useState(null);
   const [uid, setUid] = useState(null);
+  const [theme, setTheme] = useState(getInitialTheme);
 
   const [t, i18n] = useTranslation("global");
   const changeLang = (lng) => {
     console.log(lng);
     i18n.changeLanguage(lng);
   };
+  useEffect(() => {
+    storage.setItem("theme", JSON.stringify(theme));
+  }, [theme]);
 
   useEffect(() => {
     if (isSignedIn === null) {
@@ -54,19 +75,24 @@ function App() {
       <UidContext.Provider value={uid}>
         {isSignedIn ? (
           <>
-            <Navigation changeLng={(lng) => changeLang(lng)} />
-
-            <Switch>
-              <Route exact path="/" component={Home} />
-
-              <Route
-                exact
-                path="/texte"
-                component={(SimpleAccordion, TextToSpeech)}
+            <ThemeProvider theme={theme}>
+              <GlobalStyle />
+              <Navigation
+                changeLng={(lng) => changeLang(lng)}
+                changeWord={(word) => setTheme((theme.mode = { mode: word }))}
               />
-              <Route exact path="/map" component={CardMaps} />
-              <Route exact path="/contact" component={Contact} />
-            </Switch>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route
+                  exact
+                  path="/texte"
+                  component={(SimpleAccordion, TextToSpeech)}
+                />
+                <Route exact path="/map" component={CardMaps} />
+                <Route exact path="/contact" component={Contact} />
+                <Route exact path="/commmande" component={Commande} />
+              </Switch>
+            </ThemeProvider>
           </>
         ) : (
           <div style={{ backgroundColor: "#1b2437" }}>

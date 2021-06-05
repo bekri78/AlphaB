@@ -11,11 +11,19 @@ import Book from './Img/Aaa.svg';
 import Tech from './Img/tecghh.png';
 import Functionnality from '../Functionnality/Block'
 import { useTranslation } from "react-i18next";
-
+import styled from "styled-components";
+const Conteneur = styled.div`
+backgroundColor: ${(props) => (props.theme.mode === "dark" ? "#0db3c7" : "040c2c")};
+margin:0;
+height:auto;
+width:auto;
+  
+  }
+`;
 function Home() {
   const [t] = useTranslation("global");
   return (
-    <div style={{ whith: 'auto', height: 'auto', margin: 0, backgroundColor: 'white' }}>
+    <Conteneur>
     
       <Container fluid style={{ height: '360px', backgroundColor: '#25a954', paddingTop: '2%' }} data-aos="fade-in" >
         <Row className="d-flex justify-content-center">
@@ -107,7 +115,7 @@ function Home() {
 
       <Avis />
       <Footer />
-    </div>
+    </Conteneur>
   );
 }
 

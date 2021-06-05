@@ -45,9 +45,10 @@ function Navigation(props) {
             className="liens"
             id="collasible-nav-dropdown"
           >
-            <NavDropdown.Item href="#action/3.1">Light</NavDropdown.Item>
+            <NavDropdown.Item   onClick={() => props.changeWord("light")}
+              >Light</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.2">Dark</NavDropdown.Item>
+            <NavDropdown.Item   onClick={() => props.changeWord("dark")}>Dark</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown
             title="Lang"

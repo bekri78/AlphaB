@@ -7,8 +7,12 @@ import Form from 'react-bootstrap/Form';
 import Rating from '@material-ui/lab/Rating';
 import Modal from 'react-bootstrap/Modal'
 import { UidContext } from '../UidContext';
- 
 import './UpdateDelete.css';
+import styled from "styled-components";
+const P = styled.p`
+color: ${(props) => (props.theme.mode === "dark" ? "#343a40" : "#343a40")};
+  }
+`;
 function UpdateDelete({ item, center }) {
   const [update, setUpdate] = useState(false);
   const [firstnameUpdate, setFirstNameUpdate] = useState(null);
@@ -70,13 +74,13 @@ function UpdateDelete({ item, center }) {
         <Card style={{ width: '18rem', height: 'auto', margin: center ? 'auto' : '2%' }}>
           <Card.Body>
             <Card.Title>
-              {item.firstname} {item.lastname}
+            <P>  {item.firstname} {item.lastname}</P> 
             </Card.Title>
-            <Card.Subtitle className="mb-1 text-muted">Metier : {item.job}</Card.Subtitle>
+            <Card.Subtitle className="mb-1 text-muted"><P><span style={{fontWeight:"bold"}}>Metier: </span>  {item.job}</P></Card.Subtitle>
             <div style={{display:'flex'}}>
-            Note: <Rating style={{ paddingLeft: '1.25rem' }} name="read-only" value={item.rating} readOnly />
+           <P><span style={{fontWeight:"bold"}}>Note: </span> </P> <Rating style={{ paddingLeft: '1.25rem' }} name="read-only" value={item.rating} readOnly />
           </div>
-            <Card.Text> Avis: {item.message}</Card.Text>
+            <Card.Text> <P> <span style={{fontWeight:"bold"}}>Avis: </span> {item.message}</P></Card.Text>
             {authorCheck() && (
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: 0, height: 'auto' }}>
                 <Button variant="primary" size="sm" onClick={handleShow}>
