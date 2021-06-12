@@ -1,0 +1,108 @@
+
+{
+    "home":{
+        "title":"L'app per facilitare la lettura ",
+        "oms":"Dall'8 al 12% della popolazione mondiale è affetta da disturbi della lettura e della scrittura specifici secondo l'OMS, il più famoso dei quali è la dislessia. La lettura è onnipresente nella nostra vita quotidiana.",
+        "oms2":"Per AlphaB è fondamentale fornire un aiuto concreto a tutte le persone in difficoltà.",
+        "oms3":"AlphaB ha creato una soluzione adeguata ed efficace per tutti coloro che necessitano di assistenza durante la lettura.",
+        "dislexique":"Come pensa un dislessico?",
+        "dislexique1":"Pertanto, il dislessico comprende solo il significato parziale di una parola o frase, ma non il suo significato generale.",
+        "dislexique2":"Il messaggio di un testo può sfuggirgli totalmente o parzialmente.",
+        "dislexique3":"Di conseguenza, potrebbe avere blocchi nella lettura e difficoltà in diverse materie.",
+        "dyslexique4":" Le facoltà fondamentali (dei dislessici), se non vengono represse o distrutte dai genitori o dal sistema educativo, possono fondersi in 2 tratti caratteristici:",
+        "dyslexique5":" intelligenza sopra la media e creatività eccezionale. E da lì può emergere il vero talento della dislessia: il dono dell'eccellenza.",
+        "dyslexique6":" le soluzioni per curare la dislessia?",
+        "dyslexique7":"Non esiste un trattamento ma un supporto per ridurre l'incidenza di questo disturbo.",
+        "dyslexique8":"È imperativo identificare il bambino dislessico il prima possibile. A volte, in un ambiente informato, possiamo individuare il disturbo alla fine della scuola materna"
+   
+        
+    },
+    "info":{
+        "title":"Funzionalità Express",
+        "texte":"Un semplice strumento è accessibile a tutti per facilitare la lettura e la comprensione dei testi",
+        "block1Title":"Adattabile",
+        "block1Text":"A seconda delle tue preferenze, lo strumento si adatta alle tue esigenze di lettura quotidiane.",
+        "block2Title":"commento",
+        "block2Text":"Utilizza il nostro strumento e lasciaci una recensione, saremo felici di pubblicarla sul nostro sito.",
+        "block3Title":"Dati privati",
+        "block3Text":"Come parte della nostra politica sulla privacy AlphaB non raccoglie i tuoi dati oi tuoi testi.",
+        "block4Title":"Facile da regolare",
+        "block4Text":"Per piccoli e grandi abbiamo semplificato il più possibile la funzionalità.",
+        "block5Title":"Utilizzabile su dispositivi mobili",
+        "block5Text":"Disponibile su dispositivi mobili e su tutti i diversi media",
+        "block6Title":"Aiuto uso",
+        "block6Text":"È disponibile una risposta alla domanda per comprendere gli strumenti, se necessario"
+
+    },
+    "avis":{
+        "avisTitle":"Sono soddisfatto e tu?",
+        "topComment":"Migliori commenti",
+       "decouvrir":"Scopri tutte le recensioni",
+       "afficher":"affiggere",
+       "masquer":"nascondere"
+    },
+    "footer":{
+        "title":"L'app che semplifica la lettura",
+        "copyrights":"© Copyrights 2021 AlphaB All rights reserved.",
+        "accueil":"Accoglienza",
+        "outils":"Utensili",
+        "carte":"Menù",
+        "contact":"Contact",
+        "personne": "Fatto da"
+    },
+    "Outils":{
+    "entrer":"Inserisci il tuo testo",
+    "modifier":"Modifica il tuo testo",
+    "ecouter":"Ascolta il tuo testo",
+    "recuperer":"Recupera il suo testo",
+    "entrerText":"L'applicazione AlphaB ti offre qui 2 modi semplici e intuitivi per inserire il tuo testo.",
+    "entrerText2":"-Vocalmente, premendo il pulsante 'Parla'",
+    "entrerText3":"- Manualmente, semplicemente digitando il testo nell'apposito campo",
+    "modifierText":"Una volta che il tuo testo è stato scritto nella sezione di sinistra, avrai la possibilità di scegliere tra 7 opzioni di modifica, che possono essere tutte combinate, ti lasciamo libero di manipolarle. Troverai così quello che meglio si adatta al tuo comfort visivo.",
+    "ecouterText":"Per aiutarti attraverso i suoni, scegli dal nostro menu a tendina la voce che ti piace, la sua velocità di riproduzione e il suo tono. Una volta completata la configurazione, premere 'Riproduci'.",
+    "recupererText":"Una volta che sei soddisfatto delle modifiche, fai clic sul pulsante di download per ottenerlo in formato pdf.",
+    "voix":"voce",
+    "langue":"Lingua",
+    "langueText":"Seleziona la tua lingua per consentire una migliore trascrizione delle tue parole.",
+    "Interlignage":"Interlinea",
+    "Inter-mot":"Inter-parola",
+    "Inter-lettre":"Inter-lettera",
+    "Taille":"Formato",
+    "Police":"Carattere",
+    "Couleur":"Colore",
+    "CouleurVoyelle":"Colore vocale",
+    "telecharger":"Scarica",
+    "parler":"Parlare",
+    "aide":"HO BISOGNO DI AIUTO ?",
+    "compris":"ho capito"
+    },
+    "Opinion":{
+        "btn": "Lascia una recensione",
+        "title":"La tua opinione conta",
+        "texte":"Nel nostro processo di continua evoluzione, l'intero team AlphaB è interessato alla tua opinione perché senza di te non potremmo continuare la nostra grande avventura. Grazie per il tuo contributo.",
+        "nom":"Nome",
+        "prenom":"Conome",
+        "metier":"Lavoro",
+        "temoignage":"Testimonianza",
+        "envoyer":"Mandare"
+    },
+    "Navbar":{
+        "accueil":"Accoglienza",
+        "outils":"Utensili",
+        "professionnels":"Medico",
+        "contact":"Contact"
+    },
+    "Contact":{
+        "title":"Scrivi U.S",
+        "btn":"mandare",
+        "nom":"Nome",
+        "prenom":"Conome",
+        "message":"Messaggio",
+        "envoyer":"Il vostro messaggio è stato inviato.",
+        "erreur":"Si è verificato un errore, riprova",
+        "remplire":"Si prega di compilare correttamente i campi richiesti *",
+        "champs":"Tutti i campi devono essere completati."
+    }
+    
+  
+}

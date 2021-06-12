@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'Raleway-bold';
+  src: local('Raleway-bold'), url('./fonts/Raleway-Bold.ttf') format('ttf');
+}
+
+#design {
+  width: 30%;
+  height: auto;
+  margin: auto;
+}
+
+.container-design {
+  background-color: #326dc9;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  padding:2%;
+}
+
+.title-contact {
+  text-align: center;
+  padding: 60px 0 30px;
+  font-size: 2em;
+  font-family: 'Raleway-bold', Arial, serif;
+}
