@@ -1,6 +1,6 @@
 import React from "react";
 import Happy from "./Img/happyAdult.svg";
-import ContactUs from "../FormDetails/FormDetails";
+ 
 import ListCommandeDetails from "./ListCommandeDetails/ListCommandeDetails";
 import StripeContainer from "../Stripe/StripeContainer"
 export default function Commande() {
@@ -22,7 +22,7 @@ export default function Commande() {
           <ListCommandeDetails />
         </div>
       </div>
-      <ContactUs />
+   
       <StripeContainer/>
     </>
   );

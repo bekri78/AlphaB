@@ -5,15 +5,12 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+ 
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import TextFieldsIcon from '@material-ui/icons/TextFields';
 import ColorLensIcon from '@material-ui/icons/ColorLens';
 import FontDownloadIcon from '@material-ui/icons/FontDownload';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
+ 
 import './List.css'
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,11 +26,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ListCommandeDetails() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
+ 
 
   return (
     <List
@@ -70,23 +65,8 @@ export default function ListCommandeDetails() {
         </ListItemIcon>
         <ListItemText primary="Acceder a une multitudes de polices differentes" />
       </ListItem>
-      <ListItem button onClick={handleClick}>
-        <ListItemIcon>
-          <InboxIcon />
-        </ListItemIcon>
-        <ListItemText primary="Bonus" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-            <ListItemIcon>
-              <StarBorder/>
-            </ListItemIcon>
-            <ListItemText primary="Starred" />
-          </ListItem>
-        </List>
-      </Collapse>
+     
+       
     </List>
   );
 }

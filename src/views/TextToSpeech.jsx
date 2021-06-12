@@ -1,5 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useCallback, Fragment } from "react";
+import React, {
+  useState,
+  useCallback,
+  Fragment,
+  useContext,
+  useEffect,
+} from "react";
+import { UidContext } from "../components/UidContext";
+import firebase from "../utils/firebaseConfig";
+
+import compareAsc from "date-fns/compareAsc";
+import { format } from "date-fns";
 import Pdf from "react-to-pdf";
 import SimpleAccordion from "../components/Questions/questions";
 import SpeechSynthesisExample from "../components/Speech/useSpeechSynthesis";
@@ -14,8 +25,7 @@ import Police from "../components/Police";
 import Footer from "../components/Footer/Footer";
 import Buy from "../components/Buy/Buy";
 import InputBase from "@material-ui/core/InputBase";
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography, CardContent, Card, Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
@@ -88,16 +98,22 @@ function TextToSpeech() {
   const [letterSpacing, setLetterSpacing] = useState("initial");
   const [colorText, setColorText] = useState("");
   const [affichage, setAffichage] = useState(true);
-  const [count, setCount] = useState(null);
+  const [count, setCount] = useState(0);
   const [openBuy, setOpenBuy] = useState(false);
+  const [dateAbonnement, setDateAbonnement] = useState(false);
+  const [premium, setPremium] = useState(false);
   const [t] = useTranslation("global");
+  const uid = useContext(UidContext);
+  const date = new Date();
+  const dateFormated = format(date, "yyyy,MM,dd");
+  useEffect(() => {
+    premiumCheck();
+  }, []);
 
   // Callback avec array vide permet de ne pas re rendre la déclaration d'une function
   const handleValueChange = useCallback((event) => {
     setValue(event.target.value);
     setAffichage(true);
-
-    // test > 0 ? setVoyelleVisible(false) : setVoyelleVisible(true);
   }, []);
 
   const handleTextModifier = useCallback((newText) => {
@@ -111,11 +127,41 @@ function TextToSpeech() {
   });
   const keyPress = (event) => {
     setCount(event.target.value.length);
-    if (event.target.value.length === 12) {
+    if (event.target.value.length === 12 && premium === false) {
+      console.log(dateAbonnement);
       console.log("je suis la");
       setOpenBuy(!openBuy);
     }
-    console.log(event.target.value.length, count);
+  };
+  const premiumCheck = () => {
+    const ref = firebase
+      .database()
+      .ref("infoUserPayment")
+      .orderByChild("uid")
+      .equalTo(uid);
+    ref.once("value", (snapshot) => {
+      if (snapshot.exists()) {
+        let recupValue = snapshot.val();
+        recupValue = Object.values(recupValue);
+        recupValue = recupValue[0].end;
+        const verifDatePremium = compareAsc(
+          new Date(recupValue),
+          new Date(dateFormated)
+        );
+
+        if (verifDatePremium === -1) {
+          setPremium(false);
+        } else if (verifDatePremium === 1) {
+          setPremium(true);
+        } else if (verifDatePremium === 1) {
+          setPremium(true);
+        } else {
+          setPremium(false);
+        }
+      } else {
+        setDateAbonnement(false);
+      }
+    });
   };
   return (
     <div style={{ backgroundColor: "#ff7c35" }}>
@@ -177,7 +223,7 @@ function TextToSpeech() {
             onChange={handleValueChange}
             onKeyUp={keyPress}
             inputProps={{
-              maxLength: 12,
+              maxLength: premium ? false : 12,
               style: {
                 boxShadow:
                   "0 0 10px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)",
@@ -185,7 +231,6 @@ function TextToSpeech() {
                 padding: 18,
                 backgroundColor: "white",
                 borderRadius: "4px",
-
               },
             }}
           />
@@ -230,7 +275,6 @@ function TextToSpeech() {
             width: "50%",
             display: "flex",
             justifyContent: "flex-end",
-           
           }}
         >
           {" "}

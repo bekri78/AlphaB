@@ -7,7 +7,7 @@ const useSpeechSynthesis = (props = {}) => {
   const [supported, setSupported] = useState(false);
 
   const processVoices = (voiceOptions) => {
-    console.log('voiceOptions', voiceOptions);
+    
     setVoices(voiceOptions);
   };
 
@@ -39,7 +39,7 @@ const useSpeechSynthesis = (props = {}) => {
   }, []);
 
   const speak = (args = {}) => {
-    console.log('speak', args);
+  
     const { voice = null, text = '', rate = 1, pitch = 1, volume = 1 } = args;
     if (!supported) return;
     setSpeaking(true);
