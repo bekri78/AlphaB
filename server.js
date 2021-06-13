@@ -10,9 +10,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 const PORT = process.env.PORT || 8080;
-// app.get("/*", (_, res) => {
-//   res.sendFile(path.join(__dirname, "./my-app/build/index.html"));
+app.use(express.static("my-app/build"));
+app.get("/*", (_, res) => {
+  res.sendFile(path.join(__dirname, "./my-app/build/index.html"));
+});
+
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "my-app/build/index.html")));
+// }
+
+// const root = require("path").join(__dirname + "/my-app", "build");
+// app.use(express.static(root));
+// app.get("*", (req, res) => {
+//   res.sendFile("index.html", { root });
 // });
+
 app.post("/payment", cors(), async (req, res) => {
   let { amount, id } = req.body;
   try {
@@ -36,9 +48,7 @@ app.post("/payment", cors(), async (req, res) => {
     });
   }
 });
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("my-app/build"));
-}
+
 app.listen(PORT, (err) => {
   if (err) return console.log(err);
   console.log(` server listen on port ${PORT} `);

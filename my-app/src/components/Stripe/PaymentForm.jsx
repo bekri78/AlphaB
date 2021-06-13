@@ -57,7 +57,7 @@ const CARD_OPTIONS = {
     if (!error) {
       try {
         const { id } = paymentMethod;
-        const response = await axios.post("http://localhost:4000/payment", {
+        const response = await axios.post("http://localhost:8080/payment", {
           amount: price,
           id,
         });
