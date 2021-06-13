@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 require("dotenv").config();
-const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_PROD);
 // const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -14,16 +14,6 @@ app.use(express.static("my-app/build"));
 app.get("/*", (_, res) => {
   res.sendFile(path.join(__dirname, "./my-app/build/index.html"));
 });
-
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "my-app/build/index.html")));
-// }
-
-// const root = require("path").join(__dirname + "/my-app", "build");
-// app.use(express.static(root));
-// app.get("*", (req, res) => {
-//   res.sendFile("index.html", { root });
-// });
 
 app.post("/payment", cors(), async (req, res) => {
   let { amount, id } = req.body;
